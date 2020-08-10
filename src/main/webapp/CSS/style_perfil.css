@@ -1,0 +1,335 @@
+main{
+    width:89.05%;
+    background-color: transparent;
+    float: left;
+    transition: width 0.5s ease;
+    height: 100%;
+    overflow: hidden;
+    overflow-y:scroll;
+}
+
+.user-perfil{
+    width:912px;
+}
+
+#check:checked ~ main{
+    width: 68.75%;
+    overflow-x: auto;
+}
+
+.gallery{
+    width: 100%; 
+    background-image:url(../img/Teste2.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+    padding-top: 20px;
+}
+
+.galleryNigth{
+    width: 100%;  
+    background-image:url(../img/Fundo-Off-nortuno.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+    padding-top: 20px;
+}
+
+.escolher-foto{
+    width: 100%;
+}
+
+.escolher-foto input{
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 35px;
+    margin-bottom: 20px;
+    margin: auto;
+    color:rgb(59, 168, 248);
+    text-align: center;
+    border-color: transparent;
+}
+
+.escolher-fotoNigth input{
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 35px;
+    margin-bottom: 20px;
+    margin: auto;
+    text-align: center;
+    color:rgb(59, 168, 248);
+    border-color:rgb(59, 168, 248);
+    background-color: rgb(3,21,34);
+}
+
+.escolher-foto input:hover{
+    border:1px solid rgb(59, 168, 248);
+    background-image: url(../img/Tela_Perfil/lapisazulIcon.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 35px;
+}
+
+.foto{
+   display: flex;
+   align-items: center;
+   justify-content: center; 
+}
+
+.foto nav{
+    width: 150px;
+    margin: auto;
+    height: 150px;
+    display: block;
+    margin-bottom: 5px;
+    background-color: white;
+    border-radius: 50%;
+    border: solid 1px black;
+}
+
+.foto-text{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.8);
+    top:-150px;
+    display: none;
+    padding-top:30px;
+}
+
+.foto-text span{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial,sans-serif,serif;
+    color: white;
+    display: block;
+    margin-top: 10px;
+}
+
+.foto nav:hover .foto-text{
+    display: block;
+}
+
+#uploadFoto{
+    width: 40%;
+    height: 40%;
+    margin: auto;
+    border-radius: 0%;
+    text-align: center;
+    display: block;
+}
+
+.foto nav img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+#file{
+    display: none;
+}
+
+.informacao{
+    width: 100%;
+    margin-top: 0px;
+    padding-bottom: 30px;
+    margin-bottom: 0px;
+    background-color: white;
+    border-top: 3px solid rgb(59, 168, 248);
+}
+
+.informacaoNigth{
+    width: 100%;
+    margin-top: 0px;
+    padding-bottom: 30px;
+    margin-bottom: 0px;
+    background-color: rgb(3,21,34);
+    border-top: 3px solid rgb(59, 168, 248);
+}
+
+.informacao-tabela{
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding: 0px;
+    margin-top: 10px;
+    border-collapse:collapse;
+}
+
+.linha-informacao-tabela{
+    width:100%;
+    height: 50px;
+    display: block;
+    margin: 5px 0px;
+}
+.linha-biografia-informacao-tabela{
+    width:100%;
+    height: 85px;
+    display: block;
+    margin: 5px 0px;
+}
+
+.title-informacao-tabela{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-family: Arial, sans-serif, serif;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color:rgb(59, 168, 248);
+}
+
+.coluna-title-informacao-tabela{
+    width: 190px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+    color:rgb(59, 168, 248);
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.coluna-text-informacao-tabela{
+    width: 515px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+.coluna-biografia-text-informacao-tabela{
+    width: 515px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+    margin: 0px;
+    padding: 0px; 
+}
+
+.text-informacao-tabela{
+    width: 70%;
+    height: 32px;
+    display: block;
+    font-family: Arial,sans-serif,serif;
+    color:rgb(59, 168, 248);
+    padding: 2px 5px;
+    padding-left: 5px;
+    border-color:transparent;
+    outline: none;
+    background-color: transparent;
+}
+
+.text-informacao-tabela:read-write:hover{
+    border: 1px solid rgb(59, 168, 248);
+    border-radius: 10px;
+}
+
+.biografia-text-informacao-tabela{
+    height: 100%;
+    background-color: transparent;
+    resize: none;
+    padding-left: 2px;
+    display: block;
+    border: 1px solid rgb(59, 168, 248);
+    font-family: Arial,sans-serif,serif;
+    color:rgb(59, 168, 248);
+    margin: 0px;
+    outline: none;
+}
+
+.celular-text-informacao-tabela{
+    width: 40%;
+    height: 32px;
+    display: block;
+    font-family: Arial,sans-serif,serif;
+    color:rgb(59, 168, 248);
+    padding: 2px 5px;
+    padding-left: 5px;
+    border-color:transparent;
+    outline: none;
+    background-color: transparent;
+}
+
+.celular-text-informacao-tabela:read-write:hover{
+   border: 1px solid rgb(59, 168, 248);
+   border-radius: 10px; 
+}
+
+.data-text-informacao-tabela{
+    width: 35%;
+    height: 32px;
+    display: block;
+    font-family: Arial,sans-serif,serif;
+    color:rgb(59, 168, 248);
+    padding: 2px 5px;
+    padding-left: 5px;
+    border-color:transparent;
+    outline: none;
+    background-color: transparent;
+}
+
+.data-text-informacao-tabela:read-write:hover{
+   border: 1px solid rgb(59, 168, 248);
+   border-radius: 10px; 
+}
+
+.button-edit-save{
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#button-edit-informacoes{
+    width: 100%;
+    height: 100%;
+    font-family: Arial,sans-serif,serif;
+    color: white;
+    background-color:rgb(59, 168, 248);
+    display:block;
+    text-align: center;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+
+#button-save-informacoes{
+    width: 100%;
+    height: 100%;
+    font-family: Arial,sans-serif,serif;
+    color: white;
+    background-color:rgb(59, 168, 248);
+    display:none;
+    text-align: center;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}

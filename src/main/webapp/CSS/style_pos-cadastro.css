@@ -1,0 +1,296 @@
+html{
+    width: 100%;
+    height:100%;
+}
+
+body{
+    width: 100%;
+    height:100%;
+    margin: 0;
+}
+
+.conteiner01{
+    width:50%;
+    height: 100%;
+    background-color: white;
+    display: block;
+    float: left;
+}
+
+.conteiner01 ul{
+    text-align: center;
+    list-style: none;
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+.conteiner01 ul li{
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 50px;
+    border: 2px solid rgb(59, 168, 248);
+}
+
+.card-externo{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top:100px;
+    overflow: hidden;
+}
+
+.card-interno{
+    width: 100%;
+    transform: translateY(0px);
+    transition: 0.5s;
+}
+
+.cards{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    display:inline-block;
+    float: left;
+    color: rgb(59, 168, 248);
+    font-family:Arial,sans-serif,serif;
+}
+
+#card01{
+    left:0px;   
+    margin-top: 50px;
+}
+
+#card01 input{
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid rgb(59, 168, 248);
+    outline: none;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#text-card01-titulo{
+    display: block;  
+    margin-bottom: 30px;
+}
+
+#text-card01-principal{
+    display: block;
+    text-align: justify;
+    margin-bottom: 40px;
+    
+}
+
+#text-card01{
+    text-align: center;
+    display: block;
+}
+
+#card02{
+    left:400px;   
+}
+
+#card02 form{
+    margin-top:10px;
+}
+
+#card02 input{
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid rgb(59, 168, 248);
+    outline: none;
+    display: block;
+    margin-bottom: 3px;
+}
+
+#text-card02{
+    display: block;
+    margin-top: 20px;
+}
+
+#text-card02-principal{
+    text-align: justify;
+    margin: 0;
+}
+
+#card02 #logo{
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+#card02 h3{
+    text-align: center;
+}
+
+#card03{
+    text-align: center;
+    left:800px;   
+    margin-top:100px;
+}
+
+#card03 h3{
+    margin-bottom: 20px;
+}
+
+#card03 #logoNome{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.pass{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    background-color: rgb(59, 168, 248);
+    display: block;
+    border-radius: 10px;
+    border-color: transparent;
+    outline: none;
+}
+#btnPass{
+    outline: none;
+}
+
+#btnPass2{
+    outline: none;
+    margin-top: 20px;
+}
+
+#btnPass3{
+    outline: none;
+    position: relative;
+    left:0px;
+    top:0px;
+    left:0px;
+    right:0px;
+    z-index: 3;
+}
+
+#passo01{
+    background-color: rgb(59, 168, 248);
+}
+
+.conteiner02{
+    width:50%;
+    height: 100%;
+    background-image: url(../img/Teste2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: block;
+    float: left;
+}
+
+.carrossel-imagens-externo{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top:120px;
+    overflow: hidden;
+}
+
+.carrossel-imagens-interno{
+    width: 100%;
+    transform: translateY(0px);
+    animation: slide 15s  infinite;
+}
+
+.carrossel-imagens-interno img{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    display:inline-block;
+    float: left;
+}
+
+#img01{
+    left: 0;
+}
+
+#img02{
+    left:400px;
+}
+
+#img03{
+    left:800px;
+}
+
+#img04{
+    left:1200px;
+}
+
+#img05{
+    left:1600px;
+}
+
+#img06{
+    left:2000px;
+}
+
+#img07{
+    left:2400px;
+}
+
+@keyframes slide{
+    0%{
+        transform: translateX(0);
+      }
+    10%{
+        transform: translateX(0);
+       }
+    15%{
+        transform: translateX(-400px);
+       }
+    25%{
+        transform: translateX(-400px);
+       }
+    30% {
+        transform: translateX(-800px);                    
+        }
+    40% {
+        transform: translateX(-800px);                    
+        }
+    45% {
+        transform: translateX(-1200px);                    
+        }
+    55% {
+        transform: translateX(-1200px);                    
+        }
+    60%{
+         transform: translateX(-1600px);     
+       }
+    70%{
+         transform: translateX(-1600px);     
+    }
+    75%{
+        transform: translateX(-2000px);      
+    }
+    85%{
+         transform: translateX(-2000px);     
+    }
+    90%{
+         transform: translateX(-2400px);     
+    }
+    
+    95%{
+        transform: translateX(-2450px); 
+    }
+    
+    100%{
+        transform: translateX(0px);         
+        }    
+}
+
+
+

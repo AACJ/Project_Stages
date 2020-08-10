@@ -1,0 +1,96 @@
+.principal{
+    width: 80%;
+    margin: auto;
+    background-image:url(../img/Teste2.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+main{
+    width: 100%;
+    margin: auto;
+    margin-top: 60px;
+}
+
+.gallery{
+    width: 40%;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+.mensagem{
+    width: 42%;
+    margin: auto;
+    height: 300px;
+    background-color: white;
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, white 0%, rgb(59, 168, 248) 100%);
+    border-image-slice: 2;
+    padding:0px;
+    z-index: 2;
+    position: relative;
+}
+
+.mensagem img{
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.legenda{
+    font-size: 20px;
+    text-align: center;
+    font-family: Arial,sans-serif,serif;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: block;
+    position: relative;
+    color:  rgb(59, 168, 248);
+}
+
+#texto-principal{
+    text-align: center;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(59, 168, 248);
+    margin-bottom: 70px;
+    margin-top: 10px;
+}
+
+#texto-link{
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: rgb(59, 168, 248);
+}
+@media screen and (max-width:48.75em){
+.gallery{
+    width: 65%;
+}
+    
+.mensagem{
+    width:65%;
+    height: 300px;
+} 
+}
+@media screen and (max-width:31.25em){
+.gallery{
+    width: 80%;
+}
+    
+.mensagem{
+    width:80%;
+    height: 300px;
+}
+
+}
+
+@media screen and (min-height:43.75em) and (max-height:87.5em){
+    main{
+        margin-top:20%; 
+    }
+}

@@ -1,0 +1,1423 @@
+main{
+    width:89.05%;
+    background-color: transparent;
+    float: left;
+    transition: width 0.5s ease;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.user-projetos{
+    width: 912px;
+    height: 98%;
+}
+
+#check:checked ~ main{
+    width: 68.75%;
+    overflow-x: auto;
+}
+
+.cabecalhoProjeto{
+    width:100%;
+    display: block;
+    border-bottom: solid 4px rgb(59, 168, 248);
+    padding-bottom: 5px;
+}
+
+.caixa-informacoes-principais-projeto{
+    width: 60%;
+    height: 120px;
+    display: block;
+    float: left;
+    background-color: transparent;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nomeProjeto{
+	width: 100%;
+    height: 50px;
+    font-family:Arial,sans-serif,serif;
+    color: rgb(59, 168, 248);
+    display:block;
+    margin-left: 30px;
+}
+
+#descricaoProjeto{
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    font-family: Arial,sans-serif,serif;
+    color: rgb(59, 168, 248);
+    margin-left: 30px;
+    border-color: transparent;
+    padding: 5px;
+    outline: none;
+    display: block;
+    
+}
+
+#descricaoProjeto::placeholder{
+    color: rgb(59, 168, 248);
+}
+
+.caixa-mostra-participantes-projeto{
+    width: 40%;
+    height: 120px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    float: left;
+    margin-bottom: 20px;
+    background-color: transparent;
+    padding-right: 40px;
+}
+
+.botao-mostrar-participantes{
+    width: 50px;
+    height: 50px;
+    margin:0px;
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    display: block;   
+}
+
+.botao-mostrar-participantes:focus{
+    outline-style: none;
+}
+
+.foto-botao-mostrar-participantes{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border:1px solid rgb(59, 168, 248);
+    background-color: transparent;
+    display: block;
+    position: relative;
+    z-index: 5;
+}
+
+.foto-botao-mostrar-participantes img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.foto-botao-projeto-participantes{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border:1px solid black;
+    background-color: white;
+    display: block;
+    position: relative;
+}
+
+.qtn-projeto-participantes{
+    width: 100px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    position: relative;
+    color: rgb(59, 168, 248);
+    z-index: 5px;
+    font-family: Arial,sans-serif,serif;
+    right: 7px;
+    bottom:265px;
+}
+
+.foto-botao-projeto-participantes img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#foto-part01{
+    bottom:70px;
+    right: 40px;
+    z-index: 4;
+}
+
+#foto-part02{
+    bottom:135px;
+    right: 80px;
+    z-index: 3;
+}
+
+#foto-part03{
+    bottom:200px;
+    right: 120px;
+    z-index: 2;
+}
+
+#foto-part04{
+    bottom:265px;
+    right: 160px;
+    z-index: 1;
+}
+
+.caixa-de-botoes-projeto{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.botao-add-participante{
+    width: 150px;
+    height: 100%;
+    display: none;
+    margin-right: 5px;
+    font-family: Arial,sans-serif,serif;
+    color: white;
+    background-color: rgb(59, 168, 248);
+    border: none;
+}
+
+.botao-excluir-projeto{
+    width: 150px;
+    height: 100%;
+    display: block;
+    margin-right: 5px;
+    font-family: Arial,sans-serif,serif;
+    color: white;
+    background-color: rgb(216, 5, 5);
+    border: none;
+}
+
+.corpoProjeto{
+    width: 100%;
+}
+ 
+.tabela-tarefas{
+    width:96%;
+    margin: auto;
+    display: block;
+    background-color: white;
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 0px;
+}
+
+.tabela-tarefasNigth{
+    width:96%;
+    margin: auto;
+    display: block;
+    background-color: rgb(3,21,34);
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 0px;
+}
+
+.tabela-tarefas th{
+    color: rgb(59, 168, 248);
+    display: block;
+    float:left;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.tabela-tarefasNigth th{
+    color: rgb(59, 168, 248);
+    display: block;
+    float:left;
+    border: 1px solid rgba(59, 168, 248,0.5);
+}
+
+.linha-titulo-tarefas{
+    width: 100%;
+    height: 32px;
+    display: block;
+}
+
+.linha-tarefa-projeto{
+    width: 100%;
+    height: 32px;
+    display: block;
+     margin-bottom: 2px;
+}
+
+.linha-tarefa-projetoNigth{
+    width: 100%;
+    height: 32px;
+    display: block;
+    margin-bottom: 2px;
+    background-color: rgb(3,21,34);
+    color:rgb(59, 168, 248);
+    border: 1px solid rgba(59, 168, 248,0.5);
+}
+
+.titulo-tarefa{
+    width:430px;
+    height: 100%;
+    display: block;
+    padding: 3px 5px;
+    margin-bottom: 2px;
+}
+
+.titulo-tarefa-informacoes-proprietario{
+    text-align: center;
+    width: 100px;
+    height: 100%;
+    padding: 3px 0px;
+    display: block;
+}
+
+.titulo-tarefa-informacoes-status{
+    text-align: center;
+    width: 120px;
+    height: 100%;
+    padding: 3px 0px;
+    display: block;
+}
+
+.titulo-tarefa-informacoes-data{
+    text-align: center;
+    width: 160px;
+    height: 100%;
+    padding: 3px 0px;
+    display: block;
+}
+
+.botao-add-projeto{
+    width: 810px;
+    height: 30px;
+    display: block;
+}
+
+.botao-add-projetoNigth{
+    width: 810px;
+    height: 30px;
+    display: block;
+}
+
+.projeto-add-tarefa{
+    width: 100%;
+    height: 100%;
+    float: left;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: block;
+    margin: 0px;
+}
+
+.projeto-add-tarefaNigth{
+    width: 100%;
+    height: 100%;
+    float: left;
+    border: 1px solid rgba(59, 168, 248,0.5);
+    display: block;
+    margin: 0px;
+}
+
+.addTarefa{
+  width: 100%;
+  height: 100%;
+  font-family: Arial,sans-serif,serif;
+  color: rgb(59, 168, 248);
+  text-align: left;
+  display: block;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 0px;
+  padding: 2px 5px;
+}
+
+.addTarefa:focus{
+    outline-style: none;
+}
+
+.tabela-desenvolvimentos{
+   width:96%;
+    margin: auto;
+    display: block;
+    background-color: white;
+    margin-top: 30px;
+    border-collapse: separate;
+}
+
+.tabela-desenvolvimentos th{
+    color: rgb(59, 168, 248);
+    display: block;
+    float:left;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.tabela-concluidos{
+    width:96%;
+    margin: auto;
+    display: block;
+    background-color: white;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-collapse: separate;
+}
+
+.tabela-concluidos th{
+    color: rgb(59, 168, 248);
+    display: block;
+    float:left;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.projeto-tarefa{
+    width: 430px;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: block;
+    float: left;
+    margin: 0px;
+}
+
+.projeto-tarefaNigth{
+    width: 430px;
+    height: 100%;
+    border: 1px solid rgba(59, 168, 248,0.5);
+    display: block;
+    float: left;
+    margin: 0px;
+}
+
+.projeto-tarefa-text{
+    width: 100%;
+    height: 100%;
+    color: black;
+    border-left: 5px solid blue;
+    font-family: Arial,sans-serif,serif;
+    padding: 1px 1px;
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    display: block;
+    margin: 0px;   
+}
+
+.projeto-tarefa-textNigth{
+    width: 100%;
+    height: 100%;
+    color: white;
+    border-left: 5px solid blue;
+    font-family: Arial,sans-serif,serif;
+    padding: 1px 1px;
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    display: block;
+    margin: 0px;   
+}
+
+.projeto-proprietario{
+    width: 100px;
+    height: 100%;
+    float: left;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: block;
+}
+
+.projeto-proprietario:hover .indetificador-proprietario{
+    display: block;
+}
+
+.projeto-proprietarioNigth{
+    width: 100px;
+    height: 100%;
+    float: left;
+    border: 1px solid rgba(59, 168, 248,0.5);
+    display: block;
+}
+
+.botao-opcoes-proprietario{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color:transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-opcoes-proprietario:focus{
+    outline-style: none;
+}
+
+.foto-proprietario-projeto{
+    width: 25px;
+    height: 25px;
+    display: block;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+.foto-proprietario-projeto img{
+	 width: 100%;
+     height: 100%;
+   	 display: flex;
+     align-items: center;
+     border-radius: 50%;
+}
+
+.status-proprietario-projeto{
+    width: 13px;
+    height: 13px;
+    background-color: white;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+    border: 1px solid black;
+    position: relative;
+    top: -12px;
+    left: 13px;
+    
+}
+
+#position-null{
+	top: 12px;
+}
+
+.indetificador-proprietario{
+    width: 165px;
+    height: 45px;
+    display: none;
+    position: relative;
+    background-color: transparent;
+    bottom: 30px;
+    left: 107px;
+    color: rgb(59, 168, 248);
+    border: 1px solid rgb(59, 168, 248);
+    margin: auto;
+}
+
+.indetificador-proprietario:before {
+  border: 10px solid transparent;
+  border-right-color: rgb(59, 168, 248);
+  content: "";
+  left: -20px;
+  position: absolute;
+}
+
+.indetificador-proprietario-informacoes{
+    height: 100%;
+    display: block;
+}
+
+.indetificador-nome{
+    height: 20px;
+    background-color: white;
+    display: block;
+    margin-bottom: 0px;
+    
+}
+
+.indetificador-id{
+    height: 23px;
+    background-color: white;
+    display: block;
+    margin-bottom: 0px;
+    
+}
+
+.caixa-opcoes-proprietario{
+    width:200px;
+    height: 300px;
+    display: none;
+    background-color: white;
+    border: 1px solid black;
+    position:relative;
+    z-index: 2;
+    bottom: 100px;
+    left: 100px;
+    margin: 0px;
+}
+
+.fecha-caixa-proprietario-opcoes{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    border: none; 
+}
+
+.fecha-caixa-proprietario-opcoes img{
+    width: 100%;
+    height: 100%;
+}
+
+.fecha-caixa-proprietario-opcoes:focus{
+    outline-style: none;
+}
+
+.pesquisa-proprietario-projeto{
+    width: 100%;
+    height: 50px;
+    display: block;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px
+}
+
+.barra-pesquisa-proprietario{
+    width: 95%;
+    height: 30px;
+    margin: auto;
+    display: block;
+    color: rgb(59, 168, 248);
+    outline: none;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.barra-pesquisa-proprietario::placeholder{
+    color: rgb(59, 168, 248);
+}
+
+.resultados-pesquisa-proprietario{
+    width: 100%;
+    height: 167px;
+    display: block;
+    margin-top: 5px;
+    background-color: transparent;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.perfil-proprietario{
+    width: 95%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid black;
+    margin: auto;
+    margin-bottom: 2px;
+    padding: 0px;
+}
+
+.perfil-proprietario:hover{
+    text-decoration: none;
+}
+
+.foto-perfil-proprietario{
+    width: 35px;
+    height: 35px;
+    display: block;
+    border: 1px solid black;
+    border-radius: 50%;
+    float:left;
+    margin:0px;
+    padding: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.foto-perfil-proprietario img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.status-perfil-proprietario{
+    width: 13px;
+    height: 13px;
+    float:left;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;
+    position: relative;
+    bottom: 11px;
+    left: 20px
+}
+
+#cor-stts-01{
+    background-color: green;
+}
+
+#cor-stts-02{
+    background-color: orange;
+}
+
+#cor-stts-03{
+    background-color: cyan;
+}
+
+#cor-stts-04{
+    background-color: mediumvioletred;
+}
+
+#cor-stts-05{
+    background-color: red;
+}
+
+#cor-stts-06{
+    background-color: yellow;
+}
+
+.informacoes-proprietario{
+    width: 75%;
+    height: 100%;
+    background-color: transparent;
+    display: block;
+    float:left;
+}
+
+.nome-proprietario{
+	width: 100%;
+	display: block;
+	text-align: left;
+    font-family: Arial, sans-serif,serif;
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: rgb(59, 168, 248);
+}
+
+.nome-proprietario:hover{
+    text-decoration: none;
+}
+
+.id-proprietario{
+	width: 100%;
+	display: block;
+	text-align: left;
+    font-family: Arial, sans-serif,serif;
+    font-size: 15px;
+    margin-top: 0px;
+    color: rgb(59, 168, 248);
+}
+
+.id-proprietario:hover{
+    text-decoration: none;
+}
+
+.botao-tornar-proprietario{
+    width: 95%;
+    height: 30px;
+    margin: auto;
+    margin-top:2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(59, 168, 248);
+}
+
+.botao-tornar-proprietario:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.botao-remove-proprietario{
+    width: 95%;
+    height: 30px;
+    margin: auto;
+    margin-top:5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(216, 5, 5);
+}
+
+.botao-remove-proprietario:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.projeto-status{
+    width: 120px;
+    height: 100%;
+    float: left;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.projeto-statusNigth{
+    width: 120px;
+    height: 100%;
+    float: left;
+    border: 1px solid rgba(59, 168, 248,0.5);
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.botao-opcoes-projeto-status{
+    width: 100%;
+    height: 100%;
+    display:block;
+    margin: 0px;
+    padding: 0px;
+    border:none;
+    outline: none;
+}
+
+.opcoes-projeto-status{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    border:none;
+    outline: none;
+}
+
+.caixa-opcoes-projeto-status{
+    width:125px;
+    height: 182px;
+    display: none;
+    background-color: white;
+    border: 1px solid black;
+    position:relative;
+    z-index: 2;
+    bottom: 100px;
+    left: 122px;
+    margin: 0px;
+}
+
+.caixa-opcoes-projeto-statusNigth{
+    width:125px;
+    height: 182px;
+    display: none;
+    background-color: rgb(3,21,34);
+    border: 1px solid black;
+    position:relative;
+    z-index: 2;
+    bottom: 100px;
+    left: 122px;
+    margin: 0px;
+}
+
+.botao-opcoes-projeto-status:focus{
+    outline-style: none;
+}
+
+.fecha-caixa-opcoes-projeto-status{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    border: none;   
+}
+
+.fecha-caixa-opcoes-projeto-status:focus{
+    outline-style: none;
+}
+
+.fecha-caixa-opcoes-projeto-status img{
+    width: 100%;
+    height: 100%;   
+}
+
+.list-opcoes-projeto-status{
+    width: 100%;
+    height: 160px;
+    margin-top: 20px;
+    display: block;
+    background-color: white;
+    list-style: circle;
+    list-style-position: outside;
+}
+
+.item-list-opcoes-projeto-status{
+    width: 100%;
+    height: 32px;
+    color:white;
+    display: block;
+    border: 1px solid black;
+}
+
+.label-opcoes-projeto-status{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    border:none;
+    outline: none;
+}
+
+.label-opcoes-projeto-status:hover{
+    width: 135px;
+    height: 40px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    position: relative;
+    top:-10px;
+    bottom: 0px;
+    left: -7px;
+    right: 0px;
+    border: 1px solid black;
+}
+
+#label-op-projeto-status01{
+    background-color:rgb(10, 157, 4);
+}
+
+#label-op-projeto-status02{
+    background-color:rgb(216, 5, 5);
+}
+
+#label-op-projeto-status03{
+    background-color:rgb(0, 55, 178);
+}
+
+#label-op-projeto-status04{
+    background-color:rgb(234, 216, 0);
+}
+
+#label-op-projeto-status05{
+    background-color:rgb(59, 168, 248);
+}
+
+.projeto-data{
+    width: 160px;
+    height: 100%;
+    float: left;
+    border: 1px solid rgba(0,0,0,0.1);
+    display: block;
+    margin:0px;
+    padding:0px;
+}
+
+.projeto-dataNigth{
+    width: 160px;
+    height: 100%;
+    float: left;
+    border: 1px solid rgba(59, 168, 248,0.5);
+    display: block;
+    margin:0px;
+    padding:0px;
+}
+
+.projeto-data-text{
+    width: 100%;
+    height: 100%;
+    padding: 1px 1px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: block;
+    margin:0px;
+}
+
+.projeto-data-textNigth{
+    width: 100%;
+    height: 100%;
+    color:white;
+    padding: 1px 1px;
+    text-align: center;
+    border: none;
+    outline: none;
+    display: block;
+    margin:0px;
+}
+
+.projeto-update{
+    width: 30px;
+    height: 32px;
+    display: block;
+    border: 1px solid rgba(0,0,0,0.1);
+    float: left;
+}
+
+.projeto-updateNigth{
+    width: 30px;
+    height: 32px;
+    display: block;
+    border: 1px solid rgba(59, 168, 248,0.5);
+    float: left;
+}
+
+.projeto-update img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.projeto-delete{
+    width: 30px;
+    height: 32px;
+    display: block;
+    border: 1px solid rgba(0,0,0,0.1);
+    float: left;
+}
+
+.projeto-deleteNigth{
+    width: 30px;
+    height: 32px;
+    display: block;
+    border: 1px solid rgba(59, 168, 248,0.5);
+    float: left;
+}
+
+.botao-projeto-delete{
+    width: 100%;
+    height: 100%;
+    border:none;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+}
+
+.botao-projeto-delete:focus{
+    outline-style: none;
+}
+
+.botao-projeto-delete img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.not-active{
+  pointer-events: none;
+  cursor: default;
+}
+
+#card-tarefas{
+    border-left: 5px solid blue;
+}
+
+#card-desenvolvimentos{
+    border-left: 5px solid yellow;
+}
+
+#card-concluidos{
+    border-left: 5px solid green;
+}
+
+.caixa-add-participantes-externo{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10001;
+}
+
+.caixa-participantes-interno{
+    width: 450px;
+    height: 450px;
+    background-color: white;
+    display:none;
+}
+
+.fecha-caixa-participantes{
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+    bottom: 15px;
+    left: 435px;
+    outline: none;
+    background-color: white;
+}
+
+.fecha-caixa-participantes:focus{
+    outline-style: none;
+}
+
+.fecha-caixa-participantes img{
+    width: 60%;
+    height:60%;
+    text-align: center;
+    position: relative;
+    left:5px;
+    top:-1px;
+}
+
+.content-add-participantes{
+    width: 90%;
+    margin: auto;
+}
+
+.title-caixa-participantes{
+    font-family: Arial,sans-serif,serif;
+    color: rgb(59, 168, 248);
+}
+
+.pesquisa-add-participantes{
+    width: 91%;
+    height: 30px;
+    display: block;
+    float: left;
+    border: 1px solid black;
+    border-right: none;
+    background-color: transparent;
+    padding-left: 5px;
+    padding-right: 2px;
+    color: rgb(59, 168, 248);
+    outline: none;
+}
+
+.pesquisa-add-participantes::placeholder{
+    color: rgb(59, 168, 248);
+}
+
+.lupa-participantes{
+    width: 9%;
+    height: 30px;
+    border: 1px solid black;
+    border-right: none;
+    float: left;
+    display: block;
+    border: none;
+    float: left;
+    border: 1px solid black;
+    border-left: none;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+.lupa-participantes:focus{
+    outline-style: none;
+}
+
+.lupa-participantes img{
+    width: 100%;
+    height: 100%;
+}
+
+.caixa-resultado-add-partcipantes{
+    width: 100%;
+    height: 320px;
+    display: block;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.participantes-perfil{
+    width: 100%;
+    height: 60px;
+    display: none;
+    align-items: center;
+    margin-bottom: 5px;
+    border: 1px solid black;
+}
+
+.participante-foto{
+    width: 55px;
+    height: 55px;
+    display: block;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.participante-foto img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.participante-informacoes{
+    width: 69%;
+    height: 100%;
+    display: block;
+}
+
+.projeto-participante-informacoes{
+	width: 58%;
+    height: 100%;
+    display: block;
+    padding-top: 5px;
+}
+
+.nome-participante{
+    font-family: Arial,sans-serif,serif;
+    margin-bottom: 0px;
+    color: rgb(59, 168, 248);
+}
+
+.id-participante{
+    font-family: Arial,sans-serif,serif;
+    margin-bottom: 0px;
+    color: rgb(59, 168, 248);
+    font-size:14px;
+}
+
+.add-participante{
+    width: 50px;
+    height: 30px;
+    display: block;
+    background-color: rgb(59, 168, 248);
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    border:none;
+    text-align: center;
+}
+
+.add-participante:focus{
+    outline-style: none;
+}
+
+.caixa-botoes-adm{
+    width: 100px;
+    height: 100%;
+    display:block;
+    align-items: center;
+    float: left;
+}
+
+.remove-participante{
+    width: 100px;
+    height: 25px;
+    display: block;
+    background-color: rgb(216, 5, 5);
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    border:none;
+    text-align: center;
+}
+
+.remove-participante:focus{
+    outline-style: none;
+}
+
+.botoes-adm{
+    width: 100px;
+    height: 25px;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    margin-top:3px;
+    margin-bottom: 2px;
+}
+
+.tornar-adm-participante{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgb(10, 157, 4);
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    border:none;
+    text-align: center;
+}
+
+.tornar-adm-participante:focus{
+    outline-style: none;
+}
+
+.retirar-adm-participante{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgb(234, 216, 0);
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    border:none;
+    text-align: center;
+}
+
+.retirar-adm-participante:focus{
+    outline-style: none;
+}
+
+.criador-participante{
+	width: 100px;
+    height: 30px;
+    display: block;
+    background-color: rgb(59, 168, 248);
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    border:none;
+    text-align: center;
+}
+
+.criador-participante:focus{
+	outline-style: none;
+}
+
+.adm-participante{
+	width: 100px;
+    height: 30px;
+    display: block;
+    background-color: rgb(10, 157, 4);
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    border:none;
+    text-align: center;
+}
+
+.adm-participante:focus{
+	outline-style: none;
+}
+
+.caixa-add-tarefas-externo{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10001;
+}
+
+.caixa-add-tarefas-interno{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    display: block;
+}
+
+.caixa-add-tarefas-internoNigth{
+    width: 500px;
+    height: 300px;
+    background-color: rgb(3,21,34);
+    display: block;
+}
+
+.fecha-caixa-tarefas{
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+    bottom: 15px;
+    left: 485px;
+    outline: none;
+    background-color: white;
+}
+
+.fecha-caixa-tarefasNigth{
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+    bottom: 15px;
+    left: 485px;
+    outline: none;
+    background-color: rgb(3,21,34);
+}
+
+
+.fecha-caixa-tarefas:focus{
+    outline-style: none;
+}
+
+.fecha-caixa-tarefas img{
+    width: 100%;
+    position: relative;
+    top:-1px;
+    
+}
+
+.content-add-tarefas{
+    width: 90%;
+    margin: auto;
+}
+
+.content-add-tarefas p{
+    font-family: Arial,sans-serif,serif;
+    color: rgb(59, 168, 248);
+    display: block;
+    margin: 10px 0px;
+}
+
+.title-caixa-tarefas{
+    font-family: Arial,sans-serif,serif;
+    color: rgb(59, 168, 248);
+}
+
+.text-caixa-add-tarefas{
+    width: 100%;
+    display: block;
+    outline: none;
+    border:1px solid black;
+    background-color: transparent;
+    padding: 2px 5px;
+    margin: 0px 0px;
+}
+
+.text-caixa-add-tarefasNigth{
+    width: 100%;
+    color:white;
+    display: block;
+    outline: none;
+    border:1px solid rgb(59, 168, 248);
+    padding: 2px 5px;
+    margin: 10px 0px;
+}
+
+.text-caixa-add-data-prazo{
+    width: 40%;
+    display: block;
+    outline: none;
+    border:1px solid black;
+    background-color: transparent;
+    padding: 2px 5px;
+    margin-bottom: 20px;
+}
+
+.text-caixa-add-data-prazoNigth{
+    width: 40%;
+    display: block;
+    color:white;
+    outline: none;
+    border:1px solid black;
+    background-color: transparent;
+    padding: 2px 5px;
+    margin-bottom: 20px; 
+}
+
+.botao-caixa-add-tarefas{
+    width: 100px;
+    height: 40px;
+    border-color: transparent;
+    background-color: rgb(59, 168, 248);
+    color: white;
+    margin: auto;
+    display: block;
+}
+
+.botao-caixa-add-tarefasNigth{
+    width: 100px;
+    height: 40px;
+    border-color: white;
+    background-color: rgb(3,21,34);
+    color: white;
+    margin: auto;
+    display: block;
+}

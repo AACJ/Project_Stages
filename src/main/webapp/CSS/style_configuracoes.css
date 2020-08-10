@@ -1,0 +1,226 @@
+main{
+    width:89.05%;
+    background-color: transparent;
+    float: left;
+    transition: width 0.5s ease;
+    height: 100%;
+    overflow: hidden;
+    overflow-y:scroll;
+}
+
+#check:checked ~ main{
+    width: 68.75%;
+    overflow: auto;
+    overflow-x: scroll;
+}
+
+.gallery{
+    width: 100%;   
+    background-image:url(../img/Teste2.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+    padding-top: 5px;
+}
+
+.galleryNigth{
+    width: 100%;   
+    background-image:url(../img/Fundo-Off-nortuno.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+    padding-top: 5px;
+}
+
+.escolher-foto{
+    width: 100%;
+}
+
+.foto{
+   display: flex;
+   align-items: center;
+   justify-content: center; 
+}
+
+.escolher-foto h3{
+    text-align: center;
+    font-family: Arial,sans-serif,serif;
+    color:rgb(59, 168, 248);
+}
+
+.configuracoes{
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: white;
+    border-top: 3px solid rgb(59, 168, 248);
+}
+
+.configuracoesNigth{
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: rgb(3,21,34);
+    border-top: 3px solid rgb(59, 168, 248);
+}
+
+.config-titulo{
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    color:rgb(59, 168, 248);
+}
+
+.config-nav{
+    width: 90%;
+    margin: auto;
+}
+
+.config-text{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-family: Arial,sans-serif,serif;
+    font-size: 18px;
+    color:rgb(59, 168, 248);
+}
+
+
+.config-nav p, .config-opcao{
+    margin-top: 10px;
+    margin-left: 35px;
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    color:rgb(59, 168, 248);
+}
+
+.config01{
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.config01 input{
+    margin-left: 10px;
+}
+
+.config-label{
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    color:rgb(59, 168, 248);
+}
+
+.config02{
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.config-senha{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    padding-right:10px;
+    padding-left: 10px;
+    border: 1px solid rgb(59, 168, 248);
+    background-color: transparent;
+}
+
+.config-senhaNigth{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding-right:10px;
+    padding-left: 10px;
+    outline: none;
+    border: 1px solid rgb(59, 168, 248);
+    background-color: transparent;
+    color: rgb(59, 168, 248);
+}
+
+#senhaAtual{
+    margin-bottom: 10px;
+    margin-right: 33px;
+}
+
+#senhaNova{
+    margin-bottom: 10px;
+    margin-right: 33px;
+}
+
+#senhaConfirmada{
+    margin-bottom: 10px;
+    margin-right: 0px;
+}
+
+#alteraSenha{
+    display: none;
+}
+
+.setaBaixoConfig{
+    width: 10px;
+    display: block;
+    float: right;
+    margin-left: 10px;
+}
+
+.setaBaixoConfig img{
+    width: 100%;
+    transform: rotate(0deg);
+    transition: transform 0.5s;
+}
+
+.caixa-altera-senha{
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+#alteraSenha:checked ~ label .setaBaixoConfig img{
+     transform: rotate(90deg);
+}
+
+#alteraSenha:checked ~ .caixa-altera-senha{
+     height: 155px;
+}
+
+#btnConfiguracaoSenha{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    color: white;
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    background-color:rgb(59, 168, 248);
+    border-radius: 10px;
+    border-color: transparent;
+    display: block;
+    outline: none;
+    padding: 0px 30px;
+}
+
+.config02 .config-senha{
+    margin-left: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+#ativadoSenhaSegura{
+    margin-left: 10px;   
+}
+
+#ativadoSenhaRigorosa{
+    margin-left: 10px;   
+}
+
+.config03{
+    width: 100%;
+    height: 100px;
+}

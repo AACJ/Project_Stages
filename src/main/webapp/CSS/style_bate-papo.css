@@ -1,0 +1,407 @@
+main{
+    width:89.05%;
+    background-color: transparent;
+    float: left;
+    transition: width 0.5s ease;
+    height: 100%;
+}
+
+.user-chat{
+    width: 912px;
+    height: 100%;
+    overflow: hidden;
+}
+
+#check:checked ~ main{
+    width: 68.75%;
+    overflow-x: auto;
+}
+
+.chat{
+    width: 45%;
+    height:100%;
+    background-color: white;
+    border-right: 5px solid rgb(59, 168, 248);
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    float:left;
+}
+
+.chatNigth{
+    width: 45%;
+    height:100%;
+    background-color: rgb(3,21,34);
+    border-right: 5px solid rgb(59, 168, 248);
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    float:left;
+}
+
+.chat-header{
+    width:100%;
+    height:70px;
+    display: block;
+    background-color: rgb(59, 168, 248);
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+.foto-chat{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;
+    display: block;
+    margin: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0px;
+}
+
+.foto-chat img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.informacoes-chat{
+    width: 70%;
+    height: 100%;
+    display:flex;
+    align-items: center;
+}
+
+.nome-chat{
+    font-size: 25px;
+    color: white;
+    font-family: Arial,sans-serif,serif;
+    margin: 0px;
+}
+
+.chat-body{
+    width: 100%;
+    height: 70%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    overflow:hidden;
+}
+
+.chat-body:hover{
+    overflow-y: auto;
+}
+
+.chat-body:last-child{
+    overflow: visible;
+}
+
+box-msg-my{
+    width: 100%;
+    display: block;
+}
+
+.box-msg-friend{
+    width: 100%;
+    display: block;
+}
+
+.box-emoji-my{
+    width: 100%;
+    display: block;
+}
+
+.box-emoji-friend{
+    width: 100%;
+    display: block;
+}
+
+.my-msg{
+    display: block;
+    max-width: 80%;
+    word-break: break-all;
+    font-family: Arial,sans-serif,serif;
+    clear: both;
+    float: right;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(59, 168, 248);
+    border: 1px solid rgb(3,21,34);
+    margin-right: 10px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+.my-msg p{
+    margin: 0px;
+    padding: 0px;
+}
+
+.hora-msg-my{
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    text-align: right;
+}
+
+.friend-msg{
+    display: block;
+    max-width: 80%;
+    word-break: break-all;
+    font-family: Arial,sans-serif,serif;
+    clear: both;
+    float: left;
+    padding: 5px;
+    border-radius: 10px;
+    color: rgb(59, 168, 248);
+    background-color: white;
+    border: 1px solid rgb(59, 168, 248);
+    margin-left: 17px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+.friend-msg p{
+    margin: 0px;
+    padding: 0px;
+}
+
+.hora-msg-friend{
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
+.img-emoji-my{
+    display: block;
+    word-break: break-all;
+    font-family: Arial,sans-serif,serif;
+    clear: both;
+    float: right;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(59, 168, 248);
+    border: 1px solid rgb(3,21,34);
+    margin-right: 10px;
+    margin-bottom: 2px;
+    margin-top: 5px;  
+}
+
+.img-emoji-my img{
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+.img-emoji-friend{
+    display: block;
+    word-break: break-all;
+    font-family: Arial,sans-serif,serif;
+    clear: both;
+    float: left;
+    padding: 5px;
+    border-radius: 10px;
+    color: rgb(59, 168, 248);
+    background-color: white;
+    border: 1px solid rgb(59, 168, 248);
+    margin-left: 17px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+.img-emoji-friend img{
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+.chat-foot{
+    width: 100%;
+    height: 30%;
+    display: block;
+    background-color: rgb(59, 168, 248);
+}
+
+.arquivo-chat{
+   width: 30px;
+   height: 30px;
+   display: block;
+   float: left;
+    border: none;
+    background-color: transparent;
+   margin: 0px;
+    padding: 0px;
+}
+
+.arquivo-chat img{
+    width: 100%;
+    height: 100%;
+}
+
+.emojy-chat{
+    width: 30px;
+    height: 30px;
+    display: block;
+    float: left;
+    margin: 0px;
+    padding: 2px;
+    border: none;
+    background-color: transparent;
+}
+
+.emojy-chat img{
+    width: 100%;
+    height: 100%;
+}
+
+.emojy-chat:focus{
+    outline-style: none;
+}
+
+.msg-chat{
+    width: 310px;
+    text-align: justify;
+    display: block;
+    word-break: break-all;
+    float: left;
+    resize:none;
+    outline: none;
+}
+
+.send-text{
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+    display: block;
+    float: left;
+}
+
+.send-text img{
+    width: 100%;
+    height: 100%;
+}
+
+.send-text:focus{
+    outline-style: none;
+}
+
+.close-box-emoji{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    display: none;
+    margin: 0px;
+    padding: 0px;
+    left: 30px;
+    background-color: transparent;
+    z-index: 9;
+}
+
+.box-emojis{
+    width: 180px;
+    height: 200px;
+    display: none;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: rgb(59, 168, 248);
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;  
+    bottom: 278px;
+    left: 30px;
+    border: 1px solid black;
+}
+
+.box-emojis-interno{
+    width: 100%;
+    overflow: visible;
+    box-sizing: border-box;  
+}
+
+.linha-emojis{
+    width: 100%;
+    height: 27px;
+    display: block;
+    margin-top: 5px;
+}
+
+.emojis{
+    width: 27px;
+    height: 100%;
+    display: block;
+    background-color: transparent;
+    margin: 0px;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding: 0px;
+    float: left;
+    border: none;
+}
+
+.emojis:hover{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: 10px;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    display: block;
+    padding: 0px;
+}
+
+.emojis:focus{
+    outline-style: none;
+}
+
+.emojis img{
+    width: 100%;
+    height: 100%;
+}
+
+.chat-body-interno{
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform: translateY(0px);
+    transition: 0.5s;
+}
+
+.content-chat{
+    width: 400px;
+    height: 100%;
+    position: absolute;
+    display: block;
+    padding-top: 20px;
+}
+
+.imagem-chat{
+    width: 40%;
+    height:100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    float:left;
+}
+
+.chat-image-item{
+    width: 100%;
+}
+
+.chat-image-item img{
+    width: 100%;
+    margin: 70px;
+}

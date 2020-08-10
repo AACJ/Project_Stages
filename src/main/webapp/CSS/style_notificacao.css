@@ -1,0 +1,144 @@
+main{
+    width:89.05%;
+    background-color: transparent;
+    float: left;
+    transition: width 0.5s ease;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.user-Notificacao{
+    width: 912px;
+    height: 100%;
+}
+
+#check:checked ~ main{
+    width: 68.75%;
+    overflow-x: auto;
+}
+
+.header-notificacao{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    font-family: Arila, sans-serif,serif;
+    background-color: rgb(59, 168, 248);
+    color:white;
+    margin-bottom: 5px;
+}
+
+.body-notificacao{
+    width: 100%;
+    display: block;
+}
+
+.pedido-de-amizade{
+    width: 95%;
+    height: 70px;
+    margin: auto;
+    background-color: white;
+    border:1px solid black;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.foto-remetente{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid black;
+}
+
+.foto-remetente img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.msg-notificacao-amizade{
+    width: 80%;
+    height: 100%;
+    float: left;
+    display: block;
+    margin: 0px;
+    background-color: transparent;
+}
+
+.msg-notificacao-amizade p{
+    color: rgb(59, 168, 248);
+    font-family: Arial,sans-serif,serif;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-aceitar-pedido{
+    width: 100px;
+    height: 30px;
+    display: none;
+    float: left;
+    margin: 0px 5px;
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    background-color: rgb(59, 168, 248);
+    border-radius: 100px;
+    border: 1px solid black;
+}
+
+.btn-aceitar-pedido:focus{
+    outline-style: none;
+}
+
+.btn-recusar-pedido{
+    width: 100px;
+    height: 30px;
+    display: none;
+    float: left;
+    margin: 0px 5px;
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    background-color: rgb(196, 0, 0);
+    border-radius: 100px;
+    border: 1px solid black;
+}
+
+.btn-recusar-pedido:focus{
+    outline-style: none;
+}
+
+.btn-fechar-pedido{
+    width: 35px;
+    height: 35px;
+    margin-left:60px;
+    position: relative;
+    bottom:20px;
+    display: block;
+    float: right;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+.btn-fechar-pedido:focus{
+    outline-style: none;
+}
+
+.btn-fechar-pedido img{
+    width: 100%;
+    height: 100%;
+}
+
+.msg-confirm{
+    display: none;
+}
+
+
+
