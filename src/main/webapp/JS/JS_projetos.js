@@ -19,8 +19,45 @@ var $btnOpProprietario = document.querySelectorAll("#btn-op-proprietario");
 var $tornaAdm = document.querySelectorAll("#torna-adm");
 var $retirarAdm = document.querySelectorAll("#retirar-adm");
 var $tarefasTexto = document.querySelectorAll(".projeto-tarefa-text");  
-var $dataTexto= document.querySelectorAll(".projeto-data-text");  
+var $dataTexto = document.querySelectorAll(".projeto-data-text");  
 var $botaoDeleteTarefas= document.querySelectorAll(".botao-projeto-delete"); 
+var $editProjectInfo = document.getElementById("edit-project-info");
+var $saveProjectInfo = document.getElementById("save-project-info");
+var $nameProjectInfo = document.getElementById("nameProjectInfo");
+var $descricaoProjeto = document.getElementById("descricaoProjeto");
+var $btnExitProject = document.getElementById("btn-exit-project");
+var $caixaSairProjetoExterno = document.getElementById("caixa-sair-projeto-externo");
+var $caixaSairProjetoInterno = document.getElementById("caixa-sair-projeto-interno");
+var $fechaCaixaSairProjeto = document.getElementById("fecha-caixa-sair-projeto");
+var $yesExit = document.getElementById("yes-exit");
+var $cancelExil = document.getElementById("cancel-exil");
+
+
+
+$editProjectInfo.addEventListener('click', function(){
+   $nameProjectInfo.readOnly = false;
+   $descricaoProjeto.readOnly = false;
+   $nameProjectInfo.style.border = "1px solid rgb(59, 168, 248)";
+   $descricaoProjeto.style.border = "1px solid rgb(59, 168, 248)";
+   $saveProjectInfo.style.display = "block";
+   $editProjectInfo.style.display = "none";
+});
+
+$saveProjectInfo.addEventListener('click', function(){ 
+	$.ajax({
+	       url: '/projectstages_mvc/update/info-projeto',
+	       data:{nome : $nameProjectInfo.value, descricao : $descricaoProjeto.value},
+	       success : function(result){
+	    	  
+	       }
+	   });
+   $nameProjectInfo.readOnly = true;
+   $descricaoProjeto.readOnly = true;
+   $nameProjectInfo.style.border = "none";
+   $descricaoProjeto.style.border = "none";
+   $editProjectInfo.style.display = "block";
+   $saveProjectInfo.style.display = "none";
+});
 
 $btnAddParticipante.addEventListener('click', function(){
 	$boxExternoParticipante.style.display = "flex";	 
@@ -38,6 +75,21 @@ $btnTarefas.addEventListener('click', function(){
 
 $fechaCaixa01.addEventListener('click', function(){
    $caixaAddTarefas.style.display = "none";
+});
+
+$btnExitProject.addEventListener('click', function(){
+	$caixaSairProjetoExterno.style.display = "flex";
+	$caixaSairProjetoInterno.style.display = "block";
+});
+
+$fechaCaixaSairProjeto.addEventListener('click', function(){
+	$caixaSairProjetoExterno.style.display = "none";
+	$caixaSairProjetoInterno.style.display = "none";
+});
+
+$cancelExil.addEventListener('click', function(){
+	$caixaSairProjetoExterno.style.display = "none";
+	$caixaSairProjetoInterno.style.display = "none";
 });
 	
 //Pesquisa amigos para serem participantes
@@ -216,17 +268,16 @@ function ExibirTodosOsParticipantesInseridosNoProjeto(){
 	   });
 }
 
-function ExibirTodosOsProprietarios(){
+function ExibirTodosOsProprietarios(idTarefa){
 	$.ajax({
 	       url: '/projectstages_mvc/retorna/ids-proprietarios',
 	       success : function(result){
-	    	   
 	    	   for(var i = 0; i < result.length;i++ ){
-	    		
-	    		   var $perfilProprietario = document.getElementById("perfil-proprietario-" + result[i]);
+	    		   
+	    		   var $perfilProprietario = document.getElementById("perfil-"+ idTarefa +"-proprietario-" + result[i]);
     		    	   
 	    		   $perfilProprietario.style.display = "flex";
-
+	    		   
 	    	   }
 	       }
 	       
@@ -522,7 +573,8 @@ $bodyOpenProjetoStatuts.addEventListener('click', function(e){
 	       success : function(resposta){
 	
 		for(var i = 0; i < $btnOpProprietario.length ;i++){
-			if($btnOpProprietario[i].contains(e.target) && resposta != "membro"){		
+			if($btnOpProprietario[i].contains(e.target) && resposta != "membro"){
+				var id = $btnOpProprietario[i].value;
 				var $boxProprietarios =  document.getElementById("box-proprietarios-" + $btnOpProprietario[i].value); 
 				var $fechaBoxProprietarios = document.getElementById("fecha-box-proprietarios-" + $btnOpProprietario[i].value);
 				var $barraPesquisaProprietarios = document.getElementById("barra-search-proprietarios-" + $btnOpProprietario[i].value);
@@ -536,7 +588,14 @@ $bodyOpenProjetoStatuts.addEventListener('click', function(e){
 				$barraPesquisaProprietarios.addEventListener("keydown", function(e){
 					
 					if($barraPesquisaProprietarios.value == ""){
-						ExibirTodosOsProprietarios();
+						$.ajax({
+						       url: '/projectstages_mvc/retorna/id-all-atividades',
+						       success : function(response){
+						    	   for(var j = 0; j < response.length;j++ ){
+						    		   ExibirTodosOsProprietarios(response[j]);
+						    	   }
+						       }
+						   });
 					}
 					
 					if(e.keyCode > 46 && e.keyCode < 91){
@@ -549,15 +608,15 @@ $bodyOpenProjetoStatuts.addEventListener('click', function(e){
 					    	       success : function(result){
 					    	      
 					    	    	   for(var j = 0; j < result.length;j++ ){
-					   	    	    	
-						    	    	   var $perfilProprietario = document.getElementById("perfil-proprietario-" + result[j]);
+					   	    	    	   
+						    	    	   var $perfilProprietario = document.getElementById("perfil-"+ id +"-proprietario-" + result[j]);
 						    	    	   
 						    	    	   $perfilProprietario.style.display = "none";
 					    	    	   }
 						    	    	   
 					    	    	   for(var j = 0; j < response.length;j++ ){
-						  
-					    	    		   var $perfilProprietario =document.getElementById("perfil-proprietario-" + response[j]);
+					    	    		  
+					    	    		   var $perfilProprietario =document.getElementById("perfil-"+ id +"-proprietario-" + response[j]);
 						    		    	   
 					    	    		   $perfilProprietario.style.display = "flex";
 						    		   }
@@ -571,9 +630,15 @@ $bodyOpenProjetoStatuts.addEventListener('click', function(e){
 				});
 
 				$barraPesquisaProprietarios.addEventListener("keyup", function(e){
-					
 					if($barraPesquisaProprietarios.value == ""){
-						ExibirTodosOsProprietarios();
+						$.ajax({
+						       url: '/projectstages_mvc/retorna/id-all-atividades',
+						       success : function(response){
+						    	   for(var j = 0; j < response.length;j++ ){
+						    		   ExibirTodosOsProprietarios(response[j]);
+						    	   }
+						       }
+						   });
 					}
 					
 					if(e.keyCode > 46 && e.keyCode < 91){
@@ -587,14 +652,14 @@ $bodyOpenProjetoStatuts.addEventListener('click', function(e){
 					    	    	   
 					    	    	   for(var j = 0; j < result.length;j++ ){
 						   	    	    	
-						    	    	   var $perfilProprietario = document.getElementById("perfil-proprietario-" + result[j]);
+						    	    	   var $perfilProprietario = document.getElementById("perfil-"+ id +"-proprietario-" + result[j]);
 						    	    	   
 						    	    	   $perfilProprietario.style.display = "none";
 					    	    	   }
 						    	    	   
 					    	    	   for(var j = 0; j < response.length;j++ ){
-						  
-					    	    		   var $perfilProprietario = document.getElementById("perfil-proprietario-" + response[j]);
+					    	    		   
+					    	    		   var $perfilProprietario = document.getElementById("perfil-"+ id +"-proprietario-" + response[j]);
 						    		    	   
 					    	    		   $perfilProprietario.style.display = "flex";
 						    		   }
@@ -605,13 +670,11 @@ $bodyOpenProjetoStatuts.addEventListener('click', function(e){
 					   });
 					}
 				});	
-
-
-					
+		
 			}
 		}
 		
-	       }
+	      }
 	});
 });
 
@@ -686,6 +749,240 @@ $bodyOpenProjetoStatuts.addEventListener('click', function(e){
 	}
 });
 
+//Atualiza o nome da tarefa.
+$bodyOpenProjetoStatuts.addEventListener('click', function(e){
+	for(var i = 0; i <  $tarefasTexto.length ;i++){
+		if($tarefasTexto[i].contains(e.target)){
+			var id = $btnOpProprietario[i].value;
+			var p = i;
+		$tarefasTexto[p].addEventListener("keydown", function(e){
+			$.ajax({
+	            url: '/projectstages_mvc/atualizar/tarefas-texto',
+				data:{idTarefa : id ,texto :  $tarefasTexto[p].value},
+				success : function(response){
+				    	   
+				       }
+				   });
+				
+				});	
+			
+			
+		$tarefasTexto[p].addEventListener("keyup", function(e){
+			$.ajax({
+			       url: '/projectstages_mvc/atualizar/tarefas-texto',
+			       data:{idTarefa : id ,texto :  $tarefasTexto[p].value},
+			       success : function(response){
+			    	   
+			       }
+			   });
+			
+			});
+		}
+		}
+});
+
+//Atualiza o nome da desenvolvimentos.
+$bodyOpenProjetoStatuts.addEventListener('click', function(e){
+	for(var i = 0; i <  $tarefasTexto.length ;i++){
+		if($tarefasTexto[i].contains(e.target)){
+			var id = $btnOpProprietario[i].value;
+			var p = i;
+		$tarefasTexto[p].addEventListener("keydown", function(e){
+			$.ajax({
+	            url: '/projectstages_mvc/atualizar/desenvolvimentos-texto',
+				data:{idTarefa : id ,texto :  $tarefasTexto[p].value},
+				success : function(response){
+				    	   
+				       }
+				   });
+				
+				});	
+			
+			
+		$tarefasTexto[p].addEventListener("keyup", function(e){
+			$.ajax({
+			       url: '/projectstages_mvc/atualizar/desenvolvimentos-texto',
+			       data:{idTarefa : id ,texto :  $tarefasTexto[p].value},
+			       success : function(response){
+			    	   
+			       }
+			   });
+			
+			});
+		}
+		}
+});
+
+//Atualiza o nome da concluidos.
+$bodyOpenProjetoStatuts.addEventListener('click', function(e){
+	for(var i = 0; i <  $tarefasTexto.length ;i++){
+		if($tarefasTexto[i].contains(e.target)){
+			var id = $btnOpProprietario[i].value;
+			var p = i;
+		$tarefasTexto[p].addEventListener("keydown", function(e){
+			$.ajax({
+	            url: '/projectstages_mvc/atualizar/concluidos-texto',
+				data:{idTarefa : id ,texto :  $tarefasTexto[p].value},
+				success : function(response){
+				    	   
+				       }
+				   });
+				
+				});	
+			
+			
+		$tarefasTexto[p].addEventListener("keyup", function(e){
+			$.ajax({
+			       url: '/projectstages_mvc/atualizar/concluidos-texto',
+			       data:{idTarefa : id ,texto :  $tarefasTexto[p].value},
+			       success : function(response){
+			    	   
+			       }
+			   });
+			
+			});
+		}
+		}
+});
+
+//Atualiza a data da tarefa.
+$bodyOpenProjetoStatuts.addEventListener('click', function(e){
+	for(var i = 0; i <  $dataTexto.length ;i++){
+		if($dataTexto[i].contains(e.target)){
+			var id = $btnOpProprietario[i].value;
+			var p = i;
+			
+			$dataTexto[p].addEventListener("change", function(e){
+				$.ajax({
+		            url: '/projectstages_mvc/atualizar/tarefas-data',
+					data:{idTarefa : id ,texto :  $dataTexto[p].value},
+					success : function(response){
+					    	   
+					       }
+					   });
+					
+					
+			});	
+			
+			
+			$dataTexto[p].addEventListener("keydown", function(e){
+			$.ajax({
+	            url: '/projectstages_mvc/atualizar/tarefas-data',
+				data:{idTarefa : id ,texto :  $dataTexto[p].value},
+				success : function(response){
+				    	   
+				       }
+				   });
+				
+				});	
+			
+			
+			$dataTexto[p].addEventListener("keyup", function(e){
+			$.ajax({
+			       url: '/projectstages_mvc/atualizar/tarefas-data',
+			       data:{idTarefa : id ,texto :  $dataTexto[p].value},
+			       success : function(response){
+			    	   
+			       }
+			   });
+			
+			});
+		}
+		}
+});
+
+//Atualiza a data da desenvolvimento.
+$bodyOpenProjetoStatuts.addEventListener('click', function(e){
+	for(var i = 0; i <  $dataTexto.length ;i++){
+		if($dataTexto[i].contains(e.target)){
+			var id = $btnOpProprietario[i].value;
+			var p = i;
+			
+			$dataTexto[p].addEventListener("change", function(e){
+				$.ajax({
+		            url: '/projectstages_mvc/atualizar/desenvolvimentos-data',
+					data:{idTarefa : id ,texto :  $dataTexto[p].value},
+					success : function(response){
+					    	   
+					       }
+					   });
+					
+					
+			});	
+			
+			
+			$dataTexto[p].addEventListener("keydown", function(e){
+			$.ajax({
+	            url: '/projectstages_mvc/atualizar/desenvolvimentos-data',
+				data:{idTarefa : id ,texto :  $dataTexto[p].value},
+				success : function(response){
+				    	   
+				       }
+				   });
+				
+				});	
+			
+			
+			$dataTexto[p].addEventListener("keyup", function(e){
+			$.ajax({
+			       url: '/projectstages_mvc/atualizar/desenvolvimentos-data',
+			       data:{idTarefa : id ,texto :  $dataTexto[p].value},
+			       success : function(response){
+			    	   
+			       }
+			   });
+			
+			});
+		}
+		}
+});
+
+//Atualiza a data dos concluidos.
+$bodyOpenProjetoStatuts.addEventListener('click', function(e){
+	for(var i = 0; i <  $dataTexto.length ;i++){
+		if($dataTexto[i].contains(e.target)){
+			var id = $btnOpProprietario[i].value;
+			var p = i;
+			
+			$dataTexto[p].addEventListener("change", function(e){
+				$.ajax({
+		            url: '/projectstages_mvc/atualizar/concluidos-data',
+					data:{idTarefa : id ,texto :  $dataTexto[p].value},
+					success : function(response){
+					    	   
+					       }
+					   });
+					
+					
+			});	
+			
+			
+			$dataTexto[p].addEventListener("keydown", function(e){
+			$.ajax({
+	            url: '/projectstages_mvc/atualizar/concluidos-data',
+				data:{idTarefa : id ,texto :  $dataTexto[p].value},
+				success : function(response){
+				    	   
+				       }
+				   });
+				
+				});	
+			
+			
+			$dataTexto[p].addEventListener("keyup", function(e){
+			$.ajax({
+			       url: '/projectstages_mvc/atualizar/concluidos-data',
+			       data:{idTarefa : id ,texto :  $dataTexto[p].value},
+			       success : function(response){
+			    	   
+			       }
+			   });
+			
+			});
+		}
+		}
+});
+
 function modoNoturnoAtivadoHome(ativado){
 	   if(ativado){	    
 	   //Geral Padrão
@@ -703,8 +1000,7 @@ function modoNoturnoAtivadoHome(ativado){
 	   var projetoproprietario = document.querySelectorAll(".projeto-proprietario");   
 	   var projetostatus = document.querySelectorAll(".projeto-status");
 	   var projetodata = document.querySelectorAll(".projeto-data");
-	   var projetodatatext = document.querySelectorAll(".projeto-data-text");  
-	   var projetoupdate = document.querySelectorAll(".projeto-update");  
+	   var projetodatatext = document.querySelectorAll(".projeto-data-text");    
 	   var projetodelete = document.querySelectorAll(".projeto-delete");  
 	   var projetoaddtarefa = document.querySelector(".projeto-add-tarefa").classList.toggle("projeto-add-tarefaNigth");
 	   var botaoaddprojeto = document.querySelector(".botao-add-projeto").classList.toggle("botao-add-projetoNigth");
@@ -717,7 +1013,6 @@ function modoNoturnoAtivadoHome(ativado){
 		   projetostatus[i].classList.toggle("projeto-statusNigth"); 
 		   projetodata[i].classList.toggle("projeto-dataNigth");
 		   projetodatatext[i].classList.toggle("projeto-data-textNigth");
-		   projetoupdate[i].classList.toggle("projeto-updateNigth");
 		   projetodelete[i].classList.toggle("projeto-deleteNigth");
 		   boxTarefasStatus[i].classList.toggle("caixa-opcoes-projeto-statusNigth");
 		 }
@@ -744,8 +1039,7 @@ function modoNoturnoAtivadoHome(ativado){
 	   var projetoproprietario = document.querySelectorAll(".projeto-proprietario");   
 	   var projetostatus = document.querySelectorAll(".projeto-status");
 	   var projetodata = document.querySelectorAll(".projeto-data");
-	   var projetodatatext = document.querySelectorAll(".projeto-data-text");   
-	   var projetoupdate = document.querySelectorAll(".projeto-update");  
+	   var projetodatatext = document.querySelectorAll(".projeto-data-text");    
 	   var projetodelete = document.querySelectorAll(".projeto-delete");  
 	   var projetoaddtarefa = document.querySelector(".projeto-add-tarefa").classList.remove("projeto-add-tarefaNigth");
 	   var botaoaddprojeto = document.querySelector(".botao-add-projeto").classList.remove("botao-add-projetoNigth");
@@ -758,7 +1052,6 @@ function modoNoturnoAtivadoHome(ativado){
 		   projetostatus[i].classList.remove("projeto-statusNigth"); 
 		   projetodata[i].classList.remove("projeto-dataNigth");
 		   projetodatatext[i].classList.remove("projeto-data-textNigth");
-		   projetoupdate[i].classList.remove("projeto-updateNigth");
 		   projetodelete[i].classList.remove("projeto-deleteNigth");
 		   boxTarefasStatus[i].classList.remove("caixa-opcoes-projeto-statusNigth");
 		 }
@@ -780,6 +1073,15 @@ function modoNoturnoAtivadoHome(ativado){
        	modoNoturnoAtivadoHome(data);
        }
    });
+	
+	$.ajax({
+	       url: '/projectstages_mvc/retorna/id-all-atividades',
+	       success : function(response){
+	    	   for(var j = 0; j < response.length;j++ ){
+	    		   ExibirTodosOsProprietarios(response[j]);
+	    	   }
+	       }
+	   });
 	
 	verificarPermissoesDeFuncao();
 

@@ -6,12 +6,10 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projectstages_mvc.dao.AmigosDao;
@@ -30,7 +28,7 @@ import br.com.projectstages_mvc.model.Usuario;
 
 @Controller
 @Transactional
-public class ChatController {
+public class HomeVazioController {
 
 	@Autowired
 	private CadastroDao cadastroDao;
@@ -56,10 +54,10 @@ public class ChatController {
 	private Usuario user = new Usuario();
 	private Configuracoes config = new Configuracoes();
 
-	@RequestMapping("/chat")
-	@Cacheable(value = "chats")
+	@RequestMapping("/home-vazio")
+	@Cacheable(value = "vazio")
 	public ModelAndView chat(@AuthenticationPrincipal Usuario usuario) {
-		ModelAndView model = new ModelAndView("chat");
+		ModelAndView model = new ModelAndView("projetos-vazio");
 		int totalMensagens = 0;
 		int quantidade = 0;
 		List<NotificacaoAmizade> msgNotificacoes = new ArrayList<NotificacaoAmizade>();
@@ -68,10 +66,10 @@ public class ChatController {
 		List<Chat> listMensagens = new ArrayList<Chat>(); 
 		List<Integer> listaqtnMensagens = new ArrayList<Integer>();
 		List<Projeto> listaProjetosParticipantes = new ArrayList<Projeto>();
-		List<Projeto> listaProjetosFavoritos = new ArrayList<Projeto>();
 		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
-		user = cadastroDao.findUsuario(usuario.getUsername());
 		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
+		user = cadastroDao.findUsuario(usuario.getUsername());
+
 		msgNotificacoes = notificacaoDao.listarTodasNotificacoesDoDestinatario(usuario.getUsername());
 		for (int i = 0; i < msgNotificacoes.size(); i++) {
 			if (msgNotificacoes.get(i).isVisualizacao() == false) {
@@ -104,44 +102,18 @@ public class ChatController {
 		if (totalMensagens > 0) {
 			model.addObject("totalMensagens", totalMensagens);
 		}
-
+		
 		for (int i = 0; i < projetosParticipantes.size(); i++) {
 			listaProjetosParticipantes
 					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
 	}
-		
 
-		for (int i = 0; i < projetosParticipantes.size(); i++) {
-			if(projetosParticipantes.get(i).isProjetoFavorito()) {
-			listaProjetosFavoritos
-					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
-			}
-		}
-		
 		config = configuracoesDao.configuracoesDoUsuario(usuario.getUsername());
 		model.addObject("listaProjeto", projetodao.listarTodosProjetos(usuario.getUsername()));
 		model.addObject("usuarioFoto", user.getFoto());
 		model.addObject("listaAmigos", listAmigos);
 		model.addObject("msgNotViewed", listaqtnMensagens);
 		model.addObject("projetosParticipantes", listaProjetosParticipantes);
-		model.addObject("projetosFavoritos",listaProjetosFavoritos);
 		return model;
-		// return "chat";
-	}
-
-	// Retorna o status do Usuario
-	@RequestMapping("/retorna/status-usuario/chat")
-	@CacheEvict(value = "chats", allEntries = true)
-	@ResponseBody
-	public String getStatusUsuario(@AuthenticationPrincipal Usuario usuario) {
-		user = cadastroDao.findUsuario(usuario.getUsername());
-		return user.getStatusUsuario();
-	}
-
-	@RequestMapping("/retorna/modo-noturno/chat")
-	@CacheEvict(value = "chats", allEntries = true)
-	@ResponseBody
-	public boolean getModoNotuno() {
-		return config.isModoNoturno();
 	}
 }

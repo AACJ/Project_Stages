@@ -23,7 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.formLogin().and()
 		.httpBasic();*/
 		http.authorizeRequests()
-		.antMatchers("/", "/cadastro","/login","/pos-cadastro/home","/pos-cadastro","/cadastro/pos-cadastro","/configuracoes","/salvar/foto-perfil").permitAll()
+		.antMatchers("/", "/cadastro","/login","/pos-cadastro/home","/pos-cadastro","/cadastro/pos-cadastro","/configuracoes","/salvar/foto-perfil","/termos-de-uso").permitAll()
 		.antMatchers("/home","/login/validacao").access("hasRole('ROLE_ADMIN')")
 		.antMatchers("/CSS/**", "/JS/**", "/img/**","/Bootstrap/**").permitAll()
 		.anyRequest().authenticated()

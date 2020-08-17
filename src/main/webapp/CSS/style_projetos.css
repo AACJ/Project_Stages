@@ -26,7 +26,7 @@ main{
 }
 
 .caixa-informacoes-principais-projeto{
-    width: 60%;
+    width: 55%;
     height: 120px;
     display: block;
     float: left;
@@ -36,21 +36,27 @@ main{
 }
 
 .nomeProjeto{
-	width: 100%;
-    height: 50px;
+	width: 96%;
+    height: 65px;
+    font-size: 50px;
+    border: none;
     font-family:Arial,sans-serif,serif;
     color: rgb(59, 168, 248);
-    display:block;
-    margin-left: 30px;
+    display:flex;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 3px;
+    margin-left: 20px;
+    outline: none;
 }
 
 #descricaoProjeto{
-    width: 100%;
+    width: 96%;
     height: 30px;
     background-color: transparent;
     font-family: Arial,sans-serif,serif;
     color: rgb(59, 168, 248);
-    margin-left: 30px;
+    margin-left: 20px;
     border-color: transparent;
     padding: 5px;
     outline: none;
@@ -62,8 +68,31 @@ main{
     color: rgb(59, 168, 248);
 }
 
+.caixa-projeto-favorito{
+    width: 10%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.add-favorito{
+    width: 85px;
+    height: 85px;
+}
+
+.add-favorito img{
+    width: 100%;
+    height: 100%;
+}
+
 .caixa-mostra-participantes-projeto{
-    width: 40%;
+    width: 35%;
     height: 120px;
     display: flex;
     justify-content: flex-end;
@@ -75,8 +104,8 @@ main{
 }
 
 .botao-mostrar-participantes{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin:0px;
     padding: 0px;
     background-color: transparent;
@@ -92,7 +121,7 @@ main{
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border:1px solid rgb(59, 168, 248);
+    border:5px solid rgb(59, 168, 248);
     background-color: transparent;
     display: block;
     position: relative;
@@ -167,10 +196,48 @@ main{
     margin-bottom: 0px;
 }
 
+.caixa-botoes-alt-project-info{
+    width: 150px;
+    height: 100%;
+    margin-right: 5px;
+    display: block;
+}
+
+.botao-edit-info-project{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 10px;
+    font-family: Arial,sans-serif,serif;
+    color: white;
+    background-color: rgb(10, 157, 4);
+    border: none;
+}
+
+.botao-edit-info-project:focus{
+    outline-style: none;
+}
+
+.botao-save-info-project{
+    width: 100%;
+    height: 100%;
+    display: none;
+    border-radius: 10px;
+    font-family: Arial,sans-serif,serif;
+    color: white;
+    background-color: rgb(10, 157, 4);
+    border: none;
+}
+
+.botao-save-info-project:focus{
+    outline-style: none;
+}
+
 .botao-add-participante{
     width: 150px;
     height: 100%;
     display: none;
+    border-radius: 10px;
     margin-right: 5px;
     font-family: Arial,sans-serif,serif;
     color: white;
@@ -178,15 +245,24 @@ main{
     border: none;
 }
 
+.botao-add-participante:focus{
+    outline-style: none;
+}
+
 .botao-excluir-projeto{
     width: 150px;
     height: 100%;
     display: block;
+    border-radius: 10px;
     margin-right: 5px;
     font-family: Arial,sans-serif,serif;
     color: white;
     background-color: rgb(216, 5, 5);
     border: none;
+}
+
+.botao-excluir-projeto:focus{
+    outline-style: none;
 }
 
 .corpoProjeto{
@@ -597,7 +673,7 @@ main{
 .perfil-proprietario{
     width: 95%;
     height: 45px;
-    display: flex;
+    display: none;
     align-items: center;
     background-color: transparent;
     border: 1px solid black;
@@ -1420,4 +1496,96 @@ main{
     color: white;
     margin: auto;
     display: block;
+}
+
+.caixa-sair-projeto-externo{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10001;
+}
+
+.caixa-sair-projeto-interno{
+    width: 400px;
+    height: 150px;
+    background-color: white;
+    display:none;
+}
+
+.fecha-caixa-sair-projeto{
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 50%;
+    margin-bottom: 0px;
+    border: 2px solid black;
+    position: relative;
+    bottom: 15px;
+    left: 385px;
+    outline: none;
+    background-color: white;
+}
+
+.fecha-caixa-sair-projeto:focus{
+    outline-style: none;
+}
+
+.fecha-caixa-sair-projeto img{
+    width: 100%;
+    position: relative;
+    top:-1px;
+    
+}
+
+.title-exit-project{
+    font-size: 20px;
+    display: inline-block;
+    font-family: Arial,sans-serif,serif;
+    color: rgb(59, 168, 248);
+    margin-left: 5px;
+    margin-bottom: 40px;
+    margin-top: 0px;
+}
+
+.botao-sim-saida{
+	text-align: center;
+    width: 150px;
+    height: 30px;
+    color:white;
+    background-color: green;
+    font-family: Arial,sans-serif,serif;
+    border:none;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 3px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.botao-sim-saida:focus{
+    outline-style: none;
+}
+
+.botao-sim-saida:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.botao-cancel-saida{
+    width: 150px;
+    height: 30px;
+    color:white;
+    background-color: rgb(216, 5, 5);
+    font-family: Arial,sans-serif,serif;
+    border:none;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.botao-cancel-saida:focus{
+    outline-style: none;
 }

@@ -3,12 +3,14 @@ package br.com.projectstages_mvc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,10 +21,13 @@ import br.com.projectstages_mvc.dao.CadastroDao;
 import br.com.projectstages_mvc.dao.ChatDao;
 import br.com.projectstages_mvc.dao.ConfiguracoesDao;
 import br.com.projectstages_mvc.dao.NotificacaoAmizadeDao;
+import br.com.projectstages_mvc.dao.ParticipantesDao;
 import br.com.projectstages_mvc.dao.ProjetoDao;
 import br.com.projectstages_mvc.model.Chat;
 import br.com.projectstages_mvc.model.Configuracoes;
 import br.com.projectstages_mvc.model.NotificacaoAmizade;
+import br.com.projectstages_mvc.model.Participantes;
+import br.com.projectstages_mvc.model.Projeto;
 import br.com.projectstages_mvc.model.Usuario;
 
 @Controller
@@ -38,6 +43,9 @@ public class ConfiguracoesController {
 	@Autowired
 	private ChatDao chatDao;
 
+	@Autowired
+	private ParticipantesDao participantesDao;
+	
 	@Autowired
 	private ProjetoDao projetodao;
 
@@ -55,8 +63,10 @@ public class ConfiguracoesController {
 		int quantidade = 0;
 		List<NotificacaoAmizade> msgNotificacoes = new ArrayList<NotificacaoAmizade>();
 		List<Chat> listMensagens = new ArrayList<Chat>();
-		user = cadastroDao.findUsuario(usuario.getUsername());
-
+		List<Projeto> listaProjetosParticipantes = new ArrayList<Projeto>();
+		List<Projeto> listaProjetosFavoritos = new ArrayList<Projeto>();
+		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
+		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
 		msgNotificacoes = notificacaoDao.listarTodasNotificacoesDoDestinatario(usuario.getUsername());
 		for (int i = 0; i < msgNotificacoes.size(); i++) {
 			if (msgNotificacoes.get(i).isVisualizacao() == false) {
@@ -80,11 +90,25 @@ public class ConfiguracoesController {
 		if (totalMensagens > 0) {
 			model.addObject("totalMensagens", totalMensagens);
 		}
+		
+		for (int i = 0; i < projetosParticipantes.size(); i++) {
+			listaProjetosParticipantes
+					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
+	}
 
+		for (int i = 0; i < projetosParticipantes.size(); i++) {
+			if(projetosParticipantes.get(i).isProjetoFavorito()) {
+			listaProjetosFavoritos
+					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
+			}
+		}
+		
 		config = configuracoesDao.configuracoesDoUsuario(usuario.getUsername());
 		model.addObject("listaProjeto", projetodao.listarTodosProjetos(usuario.getUsername()));
 		model.addObject("nomeUsuario", usuario.getUserName());
-		model.addObject("usuarioFoto", user.getFoto());
+		model.addObject("usuarioFoto",usuario.getFoto());
+		model.addObject("projetosParticipantes", listaProjetosParticipantes);
+		model.addObject("projetosFavoritos",listaProjetosFavoritos);
 		return model;
 		// return "configuracoes";
 	}
@@ -95,6 +119,32 @@ public class ConfiguracoesController {
 		configuracoes.setEmailUsuario(usuario.getUsername());
 		configuracoesDao.update(configuracoes);
 		return "redirect:/configuracoes";
+	}
+	
+	//Atualizar senha
+	@RequestMapping(value = "/atualiza/senha-usuario")
+	@CacheEvict(value = "configs", allEntries = true)
+	public String updatePassword(@AuthenticationPrincipal Usuario usuario, HttpServletRequest request) {
+		String senhaNova = request.getParameter("senhaNova");
+		BCryptPasswordEncoder senha = new BCryptPasswordEncoder();
+		String hasSenha = senha.encode(senhaNova);
+		usuario.setSenha(hasSenha);
+		
+		cadastroDao.update(usuario);
+		
+		return "redirect:/configuracoes";
+	}
+	
+	// Retorna o senha do Usuario
+	@RequestMapping("/retorna/senha-usuario")
+	@CacheEvict(value = "configs", allEntries = true)
+	@ResponseBody
+	public boolean getSenhaUsuario(@AuthenticationPrincipal Usuario usuario, HttpServletRequest request) {
+		String senhaAtual = request.getParameter("senha");
+		user = cadastroDao.findUsuario(usuario.getUsername());
+		BCryptPasswordEncoder senha = new BCryptPasswordEncoder();
+		boolean confirmar = senha.matches(senhaAtual, usuario.getSenha());
+		return confirmar;
 	}
 
 	// Retorna o status do Usuario

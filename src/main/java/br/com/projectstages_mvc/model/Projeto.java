@@ -18,6 +18,7 @@ public class Projeto implements Serializable {
 	private int id;
 	private String emailUsuario;
 	private String nome;
+	private String descricao;
 	private String tarefa;
 	private String desenvolvimento;
 	private String concluido;
@@ -46,6 +47,14 @@ public class Projeto implements Serializable {
 		this.nome = nome;
 	}
 	
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
 	public String getTarefa() {
 		return tarefa;
 	}

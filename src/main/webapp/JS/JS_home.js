@@ -8,6 +8,9 @@ var $status = document.querySelector('.perfil-status');
 var $btnAddNovoProjeto = document.querySelector('#btn-add-novo-projeto');
 var $caixaAddNovoProjeto = document.querySelector('#caixa-add-projeto');
 var $fechaCaixaAddNovoProjeto = document.querySelector('#fecha-caixa-add-projeto');
+var $searchNav = document.getElementById("search-nav");
+var $principalNav = document.getElementById("principal-nav");
+var $searchMenuProjectParticipantes = document.getElementById("pesquisa");
 
 function habilitarStatusUsuario(result){
 	if(result == "Disponivel"){
@@ -125,6 +128,89 @@ $btnAddNovoProjeto.addEventListener('click', function(){
 $fechaCaixaAddNovoProjeto.addEventListener('click', function(){
    $caixaAddNovoProjeto.style.display = "none";
 });
+
+$searchMenuProjectParticipantes.addEventListener("keydown", function(e){
+
+	$searchNav.style.display = "block";
+	$principalNav.style.display = "none";
+	
+	if($searchMenuProjectParticipantes.value == ""){
+		$searchNav.style.display = "none";
+		$principalNav.style.display = "block";
+	}
+	
+	if(e.keyCode > 46 && e.keyCode < 91){
+	$.ajax({
+	       url: '/projectstages_mvc/retorna/projeto-pesquisa',
+	       data:{nome : $searchMenuProjectParticipantes.value},
+	       success : function(response){
+	    	   $.ajax({
+	    	       url: '/projectstages_mvc/clear/projeto-pesquisa',
+	    	       success : function(result){
+	    	       
+	    	    	   for(var i = 0; i < result.length;i++ ){
+	    	    	
+	    	    	   var $projetoResult = document.getElementById("projeto-result-" + result[i]);
+	    	    	   
+	    	    	   $projetoResult.style.display = "none";
+	    	    	   }
+	    	    	   
+	    	    	   for(var i = 0; i < response.length;i++ ){
+	    	    		 var $projetoResult = document.getElementById("projeto-result-" + response[i]);
+	    		    	   
+	    	    		   $projetoResult.style.display = "flex";
+	    		    	   }
+	    	    	   
+	    	    
+	    	       }
+	    	   });
+	    	  
+	       }
+	   });
+	}
+});
+
+$searchMenuProjectParticipantes.addEventListener("keyup", function(e){
+
+	$searchNav.style.display = "block";
+	$principalNav.style.display = "none";
+	
+	if($searchMenuProjectParticipantes.value == ""){
+		$searchNav.style.display = "none";
+		$principalNav.style.display = "block";
+	}
+	
+	if(e.keyCode > 46 && e.keyCode < 91){
+	$.ajax({
+	       url: '/projectstages_mvc/retorna/projeto-pesquisa',
+	       data:{nome : $searchMenuProjectParticipantes.value},
+	       success : function(response){
+	    	   $.ajax({
+	    	       url: '/projectstages_mvc/clear/projeto-pesquisa',
+	    	       success : function(result){
+	    	       
+	    	    	   for(var i = 0; i < result.length;i++ ){
+	    	    	
+	    	    	   var $projetoResult = document.getElementById("projeto-result-" + result[i]);
+	    	    	   
+	    	    	   $projetoResult.style.display = "none";
+	    	    	   }
+	    	    	   
+	    	    	   for(var i = 0; i < response.length;i++ ){
+	    	    		   var $projetoResult = document.getElementById("projeto-result-" + response[i]);
+	    		    	   
+	    	    		   $projetoResult.style.display = "flex";
+	    		    	   }
+	    	    	   
+	    	    
+	    	       }
+	    	   });
+	    	  
+	       }
+	   });
+	}
+});
+
 
 function ExibirUsuarioStatus(){
 	'use strict'; 

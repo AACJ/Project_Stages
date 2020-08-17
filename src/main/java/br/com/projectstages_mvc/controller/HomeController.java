@@ -93,6 +93,7 @@ public class HomeController {
 		List<Date> listaAjustaDataDesenvolvimentos = new ArrayList<Date>();
 		List<Date> listaAjustaDataConcluidos = new ArrayList<Date>();
 		List<Projeto> listaProjetosParticipantes = new ArrayList<Projeto>();
+		List<Projeto> listaProjetosFavoritos = new ArrayList<Projeto>();
 		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
 		List<Chat> listMensagens = new ArrayList<Chat>();
 		user = cadastroDao.findUsuario(usuario.getUsername());
@@ -203,31 +204,27 @@ public class HomeController {
 		// Lista os proprietarios dos Concluidos
 		for (int i = 0; i < listConcluidos.size(); i++) {
 			if (listConcluidos.get(i).getEmailProprietario() != null) {
-				listaProprietariosConcluidos
-						.add(cadastroDao.findUsuario(listConcluidos.get(i).getEmailProprietario()));
+				listaProprietariosConcluidos.add(cadastroDao.findUsuario(listConcluidos.get(i).getEmailProprietario()));
 			} else {
 				listaProprietariosConcluidos.add(null);
 			}
 		}
 
 		for (int i = 0; i < projetosParticipantes.size(); i++) {
-			System.out.println(projetosParticipantes.get(i).getFuncao());
-			System.out.println(projetosParticipantes.size());
-			if (projetosParticipantes.get(i).getFuncao().equals("adm")
-					|| projetosParticipantes.get(i).getFuncao().equals("membro")) {
-				System.out.println("passou");
-				System.out.println(projetosParticipantes.get(i).getFuncao());
 				listaProjetosParticipantes
 						.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
-			} else {
-				System.out.println("passou null");
-				listaProjetosParticipantes.add(null);
+		}
+		
+		for (int i = 0; i < projetosParticipantes.size(); i++) {
+			if(projetosParticipantes.get(i).isProjetoFavorito()) {
+			listaProjetosFavoritos
+					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
 			}
-
 		}
 
 		model.addObject("listaProjeto", projetodao.listarTodosProjetos(usuario.getUsername()));
 		model.addObject("nomeProjeto", projeto.getNome());
+		model.addObject("descricaoProjeto", projeto.getDescricao());
 		model.addObject("idProjeto", idProjeto);
 		model.addObject("tarefaProjeto", projeto.getTarefa());
 		model.addObject("desenvolvimentoProjeto", projeto.getDesenvolvimento());
@@ -249,6 +246,8 @@ public class HomeController {
 		model.addObject("minhaFuncao", meuParticipante.getFuncao());
 		model.addObject("qtnParticipante", listaParticipantes.size() - 4);
 		model.addObject("projetosParticipantes", listaProjetosParticipantes);
+		model.addObject("favorito", meuParticipante.isProjetoFavorito());
+		model.addObject("projetosFavoritos",listaProjetosFavoritos);
 		return model;
 	}
 
@@ -279,7 +278,31 @@ public class HomeController {
 		projetodao.updateTarefas(auxTarefas);
 		return "redirect:/home?idProjeto=" + projeto.getId() + "&nome=" + projeto.getNome();
 	}
+	
+	@RequestMapping(value = "/atualizar/tarefas-texto")
+	@CacheEvict(value = "projetos", allEntries = true)
+	public void atualizarTarefasTexto(HttpServletRequest request) {
+		String idTarefa = request.getParameter("idTarefa");
+		String texto = request.getParameter("texto");
+	
+		Tarefas auxTarefas = projetodao.foundTarefa(Integer.parseInt(idTarefa));
+		auxTarefas.setNome(texto);
+		projetodao.updateTarefas(auxTarefas);
+	}
 
+	@RequestMapping(value = "/atualizar/tarefas-data")
+	@CacheEvict(value = "projetos", allEntries = true)
+	public void atualizarTarefasData(HttpServletRequest request) {
+		String idTarefa = request.getParameter("idTarefa");
+		String texto = request.getParameter("texto");
+	
+		Tarefas auxTarefas = projetodao.foundTarefa(Integer.parseInt(idTarefa));
+		System.out.println(texto);
+		auxTarefas.setPrazo(Date.valueOf(texto));
+		System.out.println(auxTarefas.getPrazo());
+		projetodao.updateTarefas(auxTarefas);
+	}
+	
 	@RequestMapping(value = "/remove/proprietario", method = RequestMethod.GET)
 	@CacheEvict(value = "projetos", allEntries = true)
 	public String removeTarefasProprietario(@RequestParam int idTarefa, @RequestParam String emailProprietario) {
@@ -348,7 +371,31 @@ public class HomeController {
 		projetodao.updateDesenvolvimentos(auxDesenvolvimentos);
 		return "redirect:/home?idProjeto=" + projeto.getId() + "&nome=" + projeto.getNome();
 	}
+	
+	@RequestMapping(value = "/atualizar/desenvolvimentos-texto")
+	@CacheEvict(value = "projetos", allEntries = true)
+	public void atualizarDesenvolvimentosTexto(HttpServletRequest request) {
+		String idTarefa = request.getParameter("idTarefa");
+		String texto = request.getParameter("texto");
+	
+		Desenvolvimentos auxTarefas = projetodao.foundDesenvolvimentos(Integer.parseInt(idTarefa));
+		auxTarefas.setNome(texto);
+		projetodao.updateDesenvolvimentos(auxTarefas);
+	}
 
+	@RequestMapping(value = "/atualizar/desenvolvimentos-data")
+	@CacheEvict(value = "projetos", allEntries = true)
+	public void atualizarDesenvolvimentosData(HttpServletRequest request) {
+		String idTarefa = request.getParameter("idTarefa");
+		String texto = request.getParameter("texto");
+	
+		Desenvolvimentos auxTarefas = projetodao.foundDesenvolvimentos(Integer.parseInt(idTarefa));
+		System.out.println(texto);
+		auxTarefas.setPrazo(Date.valueOf(texto));
+		System.out.println(auxTarefas.getPrazo());
+		projetodao.updateDesenvolvimentos(auxTarefas);
+	}
+	
 	@RequestMapping(value = "/remove/proprietario-desenvolvimentos", method = RequestMethod.GET)
 	@CacheEvict(value = "projetos", allEntries = true)
 	public String removeDesenvolvimentosProprietario(@RequestParam int idTarefa,
@@ -408,7 +455,7 @@ public class HomeController {
 		projetodao.updateConcluidos(auxConcluidos);
 		return "redirect:/home?idProjeto=" + projeto.getId() + "&nome=" + projeto.getNome();
 	}
-	
+
 	@RequestMapping(value = "/atualizar/concluidos-proprietario", method = RequestMethod.GET)
 	@CacheEvict(value = "projetos", allEntries = true)
 	public String atualizarConcluidosProprietario(@RequestParam int idTarefa, @RequestParam String emailProprietario) {
@@ -418,10 +465,33 @@ public class HomeController {
 		return "redirect:/home?idProjeto=" + projeto.getId() + "&nome=" + projeto.getNome();
 	}
 	
+	@RequestMapping(value = "/atualizar/concluidos-texto")
+	@CacheEvict(value = "projetos", allEntries = true)
+	public void atualizarConcluidosTexto(HttpServletRequest request) {
+		String idTarefa = request.getParameter("idTarefa");
+		String texto = request.getParameter("texto");
+	
+		Concluidos auxTarefas = projetodao.foundConcluidos(Integer.parseInt(idTarefa));
+		auxTarefas.setNome(texto);
+		projetodao.updateConcluidos(auxTarefas);
+	}
+	
+	@RequestMapping(value = "/atualizar/concluidos-data")
+	@CacheEvict(value = "projetos", allEntries = true)
+	public void atualizarConcluidosData(HttpServletRequest request) {
+		String idTarefa = request.getParameter("idTarefa");
+		String texto = request.getParameter("texto");
+	
+		Concluidos auxTarefas = projetodao.foundConcluidos(Integer.parseInt(idTarefa));
+		System.out.println(texto);
+		auxTarefas.setPrazo(Date.valueOf(texto));
+		System.out.println(auxTarefas.getPrazo());
+		projetodao.updateConcluidos(auxTarefas);
+	}
+
 	@RequestMapping(value = "/remove/proprietario-concluidos", method = RequestMethod.GET)
 	@CacheEvict(value = "projetos", allEntries = true)
-	public String removeConcluidosProprietario(@RequestParam int idTarefa,
-			@RequestParam String emailProprietario) {
+	public String removeConcluidosProprietario(@RequestParam int idTarefa, @RequestParam String emailProprietario) {
 		Concluidos auxConcluidos = projetodao.foundConcluidos(idTarefa);
 		auxConcluidos.setEmailProprietario(emailProprietario);
 		auxConcluidos.setEmailProprietario(null);
@@ -482,6 +552,87 @@ public class HomeController {
 		participantesDao.save(participante);
 
 		return "redirect:/home?idProjeto=" + novoProjeto.getId() + "&nome=" + novoProjeto.getNome();
+	}
+	
+	//Adicionar aos favoritos
+	@RequestMapping(value = "/add/favoritos", method = RequestMethod.GET)
+	@CacheEvict(value = "projetos", allEntries = true)
+	public String  updateProjetoFavoritos(@RequestParam boolean favorito) {
+		meuParticipante.setProjetoFavorito(favorito);
+		participantesDao.update(meuParticipante);
+		return "redirect:/home?idProjeto=" + projeto.getId() + "&nome=" + projeto.getNome();
+	}
+
+	// Sair do projeto
+	@RequestMapping(value = "/sair/projeto", method = RequestMethod.GET)
+	@CacheEvict(value = "projetos", allEntries = true)
+	public String sairProjeto(@AuthenticationPrincipal Usuario usuario, @RequestParam String email) {
+		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
+		Participantes participante = new Participantes();
+		participante = participantesDao.findParticipante(idDoProjeto, email);
+		participantesDao.delete(participante);
+		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
+
+		if (projetosParticipantes == null) {
+			return "redirect:/home-vazio";
+		}
+
+		Projeto auxProjetoNext = projetodao
+				.listarProjetosParticipantePorID(projetosParticipantes.get(0).getIdProjeto());
+
+		return "redirect:/home?idProjeto=" + auxProjetoNext.getId() + "&nome=" + auxProjetoNext.getNome();
+	}
+
+	@RequestMapping(value = "/sair/projeto-criador", method = RequestMethod.GET)
+	@CacheEvict(value = "projetos", allEntries = true)
+	public String sairProjetoCriadro(@AuthenticationPrincipal Usuario usuario, @RequestParam String email) {
+		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
+		Participantes participante = new Participantes();
+		participante = participantesDao.findParticipante(idDoProjeto, email);
+		participantesDao.delete(participante);
+		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
+
+		int contAux = 0;
+
+		List<Participantes> listAllParticipantesProjeto = participantesDao.listAllParticipantesDoProjeto(idDoProjeto);
+
+		if (listAllParticipantesProjeto != null) {
+			for (int i = 0; i < listAllParticipantesProjeto.size(); i++) {
+				if (listAllParticipantesProjeto.get(i).getFuncao().equals("adm")
+						|| listAllParticipantesProjeto.get(i).getFuncao().equals("criador")) {
+					contAux++;
+				}
+			}
+
+			if (contAux == 0) {
+				listAllParticipantesProjeto.get(0).setFuncao("adm");
+				participantesDao.update(listAllParticipantesProjeto.get(0));
+			}
+
+		} else {
+			Projeto deleteProjeto = projetodao.listarProjetosParticipantePorID(idDoProjeto);
+			projetodao.delete(deleteProjeto);
+		}
+
+		if (projetosParticipantes == null) {
+			return "redirect:/home-vazio";
+		}
+
+		Projeto auxProjetoNext = projetodao
+				.listarProjetosParticipantePorID(projetosParticipantes.get(0).getIdProjeto());
+
+		return "redirect:/home?idProjeto=" + auxProjetoNext.getId() + "&nome=" + auxProjetoNext.getNome();
+	}
+
+	@RequestMapping(value = "/update/info-projeto")
+	@CacheEvict(value = "projetos", allEntries = true)
+	public String updateInformcoesProjeto(@AuthenticationPrincipal Usuario usuario, HttpServletRequest request) {
+		String nome = request.getParameter("nome");
+		String descricao = request.getParameter("descricao");
+		projeto.setNome(nome);
+		projeto.setDescricao(descricao);
+		projetodao.update(projeto);
+		return "redirect:/home?idProjeto=" + projeto.getId() + "&nome=" + projeto.getNome();
 	}
 
 	// Recebe e Retorna o status do Usuario
@@ -681,7 +832,7 @@ public class HomeController {
 	@RequestMapping("/retorna/ids-proprietarios")
 	@CacheEvict(value = "projetos", allEntries = true)
 	@ResponseBody
-	public List<Integer> getIDSProprietarios() {
+	public List<Integer> getIDSProprietarios(@AuthenticationPrincipal Usuario usuario) {
 		List<Integer> ids = new ArrayList<Integer>();
 		List<Usuario> listaParticipantes = new ArrayList<Usuario>();
 		List<String> participantes = participantesDao.listarTodosOsPartcipantesDoProjeto(idDoProjeto);
@@ -691,7 +842,9 @@ public class HomeController {
 		}
 
 		for (int i = 0; i < listaParticipantes.size(); i++) {
-			ids.add(listaParticipantes.get(i).getId());
+			if(listaParticipantes.get(i).getId() != usuario.getId()) {
+			   ids.add(listaParticipantes.get(i).getId());
+			}
 		}
 
 		return ids;
@@ -723,4 +876,78 @@ public class HomeController {
 
 		return ids;
 	}
+
+	// Retorna pesquisa dos projetos que o usuario esta participando
+	@RequestMapping("/retorna/projeto-pesquisa")
+	@CacheEvict(value = "projetos", allEntries = true)
+	@ResponseBody
+	public List<Integer> getProjetoPesquisa(@AuthenticationPrincipal Usuario usuario, HttpServletRequest request) {
+		List<Integer> ids = new ArrayList<Integer>();
+		List<Projeto> listaProjetosParticipantes = new ArrayList<Projeto>();
+		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
+		List<Projeto> listaNomeProjetos = new ArrayList<Projeto>();
+		String nome = request.getParameter("nome");
+		listaNomeProjetos = projetodao.pesquisarProjetosUsuarioParticipando(nome);
+		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
+
+		for (int i = 0; i < projetosParticipantes.size(); i++) {
+			listaProjetosParticipantes
+					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
+		}
+
+		for (int i = 0; i < listaProjetosParticipantes.size(); i++) {
+			for (int j = 0; j < listaNomeProjetos.size(); j++) {
+				if (listaProjetosParticipantes.get(i).getNome().equals(listaNomeProjetos.get(j).getNome())) {
+					ids.add(listaProjetosParticipantes.get(i).getId());
+				}
+			}
+		}
+
+		return ids;
+	}
+
+	// Limpa pesquisa dos projetos que o usuario esta participando
+	@RequestMapping("/clear/projeto-pesquisa")
+	@CacheEvict(value = "projetos", allEntries = true)
+	@ResponseBody
+	public List<Integer> clearProjetoPesquisa(@AuthenticationPrincipal Usuario usuario) {
+		List<Integer> ids = new ArrayList<Integer>();
+		List<Projeto> listaProjetosParticipantes = new ArrayList<Projeto>();
+		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
+		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
+
+		for (int i = 0; i < projetosParticipantes.size(); i++) {
+			listaProjetosParticipantes
+					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
+		}
+
+		for (int i = 0; i < listaProjetosParticipantes.size(); i++) {
+			ids.add(listaProjetosParticipantes.get(i).getId());
+		}
+
+		return ids;
+	}
+	
+	//Retorna os ids de todas atividades
+	@RequestMapping("/retorna/id-all-atividades")
+	@CacheEvict(value = "projetos", allEntries = true)
+	@ResponseBody
+	public List<Integer> getIDSAllAtividade(){
+		List<Integer> ids = new ArrayList<Integer>();
+		
+		for(int i = 0; i < listTarefas.size(); i++) {
+			ids.add(listTarefas.get(i).getId());
+		}
+		
+		for(int i = 0; i < listDesenvolvimentos.size(); i++) {
+			ids.add(listDesenvolvimentos.get(i).getId());
+		}
+		
+		for(int i = 0; i < listConcluidos.size(); i++) {
+			ids.add(listConcluidos.get(i).getId());
+		}
+		
+		return ids;
+	}
+
 }

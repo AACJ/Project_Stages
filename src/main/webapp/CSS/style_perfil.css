@@ -25,7 +25,9 @@ main{
     background-position: center;
     margin: auto;
     margin-bottom: 20px;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 20px;
 }
 
@@ -37,7 +39,9 @@ main{
     background-position: center;
     margin: auto;
     margin-bottom: 20px;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 20px;
 }
 
@@ -45,25 +49,78 @@ main{
     width: 100%;
 }
 
-.escolher-foto input{
-    font-family: Arial,sans-serif,serif;
-    font-size: 16px;
-    display: block;
-    align-items: center;
-    justify-content: center;
-    width: 30%;
+.linha-escolhe-foto-input{
+    width: 100%;
     height: 35px;
-    margin-bottom: 20px;
-    margin: auto;
-    color:rgb(59, 168, 248);
-    text-align: center;
-    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.escolher-fotoNigth input{
+.update-name-user{
     font-family: Arial,sans-serif,serif;
     font-size: 16px;
     display: block;
+    width: 250px;
+    text-align: center;
+    height: 35px;
+    color:rgb(59, 168, 248);
+    border-color: transparent;
+    margin-left: 35px;
+    outline: none;
+}
+
+.botoes-edit-nome-usuario{
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    float: left;
+    background-color: white;
+    border: 1px solid rgb(59, 168, 248);;
+}
+
+.edit-name-user-pencil{
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+}
+
+.edit-name-user-pencil:focus{
+    outline-style: none;
+}
+
+.edit-name-user-pencil img{
+    width: 100%;
+    height: 100%;
+}
+
+.save-name-user-pencil{
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+}
+
+.save-name-user-pencil:focus{
+    outline-style: none;
+}
+
+.save-name-user-pencil img{
+    width: 100%;
+    height: 100%;
+}
+
+.escolher-fotoNigth .update-name-user{
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     width: 30%;
@@ -76,7 +133,7 @@ main{
     background-color: rgb(3,21,34);
 }
 
-.escolher-foto input:hover{
+.update-name-user:hover:read-write{
     border:1px solid rgb(59, 168, 248);
     background-image: url(../img/Tela_Perfil/lapisazulIcon.png);
     background-repeat: no-repeat;
@@ -88,6 +145,10 @@ main{
    display: flex;
    align-items: center;
    justify-content: center; 
+}
+
+#active-remove-photo{
+	margin-left: 140px;
 }
 
 .foto nav{
@@ -126,6 +187,35 @@ main{
     display: block;
 }
 
+.remove-foto{
+    width: 150px;
+    height: 30px;
+    font-family: Arial,sans-serif,serif;
+    color:white;
+    text-align: center;
+    background-color: red;
+    display:block;
+    float: left;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: relative;
+    left:10px;
+    bottom: 10px;
+    padding-top:3px;
+}
+
+.remove-foto:hover{
+	color: white;
+	text-decoration:none;
+}
+
+.remove-foto:focus{
+    outline-style: none;
+}
+
 #uploadFoto{
     width: 40%;
     height: 40%;
@@ -144,6 +234,7 @@ main{
 #file{
     display: none;
 }
+
 
 .informacao{
     width: 100%;
@@ -217,6 +308,41 @@ main{
     float: left;
     margin: 0px;
     padding: 0px;
+}
+
+.coluna-text-informacao-tabela-ID{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+.coluna-copy-informacao-tabela{
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    margin: 0px;
+    padding: 0px; 
+}
+
+.btnCopy{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: block;
+    border: 1px solid rgb(59, 168, 248);
+    margin: 0px;
+    padding: 0px;
+}
+
+.btnCopy:focus{
+    outline-style: none;
 }
 
 .coluna-biografia-text-informacao-tabela{

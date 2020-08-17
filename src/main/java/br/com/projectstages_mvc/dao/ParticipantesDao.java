@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import br.com.projectstages_mvc.model.Participantes;
+import br.com.projectstages_mvc.model.Usuario;
 
 @Repository
 public class ParticipantesDao {
@@ -76,4 +77,15 @@ public class ParticipantesDao {
 		
 		return participantes;
 	}
+	
+	public List<Participantes> listAllParticipantesDoProjeto(int idProjeto) {
+		String	jpql = "select a from Participantes a where a.idProjeto = :idProjeto";
+		List<Participantes> participantes = manager.createQuery(jpql, Participantes.class).setParameter("idProjeto",idProjeto).getResultList();
+		if(participantes.isEmpty()) {
+			return null;
+		}
+		
+		return participantes;
+	}
+	
 }

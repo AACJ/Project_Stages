@@ -56,8 +56,14 @@
                         <img src="img/Tela_Perfil/IDIcon.png" width="30" heigth="40">
                             <span>ID:</span>
                         </td>
-                        <td class="coluna-text-informacao-tabela">
-                            <input class="text-informacao-tabela" type="text" name="id" placeholder="ID" value="${usuarioId}" id="id" readonly>
+                        <td class="coluna-text-informacao-tabela-ID">
+                            <input class="text-informacao-tabela" type="text" name="id" placeholder="ID" value="${usuarioId}" id="textIdAmigo" readonly>
+                        </td>
+                        
+                         <td class="coluna-copy-informacao-tabela">
+                            <button type="button" class="btnCopy" id="btn-copyAmigo">
+                                <img src="img/Tela_Perfil/copyid.png" width="30" heigth="40">
+                            </button>
                         </td>
                     </tr>
                     

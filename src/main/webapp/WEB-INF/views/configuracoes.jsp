@@ -16,7 +16,7 @@
     </head>
  <body id="corpo" class="corpo">
   
-       <%@include	file="/WEB-INF/views/home.jsp"	%>
+       <%@include file="/WEB-INF/views/home.jsp" %>
             
             <main>
             <section class="gallery">
@@ -76,15 +76,18 @@
                         <br>
                         <div class="caixa-altera-senha">
                         <span class="config-opcao" id="senhaAtual">Senha atual:</span>
-                        <input type="password" name="senha" class="config-senha">
+                        <input type="password" name="senha" id="textSenhaAtual" class="config-senha">
+                        <span id="msg-erro-senhaAtual">Senha atual incorreta!</span>
                         <br>
                         <span class="config-opcao" id="senhaNova">Nova senha:</span>
-                        <input type="password" name="senha" class="config-senha">
+                        <input type="password" name="senha" id="textSenhaNova" class="config-senha">
+                        <span id="msg-erro-senhaNova">Erro de confirmação de senha!</span>
                         <br>
                         <span class="config-opcao" id="senhaConfirmada">Confirmar senha:</span>
-                        <input type="password" name="senha" class="config-senha">
+                        <input type="password" name="senha" id="textSenhaConfirmada" class="config-senha">
+                       	<span id="msg-sucesso-senhaNova">Senha alterada com sucesso!</span>
                         <br>
-                        <button type="submit" id="btnConfiguracaoSenha">Salvar</button>
+                        <button type="button" id="btnConfiguracaoSenha">Salvar</button>
                         </div>
                         <span class="config-opcao">Politica de senha:</span>
                         <input type="radio" name="politicaDeSenha" id="ativadoSenhaSegura">

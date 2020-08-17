@@ -27,7 +27,30 @@
             <section class="gallery">
                <form action="/projectstages_mvc/salvar/foto-perfil" method="post"	enctype="multipart/form-data" id="form-Foto-Perfil">
                <nav class="escolher-foto">
+               
+               <c:if test="${usuarioFoto == null}">
                <div class="foto">
+                   <input type="file" name="foto" id="file" accept="image/png image/jpe image/jpg">
+                   <label for="file" id="btnfile">
+                       <nav id="cont">
+                       	   <c:if test="${usuarioFoto == null}">
+                           <img src="img/Tela_Principal/UsercomCirculoIcon.png" id="imagem">
+                           </c:if>
+                           
+                           <c:if test="${usuarioFoto != null}">
+                           <img src="${usuarioFoto}" id="imagem">
+                           </c:if>
+                           <div class="foto-text">
+                           <img src="img/Tela_Perfil/UploadIcon.png" width="10" height="10" id="uploadFoto">
+                           <span>Escolher foto</span>
+                           </div>
+                       </nav>
+                   </label>        
+               </div>
+               </c:if>
+               
+               <c:if test="${usuarioFoto != null}">
+               <div class="foto" id="active-remove-photo">
                    <input type="file" name="foto" id="file" accept="image/png image/jpe image/jpg">
                    <label for="file" id="btnfile">
                        <nav id="cont">
@@ -45,8 +68,20 @@
                        </nav>
                    </label>
                   
+                  <a href="/projectstages_mvc/remover/foto-perfil-meu-usuario" class="remove-foto">Remover foto</a>
+                 
                </div>
-                <input type="text" name="usuario" placeholder="Usuario" value="${usuarioNameUser}" id="usuario">
+               </c:if>
+               
+               <div class="linha-escolhe-foto-input">
+                <input type="text" name="usuario" placeholder="Usuario" class="update-name-user" id="text-update-usuario" value="${usuarioNameUser}" readonly>
+               
+                <div class="botoes-edit-nome-usuario">
+                   <button type="button" class="edit-name-user-pencil" id="btn-edit-name-user"><img src="img/Tela_Principal/lapisUpdate.png"></button>
+                     <button type="button" class="save-name-user-pencil" id="btn-save-name-user"><img src="img/Tela_Perfil/save.png"></button>
+                </div>
+               
+               </div>
                </nav>
              <security:csrfInput/>
              </form>
@@ -64,8 +99,14 @@
                         <img src="img/Tela_Perfil/IDIcon.png" width="30" heigth="40">
                             <span>ID:</span>
                         </td>
-                        <td class="coluna-text-informacao-tabela">
-                            <input class="text-informacao-tabela" type="text" name="id" placeholder="ID" value="${usuarioId}" id="id" readonly>
+                        <td class="coluna-text-informacao-tabela-ID">
+                            <input class="text-informacao-tabela" type="text" name="id" placeholder="ID" value="${usuarioId}" id="textId" readonly>
+                        </td>
+                        
+                        <td class="coluna-copy-informacao-tabela">
+                            <button type="button" class="btnCopy" id="btn-copy">
+                                <img src="img/Tela_Perfil/copyid.png" width="30" heigth="40">
+                            </button>
                         </td>
                     </tr>
                     

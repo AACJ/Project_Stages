@@ -28,7 +28,7 @@
                         <input type="password" id="txtConfirmarSenha" class="caixa" name="confrmarSenha" minlength="8" size="30" placeholder="Confirmar Senha" required>
                     <label id="ajuste">
                     <input type="checkbox" id="chk" name="termos" checked required>
-                    Aceito os<a href="#" id="termos">Termos de uso</a></label>
+                    Aceito os<a href="/projectstages_mvc/termos-de-uso" target="_blank" id="termos">Termos de uso</a></label>
            		 <input type="submit" id="btn" class="envio" value="Cadastra-se">
                     <p class="link"><a href="/projectstages_mvc/login">Já possui uma conta?</a></p>
                     <security:csrfInput/>

@@ -14,6 +14,7 @@ public class Participantes {
 	private int idProjeto;
 	private String emailParticipante;
 	private String funcao;
+	private boolean projetoFavorito;
 	
 	public Participantes() {
 	}
@@ -54,4 +55,13 @@ public class Participantes {
 	public void setFuncao(String funcao) {
 		this.funcao = funcao;
 	}
+
+	public boolean isProjetoFavorito() {
+		return projetoFavorito;
+	}
+
+	public void setProjetoFavorito(boolean projetoFavorito) {
+		this.projetoFavorito = projetoFavorito;
+	}
+	
 }

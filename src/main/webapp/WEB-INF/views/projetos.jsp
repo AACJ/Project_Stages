@@ -23,15 +23,25 @@
             <section class="user-projetos">
             <div class="cabecalhoProjeto">
            <div class="caixa-informacoes-principais-projeto">
-            <h1 class="nomeProjeto">${nomeProjeto}</h1>
-            <input type="text" placeholder="Adicionar Descrição" id="descricaoProjeto">
+            <input type="text" class="nomeProjeto" value="${nomeProjeto}" id="nameProjectInfo" readonly>
+            <input type="text" placeholder="Adicionar Descrição" value="${descricaoProjeto}" id="descricaoProjeto" readonly>
            </div>
+           
+           <div class="caixa-projeto-favorito">
+           	<c:if test="${favorito == false}">
+                <a href="/projectstages_mvc/add/favoritos?favorito=true" class="add-favorito"><img src="img/Tela_Principal/star.png"></a>
+           	</c:if>
+           	
+           	<c:if test="${favorito == true}">
+                <a href="/projectstages_mvc/add/favoritos?favorito=false" class="add-favorito"><img src="img/Tela_Principal/star2.png"></a>
+           	</c:if>
+            </div>
            
             <div class="caixa-mostra-participantes-projeto">
                 <button type="button" class="botao-mostrar-participantes" id="btn-show-participantes">
 
                 <div class="foto-botao-mostrar-participantes">
-                    <img src="img/Tela_Principal/add01.png">    
+                    <img src="img/Tela_Principal/more1.png">    
                 </div>
                 <c:forEach items="${listaParticipantes}" var="participantes" varStatus="status">
                <c:if test="${status.index == 0}"> 
@@ -94,9 +104,14 @@
            
             <nav class="caixa-de-botoes-projeto">
                 
+                <div class="caixa-botoes-alt-project-info">
+                <button type="button" class="botao-edit-info-project" id="edit-project-info">Editar Informações</button>
+                <button type="button" class="botao-save-info-project" id="save-project-info">Salvar Informações</button>
+                </div>
+                
                 <button type ="button"class="botao-add-participante" id="btn-add-participante">Add participante</button>
                 
-                <button type="button" class="botao-excluir-projeto">Sair do projeto</button>
+                <button type="button" class="botao-excluir-projeto" id="btn-exit-project" value="${usuarioAtual.email}">Sair do projeto</button>
             </nav>
             </div>
             <div class="corpoProjeto">
@@ -187,7 +202,7 @@
                                    
                                 <c:if test="${participantes.email != usuarioAtual.email}">    
                                    
-                                    <a href="/projectstages_mvc/atualizar/tarefas-proprietario?idTarefa=${tarefas.id}&emailProprietario=${participantes.email}" class="perfil-proprietario" id="perfil-proprietario-${participantes.id}">
+                                    <a href="/projectstages_mvc/atualizar/tarefas-proprietario?idTarefa=${tarefas.id}&emailProprietario=${participantes.email}" class="perfil-proprietario" id="perfil-${tarefas.id}-proprietario-${participantes.id}">
                                         
                                         <div class="foto-perfil-proprietario">
                                         <c:if test="${participantes.foto == null}">
@@ -306,22 +321,16 @@
                         <input type="date" class="projeto-data-text" id="dateProjeto" value="${listaAjustaData[status.index]}">    
                         </td>
 
-                        <td class="projeto-update">
-                        <a href="home.html" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/lapisUpdate.png">    
-                        </a>
-                        </td>
-                            
                         <td class="projeto-delete">
                         <c:if test="${minhaFuncao != 'membro'}">
                         <a href="/projectstages_mvc/delete/tarefas?idTarefa=${tarefas.id}" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/deleteBotaoProjeto02.png">    
+                        <img src="img/Tela_Principal/trash1.png">    
                         </a>
                         </c:if>
                         
                         <c:if test="${minhaFuncao == 'membro'}">
                         <button type="button" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/deleteBotaoProjeto02.png">    
+                        <img src="img/Tela_Principal/trash1.png">    
                         </button>
                         </c:if>
                         
@@ -428,7 +437,7 @@
                                    
                                 <c:if test="${participantes.email != usuarioAtual.email}">    
                                    
-                                    <a href="/projectstages_mvc/atualizar/desenvolvimentos-proprietario?idTarefa=${tarefas.id}&emailProprietario=${participantes.email}" class="perfil-proprietario" id="perfil-proprietario-${participantes.id}">
+                                    <a href="/projectstages_mvc/atualizar/desenvolvimentos-proprietario?idTarefa=${tarefas.id}&emailProprietario=${participantes.email}" class="perfil-proprietario" id="perfil-${tarefas.id}-proprietario-${participantes.id}">
                                         
                                         <div class="foto-perfil-proprietario">
                                         <c:if test="${participantes.foto == null}">
@@ -546,23 +555,17 @@
                         <td class="projeto-data">
                         <input type="date" class="projeto-data-text" id="dateProjeto" value="${listaAjustaDataDesenvolvimentos[status.index]}">    
                         </td>
-
-                        <td class="projeto-update">
-                        <a href="home.html" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/lapisUpdate.png">    
-                        </a>
-                        </td>
-                            
+    
                         <td class="projeto-delete">
                         <c:if test="${minhaFuncao != 'membro'}">
                         <a href="/projectstages_mvc/delete/desenvolvimentos?idTarefa=${tarefas.id}" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/deleteBotaoProjeto02.png">    
+                        <img src="img/Tela_Principal/trash1.png">    
                         </a>
                         </c:if>
                         
                         <c:if test="${minhaFuncao == 'membro'}">
                         <button type="button" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/deleteBotaoProjeto02.png">    
+                        <img src="img/Tela_Principal/trash1.png">    
                         </button>
                         </c:if>
                         
@@ -668,7 +671,7 @@
                                    
                                 <c:if test="${participantes.email != usuarioAtual.email}">    
                                    
-                                    <a href="/projectstages_mvc/atualizar/concluidos-proprietario?idTarefa=${tarefas.id}&emailProprietario=${participantes.email}" class="perfil-proprietario" id="perfil-proprietario-${participantes.id}">
+                                    <a href="/projectstages_mvc/atualizar/concluidos-proprietario?idTarefa=${tarefas.id}&emailProprietario=${participantes.email}" class="perfil-proprietario" id="perfil-${tarefas.id}-proprietario-${participantes.id}">
                                         
                                         <div class="foto-perfil-proprietario">
                                         <c:if test="${participantes.foto == null}">
@@ -787,22 +790,16 @@
                         <input type="date" class="projeto-data-text" id="dateProjeto" value="${listaAjustaDataConcluidos[status.index]}">    
                         </td>
 
-                        <td class="projeto-update">
-                        <a href="home.html" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/lapisUpdate.png">    
-                        </a>
-                        </td>
-                            
                         <td class="projeto-delete">
                         <c:if test="${minhaFuncao != 'membro'}">
                         <a href="/projectstages_mvc/delete/concluidos?idTarefa=${tarefas.id}" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/deleteBotaoProjeto02.png">    
+                        <img src="img/Tela_Principal/trash1.png">     
                         </a>
                         </c:if>
                         
                         <c:if test="${minhaFuncao == 'membro'}">
                         <button type="button" class="botao-projeto-delete">
-                        <img src="img/Tela_Principal/deleteBotaoProjeto02.png">    
+                        <img src="img/Tela_Principal/trash1.png">   
                         </button>
                         </c:if>
                         
@@ -957,6 +954,25 @@
                 </div>
             </div>
         </div>
+        
+        <div class="caixa-sair-projeto-externo" id="caixa-sair-projeto-externo">
+            <div class="caixa-sair-projeto-interno" id="caixa-sair-projeto-interno">
+               <button type="button" class="fecha-caixa-sair-projeto" id="fecha-caixa-sair-projeto"><img src="img/Tela_Principal/closer01.png"></button>
+                
+                <p class="title-exit-project">Tem certeza que deseja sair do projeto?</p>
+               
+                <c:if test="${minhaFuncao == 'membro'}">
+                <a href="/projectstages_mvc/sair/projeto?email=${usuarioAtual.email}" class="botao-sim-saida" id="yes-exit">Sim</a>
+                </c:if>
+                
+                <c:if test="${minhaFuncao == 'criador' || minhaFuncao == 'adm'}">
+                <a href="/projectstages_mvc/sair/projeto-criador?email=${usuarioAtual.email}" class="botao-sim-saida" id="yes-exit">Sim</a>
+                </c:if>
+                
+                <button type="button" class="botao-cancel-saida" id="cancel-exil">Cancelar</button>
+            </div>
+        </div>
+        
         <script src="Bootstrap/js/jquery-3.4.1.min.js" type="text/javascript"></script>
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
        	<script src="JS/JS_home.js" type="text/javascript"></script>

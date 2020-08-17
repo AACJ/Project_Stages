@@ -1,6 +1,13 @@
 var $btnaddperfilamigo = document.getElementById("btn-add-perfil-amigo");
 var $btnsolicitacaoperfilamigo = document.getElementById("btn-solicitacao-perfil-amigo");
 var $btnremoveperfilamigo = document.getElementById("btn-remove-perfil-amigo");
+var $textIdAmigo = document.getElementById("textIdAmigo");
+var $btnCopyAmigo = document.getElementById("btn-copyAmigo");
+
+$btnCopyAmigo.addEventListener("click", function(){
+	$textIdAmigo.select();
+	document.execCommand("Copy");
+});
 
 $btnaddperfilamigo.addEventListener('click', function(){
 	$.ajax({

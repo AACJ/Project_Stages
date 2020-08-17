@@ -129,6 +129,7 @@ main{
     padding-right:10px;
     padding-left: 10px;
     border: 1px solid rgb(59, 168, 248);
+    color: rgb(59, 168, 248);
     background-color: transparent;
 }
 
@@ -180,6 +181,24 @@ main{
     height: 0px;
     overflow: hidden;
     transition: height 0.5s;
+}
+
+#msg-erro-senhaAtual{
+    font-family: Arial,sans-serif,serif;
+    color: red;
+    display: none;
+}
+
+#msg-erro-senhaNova{
+    font-family: Arial,sans-serif,serif;
+    color: red;
+    display: none;
+}
+
+#msg-sucesso-senhaNova{
+    font-family: Arial,sans-serif,serif;
+    color: green;
+    display: none;
 }
 
 #alteraSenha:checked ~ label .setaBaixoConfig img{

@@ -4,6 +4,7 @@ var $img = document.getElementById("imagem");
 var $imgUser = document.getElementById("user");    
 var $btnEditarInformacao = document.getElementById("button-edit-informacoes");
 var $btnSalvarInformacao = document.getElementById("button-save-informacoes");
+var $textId = document.getElementById("textId");
 var $textoGmail = document.getElementById("textGmail");
 var $textoSkype = document.getElementById("textSkype");
 var $textoBiografia = document.getElementById("textBiografia");
@@ -12,6 +13,38 @@ var $textoHorario = document.getElementById("textHorario");
 var $textoLocalizacao = document.getElementById("textLocalizacao");
 var $textoAniversario = document.getElementById("textAniversario");
 var $formFotoPerfil = document.getElementById("form-Foto-Perfil");
+var $btnEditNameUser = document.getElementById("btn-edit-name-user");
+var $btnSaveNameUser = document.getElementById("btn-save-name-user");
+var $textUpdateUsuario = document.getElementById("text-update-usuario");
+var $btnCopy = document.getElementById("btn-copy");
+
+$btnCopy.addEventListener("click", function(){
+	$textId.select();
+	document.execCommand("Copy");
+});
+
+$btnEditNameUser.addEventListener("click", function(){
+    $btnEditNameUser.style.display = "none";
+    $btnSaveNameUser.style.display = "block";
+    $textUpdateUsuario.readOnly = false;
+    $textUpdateUsuario.style.border = "1px solid rgb(59, 168, 248)";
+});
+
+$btnSaveNameUser.addEventListener("click", function(){
+   
+	$.ajax({
+	       url: '/projectstages_mvc/atualizar/perfil-userName-meu-usuario',
+	       data:{userName : $textUpdateUsuario.value},
+	       success : function(result){
+	    	  
+	       }
+	   });
+	
+	$btnEditNameUser.style.display = "block";
+    $btnSaveNameUser.style.display = "none";
+    $textUpdateUsuario.readOnly = true; 
+    $textUpdateUsuario.style.border = "none";
+});
 
 $(document).ready(function(){
     $('#textCelular').mask('(00)00000-0000');

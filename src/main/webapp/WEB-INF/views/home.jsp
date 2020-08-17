@@ -177,18 +177,29 @@
           </div>
         </label>
         <nav class="principal">
-            <ul class="principal-nav">
-                <li class="principal-item" id="area">
+               
+                <div class="principal-search-item" id="area">
                     <h1>Áreas de Projetos</h1>
                     <input type=search id="pesquisa" name="Pesquisa" placeholder="Pesquisa">
                     <button type="submit" id="btn"><img src="img/Tela_Principal/Lupaicon.png" width="25" height="25"></button>
+                </div>
+               
+            <ul class="principal-search-nav" id="search-nav">
+            <c:forEach items="${projetosParticipantes}" var="projectParticipante">
+               <li class="principal-result-item" id="projeto-result-${projectParticipante.id}">
+                   <a href="/projectstages_mvc/home?idProjeto=${projectParticipante.id}&nome=${projectParticipante.nome}" class="link-projetos">${projectParticipante.nome}</a>
                 </li>
+             </c:forEach>
+            </ul>   
+        
+            <ul class="principal-nav" id="principal-nav">
                 
                 <li class="principal-item">
                 <button type="button" class="botao-add-novo-projeto" id="btn-add-novo-projeto">
                   Novo Projeto&#43;
                     </button>
                 </li>
+    
                 
                  <li class="principal-item">
                     <input type="checkbox" id="checkPrincipal">
@@ -197,13 +208,9 @@
                     <div class="setaBaixo"><img src="img/Tela_Principal/SetaBaixoIcon.png"></div>
                     </label>
                     <ul class="projetos-principal">
-                    <c:forEach	items="${listaProjeto}"	var="project">
-                        <li><a href="/projectstages_mvc/home?idProjeto=${project.id}&nome=${project.nome}" class="link-projetos">${project.nome}</a></li>
-                   </c:forEach>
                    <c:forEach items="${projetosParticipantes}" var="projectParticipante">
                         <li class="link-participante"><a href="/projectstages_mvc/home?idProjeto=${projectParticipante.id}&nome=${projectParticipante.nome}" class="link-projetos">${projectParticipante.nome}</a></li>
                    </c:forEach>
-                   
                     </ul>
                 </li>
                 
@@ -213,6 +220,11 @@
                     <span class="principal-text">Favoritos</span>
                     <div class="setaBaixo"><img src="img/Tela_Principal/SetaBaixoIcon.png"></div>
                     </label>
+                     <ul class="projetos-favoritos">
+                   <c:forEach items="${projetosFavoritos}" var="projectFavoritos">
+                        <li class="link-participante"><a href="/projectstages_mvc/home?idProjeto=${projectFavoritos.id}&nome=${projectFavoritos.nome}" class="link-projetos">${projectFavoritos.nome}</a></li>
+                   </c:forEach>
+                    </ul>
                 </li>
             
             </ul>

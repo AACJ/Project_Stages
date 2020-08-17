@@ -1,0 +1,57 @@
+html{
+ width: 100%;
+ height: 100%;
+}
+
+body{
+    width:100%;
+    background-image:url(../img/Teste2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;   
+    float: left;
+    transition: width 0.5s ease;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto
+}
+
+.logo-empresa{
+    width: 100%;
+    padding-top: 30px;
+    text-align: center;
+}
+
+main{
+    width: 80%;
+    margin: auto;
+    padding: 0px;
+    margin-top: 30px;
+}
+
+.text-termos{
+    width: 100%;
+    display: block;
+    padding: 20px;
+    margin: 0px;
+    background-color: white;
+    border: 1px solid rgb(59, 168, 248);
+    margin-bottom: 50px;
+}
+
+.text-termos h1{
+    font-family: Arial,sans-serif,serif;
+    text-align: center;
+}
+
+.text-termos h3{
+    font-family: Arial,sans-serif,serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.text-termos p{
+    font-family: Arial,sans-serif,serif;
+    text-align: justify;
+}

@@ -12,6 +12,7 @@ import br.com.projectstages_mvc.model.Concluidos;
 import br.com.projectstages_mvc.model.Desenvolvimentos;
 import br.com.projectstages_mvc.model.Projeto;
 import br.com.projectstages_mvc.model.Tarefas;
+import br.com.projectstages_mvc.model.Usuario;
 
 @Repository
 public class ProjetoDao {
@@ -21,6 +22,14 @@ public class ProjetoDao {
 	
 	public void save(Projeto projeto){
 		manager.persist(projeto);
+	}
+	
+	public void update(Projeto projeto){
+		manager.merge(projeto);
+	}
+	
+	public void delete(Projeto projeto) {
+		manager.remove(projeto);
 	}
 	
 	//Tarefas
@@ -71,6 +80,9 @@ public class ProjetoDao {
 	public Projeto listarProjetosUsuario(String email,int i) {
 		String	jpql = "select p from Projeto p where p.emailUsuario = :emailUsuario";
 		List<Projeto> projetos = manager.createQuery(jpql, Projeto.class).setParameter("emailUsuario",email).getResultList();
+		if(projetos.isEmpty()){
+			return null;
+		}
 		return projetos.get(i);
 	}
 	
@@ -99,6 +111,13 @@ public class ProjetoDao {
 		List<Projeto> projetos = manager.createQuery(jpql, Projeto.class).setParameter("emailUsuario",email).getResultList();
 		return projetos;
 	}
+	
+	public List<Projeto> pesquisarProjetosUsuarioParticipando(String nome){
+		String	jpql = "select u from Projeto u where u.nome like :nome";
+		List<Projeto> userProjeto = manager.createQuery(jpql, Projeto.class).setParameter("nome",nome + "%").getResultList();
+		return userProjeto;
+	}
+	
 	
 	//Tarefas
 	public List<Tarefas> listarTarefas(int id){

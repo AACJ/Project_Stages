@@ -240,6 +240,41 @@ main{
     padding: 0px;
 }
 
+.coluna-text-informacao-tabela-ID{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+.coluna-copy-informacao-tabela{
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    margin: 0px;
+    padding: 0px; 
+}
+
+.btnCopy{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: block;
+    border: 1px solid rgb(59, 168, 248);
+    margin: 0px;
+    padding: 0px;
+}
+
+.btnCopy:focus{
+    outline-style: none;
+}
+
 .coluna-biografia-text-informacao-tabela{
     width: 515px;
     height: 100%;

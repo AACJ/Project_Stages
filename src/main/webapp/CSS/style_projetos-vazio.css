@@ -1,0 +1,31 @@
+main{
+    width:89.05%;
+    background-color: transparent;
+    float: left;
+    transition: width 0.5s ease;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.user-projetos-vazio{
+    width: 912px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;   
+}
+
+#check:checked ~ main{
+    width: 68.75%;
+    overflow-x: auto;
+}
+
+.box-new-project{
+    width: 400px;
+    height: 400px;
+    padding-top: 30px;
+    display: block;
+    border: 1px solid rgb(59, 168, 248);
+    background-color: white;
+}

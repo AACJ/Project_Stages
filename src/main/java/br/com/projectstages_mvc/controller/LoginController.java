@@ -33,6 +33,10 @@ public class LoginController {
 	@Cacheable(value="usuarios")
 	public String loginValidacao(@AuthenticationPrincipal Usuario user){
 		Projeto projeto = projetoDao.listarProjetosUsuario(user.getEmail(), 0);
+		if(projeto == null) {
+			return "redirect:/home-vazio";
+		}
+		
 		return "redirect:/home?idProjeto=" + projeto.getId() + "&nome=" + projeto.getNome();
 	}
 		

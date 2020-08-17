@@ -25,10 +25,13 @@ import br.com.projectstages_mvc.dao.CadastroDao;
 import br.com.projectstages_mvc.dao.ChatDao;
 import br.com.projectstages_mvc.dao.ConfiguracoesDao;
 import br.com.projectstages_mvc.dao.NotificacaoAmizadeDao;
+import br.com.projectstages_mvc.dao.ParticipantesDao;
 import br.com.projectstages_mvc.dao.ProjetoDao;
 import br.com.projectstages_mvc.model.Chat;
 import br.com.projectstages_mvc.model.Configuracoes;
 import br.com.projectstages_mvc.model.NotificacaoAmizade;
+import br.com.projectstages_mvc.model.Participantes;
+import br.com.projectstages_mvc.model.Projeto;
 import br.com.projectstages_mvc.model.Usuario;
 
 @Controller
@@ -46,6 +49,9 @@ public class BatePapoController {
 
 	@Autowired
 	private ConfiguracoesDao configuracoesDao;
+	
+	@Autowired
+	private ParticipantesDao participantesDao;
 	
 	@Autowired
 	private ChatDao chatDao;
@@ -66,7 +72,11 @@ public class BatePapoController {
 		int quantidade = 0;
 		List<NotificacaoAmizade> msgNotificacoes = new ArrayList<NotificacaoAmizade>();
 		List<Chat> listMensagens = chatDao.getAllMensagens(usuario.getEmail());
+		List<Projeto> listaProjetosParticipantes = new ArrayList<Projeto>();
+		List<Projeto> listaProjetosFavoritos = new ArrayList<Projeto>();
+		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
 		user = cadastroDao.findUsuario(usuario.getUsername());
+		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
 		amigoChat = cadastroDao.findById(idUsuario);
 		idDoAmigo = idUsuario;
 		msgNotificacoes = notificacaoDao.listarTodasNotificacoesDoDestinatario(usuario.getUsername());
@@ -98,12 +108,26 @@ public class BatePapoController {
 			model.addObject("totalMensagens", totalMensagens);
 		}
 		
+		for (int i = 0; i < projetosParticipantes.size(); i++) {
+			listaProjetosParticipantes
+					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
+	}
+		
+		for (int i = 0; i < projetosParticipantes.size(); i++) {
+			if(projetosParticipantes.get(i).isProjetoFavorito()) {
+			listaProjetosFavoritos
+					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
+			}
+		}
+		
 		config = configuracoesDao.configuracoesDoUsuario(usuario.getUsername());
 		model.addObject("listaProjeto", projetodao.listarTodosProjetos(usuario.getUsername()));
 		model.addObject("usuarioFoto", user.getFoto());
 		model.addObject("amigoChat", amigoChat);
 		model.addObject("usuarioAtual", user);
 		model.addObject("idAmigo", idUsuario);
+		model.addObject("projetosParticipantes", listaProjetosParticipantes);
+		model.addObject("projetosFavoritos",listaProjetosFavoritos);
 		return model;
 	}
 	

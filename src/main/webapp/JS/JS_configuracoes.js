@@ -1,6 +1,13 @@
 var $formAtivadoNoturno = document.getElementById("formAtivadoNoturno");
 var $ativadoNoturno = document.getElementById("ativadoNoturno");
 var $desativadoNoturno = document.getElementById("desativadoNoturno");
+var $btnConfiguracaoSenha = document.getElementById("btnConfiguracaoSenha");
+var $senhaConfirmada = document.getElementById("textSenhaConfirmada");
+var $senhaNova = document.getElementById("textSenhaNova");
+var $senhaAtual = document.getElementById("textSenhaAtual");
+var $msgErroSenhaAtual = document.getElementById("msg-erro-senhaAtual");
+var $msgErroSenhaNova = document.getElementById("msg-erro-senhaNova");
+var $msgSucessoSenhaNova = document.getElementById("msg-sucesso-senhaNova");
 
 function modoNoturnoAtivadoConfiguracoes(ativado){
    if(ativado){
@@ -27,6 +34,41 @@ function modoNoturnoAtivadoConfiguracoes(ativado){
    var configsenha = document.querySelector(".config-senha").classList.remove("config-senhaNigth");
 }
 }
+
+$btnConfiguracaoSenha.addEventListener("click",function(){
+	$msgErroSenhaNova.style.display = "none";
+	$msgErroSenhaNova.style.display = "none";
+	$msgSucessoSenhaNova.style.display = "none";
+	$.ajax({
+        url: '/projectstages_mvc/retorna/senha-usuario',
+        data:{senha : $senhaAtual.value},
+        success : function(response){
+        	if(response == true){
+        		$msgErroSenhaAtual.style.display = "none";
+        		if($senhaNova.value == $senhaConfirmada.value){
+        			$msgErroSenhaNova.style.display = "none";
+        		$.ajax({
+        	        url: '/projectstages_mvc/atualiza/senha-usuario',
+        	        data: {senhaNova : $senhaNova.value},
+        	        success : function(data){
+        	        	$senhaAtual.value = "";
+        	        	$senhaNova.value = "";
+        	        	$senhaConfirmada.value = "";
+        	        	$msgSucessoSenhaNova.style.display = "inline-block";
+        	        	$msgErroSenhaNova.style.display = "none";
+        	        	$msgErroSenhaNova.style.display = "none";
+        	        }
+        	    });
+        		}else{
+        			$msgErroSenhaNova.style.display = "inline-block";
+        		}
+        	}else{
+        		$msgErroSenhaAtual.style.display = "inline-block";
+        	}
+        }
+    });
+});
+
 $ativadoNoturno.addEventListener("change",function(){
     $formAtivadoNoturno.submit();
 });
