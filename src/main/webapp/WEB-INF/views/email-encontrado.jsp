@@ -4,12 +4,12 @@
     <head>
         <title>Project Stages</title>
         <meta charset="utf-8">
-        <meta name="author" content="Affonso Ruiz, Aline Alves, Carlos Felipe, Joyce BrandÃ£o">
-        <meta name="description" content="E-mail nÃ£o encontrado">
+        <meta name="author" content="Affonso Ruiz, Aline Alves, Carlos Felipe, Joyce Brandão">
+        <meta name="description" content="E-mail encontrado">
         <meta name="keywords" content="Email">
         <meta name="viewport" content="width=device-width, initial-scale-1.0">
         <link rel=stylesheet type="text/css" href="CSS/normalize.css">
-        <link rel="stylesheet" href="CSS/style_email-nao-encontrado.css" media=screen>
+        <link rel="stylesheet" href="CSS/style_email-encontrado.css" media=screen>
         <link rel="shortcut icon" href="img/LOGO-OFFICIAL-200x200%20cortada.png">
         <link rel=stylesheet type="text/css" href="Bootstrap/css/bootstrap.min.css">
     </head>
@@ -19,10 +19,11 @@
                 <img src="img/LOGO-OFFICIAL-200x200%20cortada.png">
             </section>
             <div class="mensagem">
-                <h3 class="legenda">RecuperaÃ§Ã£o de <b>senha</b></h3>
-                <img src="img/NegaIcon.png" width="50" height="50">
-                <p id="texto-principal">(O email que o cara inseriu) o email inserido nÃ£o foi encontrado. Solicite um novo envio de email.</p>
-                <p id="texto-link">Lembra-se da senha ? - <b><a href="login.html">Voltar para o Login</a></b></p>
+                <h3 class="legenda">Recuperação de <b>senha</b></h3>
+                <img src="img/ConfirmarIconn.png" width="50" height="50">
+                <p id="texto-principal">Um e-mail foi enviado para ${email}.</p>
+                <p id="texto-principal02">Se você não receber o e-mail em alguns minutos, confira sua pasta de lixerira/spam ou solicite um novo envio do e-mail.</p>
+                <p id="texto-link">Lembra-se da senha ? - <b><a href="/projectstages_mvc/login">Voltar para o Login</a></b></p>
             </div>
               
         </main>

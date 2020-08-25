@@ -1,6 +1,7 @@
 package br.com.projectstages_mvc.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,7 @@ import br.com.projectstages_mvc.model.Configuracoes;
 import br.com.projectstages_mvc.model.NotificacaoAmizade;
 import br.com.projectstages_mvc.model.Participantes;
 import br.com.projectstages_mvc.model.Projeto;
+import br.com.projectstages_mvc.model.Tarefas;
 import br.com.projectstages_mvc.model.Usuario;
 
 @Controller
@@ -66,6 +68,7 @@ public class ConfiguracoesController {
 		List<Projeto> listaProjetosParticipantes = new ArrayList<Projeto>();
 		List<Projeto> listaProjetosFavoritos = new ArrayList<Projeto>();
 		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
+		List<Date> listaAjustaData = new ArrayList<Date>();
 		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
 		msgNotificacoes = notificacaoDao.listarTodasNotificacoesDoDestinatario(usuario.getUsername());
 		for (int i = 0; i < msgNotificacoes.size(); i++) {

@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import com.mysql.cj.util.StringUtils;
+
 import br.com.projectstages_mvc.model.Login;
 import br.com.projectstages_mvc.model.Role;
 import br.com.projectstages_mvc.model.Usuario;
@@ -67,13 +69,16 @@ public class CadastroDao implements	UserDetailsService{
 	public Usuario findUsuario(String email) {
 		String	jpql = "select u from Usuario u where u.email = :email";
 		Usuario userAux = manager.createQuery(jpql, Usuario.class).setParameter("email",email).getSingleResult();
-		System.out.println("User 0 " + userAux.getAniversario() );
-		/*int dia = userAux.getAniversario().getDate() + 1;
-		Date ajustaData = new Date(userAux.getAniversario().getTime());
-		ajustaData.setDate(dia);
-		userAux.setAniversario(ajustaData);
-		*/
 		return userAux;
+	}
+	
+	public boolean usuarioExistente(String email){
+		String	jpql = "select u from Usuario u where u.email = :email";
+		List<Usuario> userAux = manager.createQuery(jpql, Usuario.class).setParameter("email",email).getResultList();
+		if(userAux.isEmpty()) {
+			return false;
+		}
+		return true;
 	}
 
 	public boolean logar(Login login){
@@ -108,8 +113,16 @@ public class CadastroDao implements	UserDetailsService{
 	}
 	
 	public List<Usuario> pesquisarUsuarioNome(String userName){
-		String	jpql = "select u from Usuario u where u.userName like :userName";
-		List<Usuario> userAux = manager.createQuery(jpql, Usuario.class).setParameter("userName",userName + "%").getResultList();
+		List<Usuario> userAux = new ArrayList<Usuario>();
+		if(userName.matches("[0-9]+")){
+		String	jpql = "select u from Usuario u where u.userName like :userName or u.id = :id";
+		userAux = manager.createQuery(jpql, Usuario.class).setParameter("userName",userName + "%").setParameter("id", Integer.parseInt(userName)).getResultList();
+		}else {
+			String	jpql = "select u from Usuario u where u.userName like :userName";
+			 userAux = manager.createQuery(jpql, Usuario.class).setParameter("userName",userName + "%").getResultList();
+		
+		}
+		
 		return userAux;
 	}
 	

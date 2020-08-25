@@ -3,7 +3,16 @@ package br.com.projectstages_mvc.controller;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
@@ -44,7 +53,7 @@ public class HomeController {
 
 	@Autowired
 	private NotificacaoAmizadeDao notificacaoDao;
-
+	
 	@Autowired
 	private ChatDao chatDao;
 
@@ -59,7 +68,7 @@ public class HomeController {
 
 	@Autowired
 	private ParticipantesDao participantesDao;
-
+	
 	// Variaveis auxiliares
 	private int idDoProjeto;
 	private Usuario user = new Usuario();
@@ -75,7 +84,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	@Cacheable(value = "projetos")
-	public ModelAndView index(@AuthenticationPrincipal Usuario usuario, @RequestParam int idProjeto) {
+	public ModelAndView index(@AuthenticationPrincipal Usuario usuario, @RequestParam int idProjeto){
 		ModelAndView model = new ModelAndView("projetos");
 		idDoProjeto = idProjeto;
 		int totalMensagens = 0;
@@ -221,7 +230,7 @@ public class HomeController {
 					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
 			}
 		}
-
+		
 		model.addObject("listaProjeto", projetodao.listarTodosProjetos(usuario.getUsername()));
 		model.addObject("nomeProjeto", projeto.getNome());
 		model.addObject("descricaoProjeto", projeto.getDescricao());
@@ -610,6 +619,28 @@ public class HomeController {
 			}
 
 		} else {
+			List<Concluidos> listAllConcluidos = projetodao.listarConcluidos(idDoProjeto);
+			List<Desenvolvimentos> listAllDesenvolvimentos = projetodao.listarDesenvolvimentos(idDoProjeto);
+			List<Tarefas> listAllTarefas = projetodao.listarTarefas(idDoProjeto);
+			
+			if(listAllConcluidos != null) {
+				for(int i = 0; i < listAllConcluidos.size(); i++) {
+					projetodao.deletarConcluidos(listAllConcluidos.get(i).getId());
+				}
+			}
+			
+			if(listAllDesenvolvimentos!= null) {
+				for(int i = 0; i < listAllDesenvolvimentos.size(); i++) {
+					projetodao.deletarDesenvolvimentos(listAllDesenvolvimentos.get(i).getId());
+				}
+			}
+			
+			if(listAllTarefas != null) {
+				for(int i = 0; i < listAllTarefas.size(); i++) {
+					projetodao.deletarTarefa(listAllTarefas.get(i).getId());
+				}
+			}
+			
 			Projeto deleteProjeto = projetodao.listarProjetosParticipantePorID(idDoProjeto);
 			projetodao.delete(deleteProjeto);
 		}

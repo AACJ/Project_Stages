@@ -31,8 +31,7 @@
                 <article class="content-div">
                 <h1>O Project Stages permite trabalhar com desenvolvimento de projetos, visando a colaboração e o sucesso no cumprimento de etapas.</h1>
                 <p>Com cronogramas, bate-papo, quadros interativos, encontros presenciais marcados, tudo para organizar e priorizar seus projetos de modo flexível, divertido e gratificante.</p>
-                <input class="caixa" name="email" type="text" size="30" placeholder="Email">
-                <button type ="submit" id="caixa-botao">Comece agora!</button>
+                <a href="/projectstages_mvc/cadastro" id="caixa-botao">Comece agora!</a>
                 </article>
         </section>
         
@@ -67,7 +66,7 @@
             <div class="card-credito">
                 <img src="img/Tela_Index/lider.svg">
                 <h2>Seja o Líder</h2>
-                <button type="button" class="botao-credito">Inicie seu projeto!</button>
+                <a href="/projectstages_mvc/cadastro" class="botao-credito">Inicie seu projeto!</a>
             </div>
             <div class="card-credito">
                 <img src="img/Tela_Index/maapaaa.png">

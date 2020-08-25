@@ -186,3 +186,122 @@ main{
      transform: rotate(90deg);
 }
 
+.tarefas-hoje{
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    margin: 0px; 
+    padding: 10px;
+}
+
+.exibir-tarefas{
+    width: 0px;
+    height: 0px;
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    display: block;
+    margin: 0px 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+#checkCronograma2:checked ~ .tarefas-hoje{
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 300px;
+}
+
+#checkCronograma2:checked ~ .tarefas-hoje .exibir-tarefas{
+    width: 100%;
+    height: 30px;
+}
+
+.tarefas-mes{
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    margin: 0px; 
+    padding: 10px;
+}
+
+.exibir-tarefas-mes{
+    width: 0px;
+    height: 0px;
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    display: block;
+    margin: 0px 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+#checkCronograma3:checked ~ .tarefas-mes{
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 300px;
+}
+
+#checkCronograma3:checked ~ .tarefas-mes .exibir-tarefas-mes{
+    width: 100%;
+    height: 30px;
+}
+
+.tarefas-semana{
+   width: 100%;
+    overflow: hidden;
+    display: block;
+    margin: 0px; 
+    padding: 10px; 
+}
+
+.exibir-tarefas-semana{
+    width: 0px;
+    height: 0px;
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    display: block;
+    margin: 0px 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+#checkCronograma:checked ~ .tarefas-semana{
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 300px;
+}
+
+#checkCronograma:checked ~ .tarefas-semana .exibir-tarefas-semana{
+    width: 100%;
+    height: 30px;
+}
+
+.tarefas-concluido{
+   width: 100%;
+    overflow: hidden;
+    display: block;
+    margin: 0px; 
+    padding: 10px; 
+}
+
+.exibir-tarefas-concluido{
+    width: 0px;
+    height: 0px;
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    display: block;
+    margin: 0px 0px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+#checkCronograma5:checked ~ .tarefas-concluido{
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 300px;
+}
+
+#checkCronograma5:checked ~ .tarefas-concluido .exibir-tarefas-concluido{
+    width: 100%;
+    height: 30px;
+}

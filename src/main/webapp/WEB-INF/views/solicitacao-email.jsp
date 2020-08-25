@@ -4,12 +4,12 @@
     <head>
         <title>Project Stages</title>
         <meta charset="utf-8">
-        <meta name="author" content="Affonso Ruiz, Aline Alves, Carlos Felipe, Joyce BrandÃ£o">
-        <meta name="description" content="E-mail encontrado">
+        <meta name="author" content="Affonso Ruiz, Aline Alves, Carlos Felipe, Joyce Brandão">
+        <meta name="description" content="Solicitação de e-mail">
         <meta name="keywords" content="Email">
         <meta name="viewport" content="width=device-width, initial-scale-1.0">
         <link rel=stylesheet type="text/css" href="CSS/normalize.css">
-        <link rel="stylesheet" href="CSS/style_email-encontrado.css" media=screen>
+        <link rel="stylesheet" href="CSS/style_solicitacao-email.css" media=screen>
         <link rel="shortcut icon" href="img/LOGO-OFFICIAL-200x200%20cortada.png">
         <link rel=stylesheet type="text/css" href="Bootstrap/css/bootstrap.min.css">
     </head>
@@ -18,13 +18,13 @@
             <section class="gallery">
                 <img src="img/LOGO-OFFICIAL-200x200%20cortada.png">
             </section>
-            <div class="mensagem">
-                <h3 class="legenda">RecuperaÃ§Ã£o de <b>senha</b></h3>
-                <img src="img/ConfirmarIconn.png" width="50" height="50">
-                <p id="texto-principal">Um e-mail foi enviado para (O e-mail que o cara inseriu anteriormente).</p>
-                <p id="texto-principal02">Se vocÃª nÃ£o receber o e-mail em alguns minutos, confira sua pasta de lixerira/spam ou solicite um novo envio do e-mail.</p>
-                <p id="texto-link">Lembra-se da senha ? - <b><a href="login.html">Voltar para o Login</a></b></p>
-            </div>
+            <form action="/projectstages_mvc/solicitacao-email/email-enviado" method="get" class="cadastro">
+             <legend class="legenda">Esqueceu sua senha?</legend>
+                <p id="text01">Enviaremos um e-mail com instruções para redefinir sua senha</p>
+                <input class="caixa" name="email" type="email" size="30" placeholder="Insira seu e-mail" required>
+                <input class="envio" type="submit" value="Redefinir senha">
+                <p id="text02">Se você já possui um usuário - <b><a href="/projectstages_mvc/login" class="link">Faça Login aqui</a></b></p>
+            </form>
               
         </main>
         <script src="Bootstrap/js/jquery-3.4.1.min.js" type="text/javascript"></script>

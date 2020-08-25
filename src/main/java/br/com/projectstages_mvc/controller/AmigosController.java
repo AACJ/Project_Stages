@@ -120,6 +120,7 @@ public class AmigosController {
 		model.addObject("usuarios", listUsers);
 		model.addObject("listaProjeto", projetodao.listarTodosProjetos(usuario.getUsername()));
 		model.addObject("usuarioFoto", user.getFoto());
+		model.addObject("usuarioAtual", user);
 		model.addObject("listaAmigos", listAmigos);
 		model.addObject("projetosParticipantes", listaProjetosParticipantes);
 		model.addObject("projetosFavoritos",listaProjetosFavoritos);

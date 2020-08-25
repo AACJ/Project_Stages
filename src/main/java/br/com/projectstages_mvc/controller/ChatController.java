@@ -3,6 +3,7 @@ package br.com.projectstages_mvc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,7 @@ public class ChatController {
 	private Configuracoes config = new Configuracoes();
 
 	@RequestMapping("/chat")
-	@Cacheable(value = "chats")
+	@CacheEvict(value = "chats", allEntries = true)
 	public ModelAndView chat(@AuthenticationPrincipal Usuario usuario) {
 		ModelAndView model = new ModelAndView("chat");
 		int totalMensagens = 0;
@@ -144,4 +145,38 @@ public class ChatController {
 	public boolean getModoNotuno() {
 		return config.isModoNoturno();
 	}
+	
+	@RequestMapping("/retorna/pesquisa-chat")
+	@CacheEvict(value = "chats", allEntries = true)
+	@ResponseBody
+	public List<Integer> getPesquisaUsuario(HttpServletRequest request) {
+		List<Integer> ids = new ArrayList<Integer>();
+		String userName = request.getParameter("nome");
+		List<Usuario> usuario = cadastroDao.pesquisarUsuarioNome(userName);
+		for (int i = 0; i < usuario.size(); i++) {
+			ids.add(usuario.get(i).getId());
+		}
+		return ids;
+	}
+
+	@RequestMapping("/clear/pesquisa-chat")
+	@CacheEvict(value = "chats", allEntries = true)
+	@ResponseBody
+	public List<Integer> clearPesquisaUsuario(@AuthenticationPrincipal Usuario usuario) {
+		List<Integer> ids = new ArrayList<Integer>();
+		List<String> listEmailsAmigos = new ArrayList<String>();
+		List<Usuario> listAmigos = new ArrayList<Usuario>(); 
+		
+		listEmailsAmigos = amigosDao.listarTodosOsAmigos(usuario.getUsername());
+		for (int i = 0; i < listEmailsAmigos.size(); i++) {
+			listAmigos.add(cadastroDao.findUsuario(listEmailsAmigos.get(i)));
+		}
+		
+		for (int i = 0; i < listAmigos.size(); i++) {
+			ids.add(listAmigos.get(i).getId());
+		}
+		return ids;
+	}
+
+	
 }

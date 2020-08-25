@@ -19,6 +19,44 @@
   
         <main>
             <div class="user-chat">
+            	<section class="menu-chat">
+                 <div class="menu-chat-header">
+                    <button type="button" id="btnChat01">Bate-papo</button>
+                </div>
+                    
+                <div class="menu-chat-body">
+                    <div class="menu-chat-body-interno">
+                    <div class="menu-content-chat" id="content-chat01">
+                <label for="pesquisaConversa" id="label-pesquisa">
+                    <button type="button"><img src="img/Tela_Principal/Lupaicon.png" width="20" height="20"></button>
+                </label>
+                 <input type="search" placeholder="Procurar uma conversa..." id="pesquisaConversa">
+                  
+                   <c:forEach items="${listaAmigos}" var="amigo" varStatus="statusAmigos">
+                   	<a href="/projectstages_mvc/bate-papo?idUsuario=${amigo.id}&userName=${amigo.userName}" class="menu-perfil-chat" id="perfil-chat-${amigo.id}">
+                    	<div class="menu-foto-perfil-chat">
+                    	<c:if test="${amigo.foto == null}">
+                       		<img src="img/Tela_Principal/UsercomCirculoIcon.png">
+                     	</c:if>
+                     
+                     	<c:if test="${amigo.foto != null}">
+                       		<img src="${amigo.foto}">
+                    	</c:if>
+                    	
+                    	</div>
+                    	<div class="menu-informacoes-perfil-chat">
+                        <p class="menu-nome-perfil-chat">${amigo.userName}</p>
+                    	</div>
+                    	<c:if test="${msgNotViewed[statusAmigos.index] > 0}">
+                    	<p class="menu-qnt-msg">${msgNotViewed[statusAmigos.index]}</p>
+                    	</c:if>
+                  	</a>
+                  </c:forEach>
+                    </div>
+                    </div>
+                    </div>
+                </section>
+            
                 <section class="chat">
                 
                 <div class="chat-header">
@@ -41,9 +79,8 @@
                </div>
                     
                 <div class="chat-foot">
-                <button type="button" class="arquivo-chat" ><img src="img/Tela_Chat/camera.png"></button>
                 <button type="button" class="emojy-chat" id="emoji-open-box"><img src="img/Tela_Chat/Emoji-2.png"></button>
-                <textarea class="msg-chat" rows="3" cols="35" maxlength="500" placeholder="Escreva suas mensagens aqui..." id="msg"></textarea>
+                <textarea class="msg-chat" rows="2" cols="35" maxlength="500" placeholder="Escreva suas mensagens aqui..." id="msg"></textarea>
                 <button type="button" class="send-text" id="send-msg" value="${idAmigo}"><img src="img/Tela_Chat/send.png"></button>
                 
                 <div class="close-box-emoji" id="fecha-box-emoji"></div>
@@ -120,9 +157,6 @@
                 </div>
                 </section>
                 
-                <section class="imagem-chat">
-                <div class="chat-image-item"><img src="img/Tela_Chat/imgChat.png"></div>
-                </section>
             </div>
         </main>
      	

@@ -25,7 +25,7 @@
                 <input class="caixa" name="email" type="email" size="30" placeholder="Email" id="email" required>
                 <input class="caixa" name="senha" type="password" size="30" placeholder="Senha" id="senha" required>
                 <input class="envio" type="submit" value="Entrar" id="btnEnvio">
-                <p><a href="solicitacao-email.html" class="link">Esqueceu sua senha?</a></p>
+                <p><a href="/projectstages_mvc/solicitacao-email" class="link">Esqueceu sua senha?</a></p>
                 <p><a href="/projectstages_mvc/cadastro" class="link">Ainda não possui conta? Crie a sua aqui.</a></p>
            		<security:csrfInput/>
             </form:form>

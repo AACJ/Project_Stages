@@ -1,24 +1,44 @@
 function modoNoturnoAtivadoCronograma(ativado){
 	   if(ativado){	  
-	   var corpo = document.querySelector(".corpo").classList.toggle("bodyNigth");   
+		   //Geral Padrão
+		   var corpo = document.querySelector(".corpo").classList.toggle("bodyNigth"); 
+		   var menu = document.querySelector(".menu").classList.toggle("menuNigth"); 
+		   var botao = document.querySelector(".botao").classList.toggle("botaoNigth");
+		   var principal = document.querySelector(".principal").classList.toggle("principalNigth"); 
+		   var opcao = document.querySelector(".opcao").classList.toggle("opcaoNigth");
+		   var statusNigth = document.querySelector(".status").classList.toggle("statusNigth");
+		   var caixaAddProjetoInterno = document.querySelector(".caixa-add-projeto-interno").classList.toggle("caixa-add-projeto-internoNigth");
+		   var fechaCaixaProjeto = document.querySelector(".fecha-caixa-projeto").classList.toggle("fecha-caixa-projetoNigth");
+		   var textCaixaAddProjeto = document.querySelectorAll(".text-caixa-add-projeto");
+		   
+		   for (var i = 0; i < textCaixaAddProjeto.length; i++) {
+			   textCaixaAddProjeto[i].classList.toggle("text-caixa-add-projetoNigth");
+			 }
+		   
+	   //Add Calendario
 	   var calendario = document.querySelector(".calendario").classList.toggle("calendarioNigth");
-	   var menu = document.querySelector(".menu").classList.toggle("menuNigth"); 
-	   var principal = document.querySelector(".principal").classList.toggle("principalNigth"); 
-	   var botao = document.querySelector(".botao").classList.toggle("botaoNigth");
-	   var opcao = document.querySelector(".opcao").classList.toggle("opcaoNigth");
-	   var statusNigth = document.querySelector(".status").classList.toggle("statusNigth");
 	   var tabelaCalendario = document.querySelector(".tabela-calendario").classList.toggle("tabela-calendarioNigth");
 	   var compromissos = document.querySelector(".compromissos").classList.toggle("compromissosNigth");
 	   var btnPassMesAno = document.querySelector(".btnPassMesAno").classList.toggle("btnPassMesAnoNigth");
 	   var btnPassMesAno2 = document.querySelector("#btnDireita").classList.toggle("btnPassMesAnoNigth");
 	   }else{
+		   //Remove Geral Padrão
+		   var corpo = document.querySelector(".corpo").classList.remove("bodyNigth");
+		   var menu = document.querySelector(".menu").classList.remove("menuNigth"); 
+		   var principal = document.querySelector(".principal").classList.remove("principalNigth"); 
+		   var botao = document.querySelector(".botao").classList.remove("botaoNigth");
+		   var opcao = document.querySelector(".opcao").classList.remove("opcaoNigth");
+		   var statusNigth = document.querySelector(".status").classList.remove("statusNigth");
+		   var caixaAddProjetoInterno = document.querySelector(".caixa-add-projeto-interno").classList.remove("caixa-add-projeto-internoNigth");
+		   var fechaCaixaProjeto = document.querySelector(".fecha-caixa-projeto").classList.remove("fecha-caixa-projetoNigth");
+		   var textCaixaAddProjeto = document.querySelectorAll(".text-caixa-add-projeto");
+		   
+		   for (var i = 0; i < textCaixaAddProjeto.length; i++) {
+			   textCaixaAddProjeto[i].classList.remove("text-caixa-add-projetoNigth");
+			 }	   
+		   
+	   //Remove Calendario	   
 	   var calendario = document.querySelector(".calendario").classList.remove("calendarioNigth");
-	   var corpo = document.querySelector(".corpo").classList.remove("bodyNigth");
-	   var menu = document.querySelector(".menu").classList.remove("menuNigth"); 
-	   var principal = document.querySelector(".principal").classList.remove("principalNigth"); 
-	   var botao = document.querySelector(".botao").classList.remove("botaoNigth");
-	   var opcao = document.querySelector(".opcao").classList.remove("opcaoNigth");
-	   var statusNigth = document.querySelector(".status").classList.remove("statusNigth");
 	   var tabelaCalendario = document.querySelector(".tabela-calendario").classList.remove("tabela-calendarioNigth");
 	   var compromissos = document.querySelector(".compromissos").classList.remove("compromissosNigth");
 	   var btnPassMesAno = document.querySelector(".btnPassMesAno").classList.remove("btnPassMesAnoNigth");

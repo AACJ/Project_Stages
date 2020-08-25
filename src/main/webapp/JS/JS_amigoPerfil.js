@@ -76,3 +76,63 @@ function verificacaoDeAmizade(){
 }
 
 verificacaoDeAmizade();
+
+
+function modoNoturnoAtivadoAmigosPerfil(ativado){
+	   if(ativado){	    
+	   //Geral Padrão
+	   var corpo = document.querySelector(".corpo").classList.toggle("bodyNigth"); 
+	   var menu = document.querySelector(".menu").classList.toggle("menuNigth"); 
+	   var botao = document.querySelector(".botao").classList.toggle("botaoNigth");
+	   var principal = document.querySelector(".principal").classList.toggle("principalNigth"); 
+	   var opcao = document.querySelector(".opcao").classList.toggle("opcaoNigth");
+	   var statusNigth = document.querySelector(".status").classList.toggle("statusNigth");
+	   var caixaAddProjetoInterno = document.querySelector(".caixa-add-projeto-interno").classList.toggle("caixa-add-projeto-internoNigth");
+	   var fechaCaixaProjeto = document.querySelector(".fecha-caixa-projeto").classList.toggle("fecha-caixa-projetoNigth");
+	   var textCaixaAddProjeto = document.querySelectorAll(".text-caixa-add-projeto");
+	   
+	   for (var i = 0; i < textCaixaAddProjeto.length; i++) {
+		   textCaixaAddProjeto[i].classList.toggle("text-caixa-add-projetoNigth");
+		 }
+	   
+	  //Add perfil
+	   var gallery = document.querySelector(".gallery").classList.toggle("galleryNigth"); 
+	   var informacao = document.querySelector(".informacao").classList.toggle("informacaoNigth"); 
+	   var updatenameuser = document.querySelector(".update-name-user").classList.toggle("update-name-userNigth"); 
+	  }else{
+		  
+	   //Remove Geral Padrão
+	   var corpo = document.querySelector(".corpo").classList.remove("bodyNigth");
+	   var menu = document.querySelector(".menu").classList.remove("menuNigth"); 
+	   var principal = document.querySelector(".principal").classList.remove("principalNigth"); 
+	   var botao = document.querySelector(".botao").classList.remove("botaoNigth");
+	   var opcao = document.querySelector(".opcao").classList.remove("opcaoNigth");
+	   var statusNigth = document.querySelector(".status").classList.remove("statusNigth");
+	   var caixaAddProjetoInterno = document.querySelector(".caixa-add-projeto-interno").classList.remove("caixa-add-projeto-internoNigth");
+	   var fechaCaixaProjeto = document.querySelector(".fecha-caixa-projeto").classList.remove("fecha-caixa-projetoNigth");
+	   var textCaixaAddProjeto = document.querySelectorAll(".text-caixa-add-projeto");
+	   
+	   for (var i = 0; i < textCaixaAddProjeto.length; i++) {
+		   textCaixaAddProjeto[i].classList.remove("text-caixa-add-projetoNigth");
+		 }
+	   
+	   //Remove perfil
+	   var gallery = document.querySelector(".gallery").classList.remove("galleryNigth"); 
+	   var informacao = document.querySelector(".informacao").classList.remove("informacaoNigth"); 
+	   var updatenameuser = document.querySelector(".update-name-user").classList.remove("update-name-userNigth"); 
+	  }
+}    
+
+(function(){
+	'use strict'; 
+	
+	$.ajax({
+       url: '/projectstages_mvc/retorna/modo-noturno/amigos-perfil',
+       success : function(data){
+    	   modoNoturnoAtivadoAmigosPerfil(data);
+       }
+   });
+
+	
+})();
+

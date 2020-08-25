@@ -81,26 +81,60 @@ $lupaAmigos.addEventListener('click', function(){
 function modoNoturnoAtivadoAmigos(ativado){
 	   if(ativado){	  
 		   
-	   //Geral Padrão
-	   var corpo = document.querySelector(".corpo").classList.toggle("bodyNigth"); 
-	   var menu = document.querySelector(".menu").classList.toggle("menuNigth"); 
-	   var principal = document.querySelector(".principal").classList.toggle("principalNigth"); 
-	   var botao = document.querySelector(".botao").classList.toggle("botaoNigth");
-	   var opcao = document.querySelector(".opcao").classList.toggle("opcaoNigth");
-	   var statusNigth = document.querySelector(".status").classList.toggle("statusNigth");
-
+		   //Geral Padrão
+		   var corpo = document.querySelector(".corpo").classList.toggle("bodyNigth"); 
+		   var menu = document.querySelector(".menu").classList.toggle("menuNigth"); 
+		   var botao = document.querySelector(".botao").classList.toggle("botaoNigth");
+		   var principal = document.querySelector(".principal").classList.toggle("principalNigth"); 
+		   var opcao = document.querySelector(".opcao").classList.toggle("opcaoNigth");
+		   var statusNigth = document.querySelector(".status").classList.toggle("statusNigth");
+		   var caixaAddProjetoInterno = document.querySelector(".caixa-add-projeto-interno").classList.toggle("caixa-add-projeto-internoNigth");
+		   var fechaCaixaProjeto = document.querySelector(".fecha-caixa-projeto").classList.toggle("fecha-caixa-projetoNigth");
+		   var textCaixaAddProjeto = document.querySelectorAll(".text-caixa-add-projeto");
+		   
+		   for (var i = 0; i < textCaixaAddProjeto.length; i++) {
+			   textCaixaAddProjeto[i].classList.toggle("text-caixa-add-projetoNigth");
+			 }
+		   
 	   //Amigos tags
 	   var headeramigos = document.querySelector(".header-amigos").classList.toggle("header-amigosNigth");
+	   var headeramigos = document.querySelector(".card-addAmigo").classList.toggle("card-addAmigoNigth");
+	   var amigosPerfils = document.querySelectorAll(".amigos-perfils");
+	   var meusAmigosPerfil = document.querySelectorAll(".meus-amigos-perfil");
+	   
+	   for (var i = 0; i < amigosPerfils.length; i++) {
+		   amigosPerfils[i].classList.toggle("amigos-perfilsNigth");
+		 }
+	   
+	   for (var i = 0; i < meusAmigosPerfil.length; i++) {
+		   meusAmigosPerfil[i].classList.toggle("meus-amigos-perfilNigth");
+		 }
 	   
 	   }else{
-	   //Remove Geral Padrão
-	   var corpo = document.querySelector(".corpo").classList.remove("bodyNigth");
-	   var menu = document.querySelector(".menu").classList.remove("menuNigth"); 
-	   var principal = document.querySelector(".principal").classList.remove("principalNigth"); 
-	   var botao = document.querySelector(".botao").classList.remove("botaoNigth");
-	   var opcao = document.querySelector(".opcao").classList.remove("opcaoNigth");
-	   var statusNigth = document.querySelector(".status").classList.remove("statusNigth");
+		 //Remove Geral Padrão
+		   var corpo = document.querySelector(".corpo").classList.remove("bodyNigth");
+		   var menu = document.querySelector(".menu").classList.remove("menuNigth"); 
+		   var principal = document.querySelector(".principal").classList.remove("principalNigth"); 
+		   var botao = document.querySelector(".botao").classList.remove("botaoNigth");
+		   var opcao = document.querySelector(".opcao").classList.remove("opcaoNigth");
+		   var statusNigth = document.querySelector(".status").classList.remove("statusNigth");
+		   var caixaAddProjetoInterno = document.querySelector(".caixa-add-projeto-interno").classList.remove("caixa-add-projeto-internoNigth");
+		   var fechaCaixaProjeto = document.querySelector(".fecha-caixa-projeto").classList.remove("fecha-caixa-projetoNigth");
+		   var textCaixaAddProjeto = document.querySelectorAll(".text-caixa-add-projeto");
+		   
+		   for (var i = 0; i < textCaixaAddProjeto.length; i++) {
+			   textCaixaAddProjeto[i].classList.remove("text-caixa-add-projetoNigth");
+			 }
+	   
+	   //Remove Amigos tags	   
 	   var headeramigos = document.querySelector(".header-amigos").classList.remove("header-amigosNigth");
+	   var headeramigos = document.querySelector(".card-addAmigo").classList.remove("card-addAmigoNigth");
+	   var amigosPerfils = document.querySelectorAll(".amigos-perfils");
+	   
+	   for (var i = 0; i < amigosPerfils.length; i++) {
+		   amigosPerfils[i].classList.remove("amigos-perfilsNigth");
+		 }
+	   
 	   }
 }    
 

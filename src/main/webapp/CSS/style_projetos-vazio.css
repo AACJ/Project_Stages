@@ -29,3 +29,12 @@ main{
     border: 1px solid rgb(59, 168, 248);
     background-color: white;
 }
+
+.box-new-projectNigth{
+    width: 400px;
+    height: 400px;
+    padding-top: 30px;
+    display: block;
+    border: 1px solid rgb(59, 168, 248);
+    background-color: rgb(3,21,34);
+}

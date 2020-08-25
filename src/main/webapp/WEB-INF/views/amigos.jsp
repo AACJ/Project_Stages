@@ -36,6 +36,26 @@
                            <div class="resultado-pesquisas">
                             <c:forEach items="${usuarios}"	var="usuario" varStatus="status">
                             
+                            <c:if test="${usuarioAtual.email == usuario.email}">
+                            <a href="/projectstages_mvc/perfil" class="amigos-perfils" id="perfil-amigo-${usuario.id}">
+                                <div class="foto-perfil-amigo">
+                                  <c:if test="${usuario.foto == null}">
+                           			<img src="img/Tela_Principal/UsercomCirculoIcon.png" id="imagem">
+                          		 </c:if>
+                           
+                           		<c:if test="${usuarioFoto != null}">
+                           		 <img src="${usuario.foto}" id="imagem">
+                           		 </c:if>
+                                 </div>
+                                <div class="nome-perfil-amigo">
+                                <p class="name-user-search">${usuario.userName}</p>
+                                
+                                <p class="id-user-search">ID: ${usuario.id}</p>
+                                </div>
+                            </a>
+                            </c:if>
+                    
+                    		<c:if test="${usuarioAtual.email != usuario.email}">
                             <a href="/projectstages_mvc/perfil-usuarios?idUsuario=${usuario.id}&userName=${usuario.userName}" class="amigos-perfils" id="perfil-amigo-${usuario.id}">
                                 <div class="foto-perfil-amigo">
                                   <c:if test="${usuario.foto == null}">
@@ -52,18 +72,11 @@
                                 <p class="id-user-search">ID: ${usuario.id}</p>
                                 </div>
                             </a>
-                    
+                            </c:if>
                             </c:forEach>
                             </div>
                         </div>
                     </li>
-                    
-                    <li class="amigo-item">
-                        <a href="amigo-pesquisa.html" id="label-pesquisaAmigo">
-                            <img src="img/Tela_Amigo/BuscarfriendIcon.png">
-                        </a>
-                    </li>
-                
                 </ul>
             </div>
              <div class="content-amigos">

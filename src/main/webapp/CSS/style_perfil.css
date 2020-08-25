@@ -70,12 +70,37 @@ main{
     outline: none;
 }
 
+.update-name-userNigth{
+    font-family: Arial,sans-serif,serif;
+    font-size: 16px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 35px;
+    margin-bottom: 20px;
+    margin: auto;
+    text-align: center;
+    color:rgb(59, 168, 248);
+    border-color:rgb(59, 168, 248);
+    background-color: rgb(3,21,34);
+}
+
 .botoes-edit-nome-usuario{
     width: 35px;
     height: 35px;
     display: inline-block;
     float: left;
     background-color: white;
+    border: 1px solid rgb(59, 168, 248);;
+}
+
+.botoes-edit-nome-usuarioNigth{
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    float: left;
+    background-color: rgb(3,21,34);
     border: 1px solid rgb(59, 168, 248);;
 }
 

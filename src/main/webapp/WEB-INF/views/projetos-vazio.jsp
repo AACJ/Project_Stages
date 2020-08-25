@@ -41,7 +41,7 @@
         </main>
 
         <script src="JS/JS_home.js" type="text/javascript"></script>
-        <script src="JS/JS_projetos.js" type="text/javascript"></script>
+        <script src="JS/JS_projetos-vazio.js" type="text/javascript"></script>
         <script src="Bootstrap/js/jquery-3.4.1.min.js" type="text/javascript"></script>
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     </body>

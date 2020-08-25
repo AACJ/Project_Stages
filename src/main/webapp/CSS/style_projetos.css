@@ -73,17 +73,16 @@ main{
     height: 120px;
     display: flex;
     justify-content: center;
-    align-items: center;
     float: left;
     background-color: transparent;
     border: 1px solid transparent;
-    padding-top: 10px;
+    padding-top: 15px;
     padding-bottom: 10px;
 }
 
 .add-favorito{
-    width: 85px;
-    height: 85px;
+    width: 40px;
+    height: 40px;
 }
 
 .add-favorito img{
@@ -138,7 +137,7 @@ main{
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    border:1px solid black;
+    border:1px solid rgb(59, 168, 248);
     background-color: white;
     display: block;
     position: relative;
@@ -589,8 +588,14 @@ main{
     height: 20px;
     background-color: white;
     display: block;
-    margin-bottom: 0px;
-    
+    margin-bottom: 0px;  
+}
+
+.indetificador-nomeNigth{
+    height: 20px;
+    background-color: rgb(3,21,34);
+    display: block;
+    margin-bottom: 0px;  
 }
 
 .indetificador-id{
@@ -601,11 +606,32 @@ main{
     
 }
 
+.indetificador-idNigth{
+    height: 23px;
+    background-color: rgb(3,21,34);
+    display: block;
+    margin-bottom: 0px;
+    
+}
+
 .caixa-opcoes-proprietario{
     width:200px;
     height: 300px;
     display: none;
     background-color: white;
+    border: 1px solid black;
+    position:relative;
+    z-index: 2;
+    bottom: 100px;
+    left: 100px;
+    margin: 0px;
+}
+
+.caixa-opcoes-proprietarioNigth{
+    width:200px;
+    height: 300px;
+    display: none;
+    background-color: rgb(3,21,34);
     border: 1px solid black;
     position:relative;
     z-index: 2;
@@ -691,6 +717,7 @@ main{
     height: 35px;
     display: block;
     border: 1px solid black;
+    background-color: white;
     border-radius: 50%;
     float:left;
     margin:0px;
@@ -1109,6 +1136,13 @@ main{
     display:none;
 }
 
+.caixa-participantes-internoNigth{
+    width: 450px;
+    height: 450px;
+    background-color: rgb(3,21,34);
+    display:none;
+}
+
 .fecha-caixa-participantes{
     width: 30px;
     height: 30px;
@@ -1120,6 +1154,19 @@ main{
     left: 435px;
     outline: none;
     background-color: white;
+}
+
+.fecha-caixa-participantesNigth{
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+    bottom: 15px;
+    left: 435px;
+    outline: none;
+    background-color: rgb(3,21,34);
 }
 
 .fecha-caixa-participantes:focus{
@@ -1159,6 +1206,20 @@ main{
     outline: none;
 }
 
+.pesquisa-add-participantesNigth{
+    width: 91%;
+    height: 30px;
+    display: block;
+    float: left;
+    border: 1px solid rgb(59, 168, 248);
+    border-right: none;
+    background-color: transparent;
+    padding-left: 5px;
+    padding-right: 2px;
+    color: rgb(59, 168, 248);
+    outline: none;
+}
+
 .pesquisa-add-participantes::placeholder{
     color: rgb(59, 168, 248);
 }
@@ -1173,6 +1234,21 @@ main{
     border: none;
     float: left;
     border: 1px solid black;
+    border-left: none;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+.lupa-participantesNigth{
+    width: 9%;
+    height: 30px;
+    border: 1px solid black;
+    border-right: none;
+    float: left;
+    display: block;
+    border: none;
+    float: left;
+    border: 1px solid rgb(59, 168, 248);
     border-left: none;
     margin-bottom: 10px;
     background-color: transparent;
@@ -1206,11 +1282,21 @@ main{
     border: 1px solid black;
 }
 
+.participantes-perfilNigth{
+    width: 100%;
+    height: 60px;
+    display: none;
+    align-items: center;
+    margin-bottom: 5px;
+    border: 1px solid rgb(59, 168, 248);
+}
+
 .participante-foto{
     width: 55px;
     height: 55px;
     display: block;
     border-radius: 50%;
+    background-color: white;
     border: 1px solid black;
     margin-right: 5px;
     margin-left: 5px;
@@ -1472,7 +1558,7 @@ main{
     display: block;
     color:white;
     outline: none;
-    border:1px solid black;
+    border:1px solid rgb(59, 168, 248);
     background-color: transparent;
     padding: 2px 5px;
     margin-bottom: 20px; 
@@ -1513,6 +1599,13 @@ main{
     width: 400px;
     height: 150px;
     background-color: white;
+    display:none;
+}
+
+.caixa-sair-projeto-internoNigth{
+    width: 400px;
+    height: 150px;
+    background-color: rgb(3,21,34);
     display:none;
 }
 

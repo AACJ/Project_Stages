@@ -50,18 +50,6 @@
                         <security:csrfInput/>
                         </form>
                         
-                        <p>Notificações</p>
-                        <span class="config-opcao">Lembretes de prazo de entrega:</span>
-                        <input type="radio" name="lembrete" id="ativadoLembrete">
-                        <label for="ativadoLembrete" class="config-label">Ativado</label>
-                        <input type="radio" name="lembrete" id="desativadoLembrete" checked>
-                        <label for="desativadoLembrete" class="config-label">Desativado</label>
-                        <br>
-                        <span class="config-opcao">Atualização de status:</span>
-                        <input type="radio" name="atualizacao" id="ativadoAtualizacao" checked>
-                        <label for="ativadoLembrete" class="config-label">Ativado</label>
-                        <input type="radio" name="atualizacao" id="desativadoAtualizacao" >
-                        <label for="desativadoLembrete" class="config-label">Desativado</label>
                     </div>
                     
                     <div class="config02">
@@ -89,17 +77,12 @@
                         <br>
                         <button type="button" id="btnConfiguracaoSenha">Salvar</button>
                         </div>
-                        <span class="config-opcao">Politica de senha:</span>
-                        <input type="radio" name="politicaDeSenha" id="ativadoSenhaSegura">
-                        <label for="ativadoSenhaSegura" class="config-label">Politica de senha segura</label>
-                        <input type="radio" name="politicaDeSenha" id="ativadoSenhaRigorosa">
-                        <label for="ativadoSenhaRigorosa" class="config-label">Politica de senha rigorosa</label> 
                     </div>
                     
                     <div class="config03"> 
                         <img src="img/Tela_Configuracoes/TermoIcon.png" width="30" height="35">
                         <span class="config-text">Termos de uso</span>
-                        <p>Termo de uso(Link para o download do arquivo)</p>
+                        <p><a href="img/Project%20Stages-Termos%20de%20Servi%C3%A7o.docx.pdf" target="_blank">Termo de uso(Link para o download do arquivo)</a></p>
                     </div>
                 
                 </nav>

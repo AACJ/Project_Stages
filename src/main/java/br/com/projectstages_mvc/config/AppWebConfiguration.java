@@ -1,5 +1,7 @@
 package br.com.projectstages_mvc.config;
 
+import java.util.Properties;
+
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
@@ -23,17 +25,19 @@ import br.com.projectstages_mvc.dao.ProjetoDao;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackageClasses={IndexController.class,CadastroDao.class,ProjetoDao.class,AmigosDao.class,NotificacaoAmizadeDao.class,ParticipantesDao.class, ChatDao.class,FileSaver.class})
+@ComponentScan(basePackageClasses = { IndexController.class, CadastroDao.class, ProjetoDao.class, AmigosDao.class,
+		NotificacaoAmizadeDao.class, ParticipantesDao.class, ChatDao.class, FileSaver.class })
 @EnableCaching
-public class AppWebConfiguration extends WebMvcConfigurerAdapter {
+public class AppWebConfiguration extends WebMvcConfigurerAdapter{
+
 	@Bean
-	public	InternalResourceViewResolver internalResourceViewResolver()	{
-		InternalResourceViewResolver resolver =	new	InternalResourceViewResolver();
+	public InternalResourceViewResolver internalResourceViewResolver() {
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/views/");
-		resolver.setSuffix(".jsp");	
-		return	resolver;
+		resolver.setSuffix(".jsp");
+		return resolver;
 	}
-	
+
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/Bootstrap/**").addResourceLocations("/Bootstrap/");
@@ -42,14 +46,15 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/JS/**").addResourceLocations("/JS/");
 		registry.addResourceHandler("/uploads/**").addResourceLocations("/uploads/");
 	}
-	
+
 	@Bean
 	public CacheManager cacheManager() {
 		return new ConcurrentMapCacheManager();
 	}
 
 	@Bean
-	public MultipartResolver multipartResolver(){
+	public MultipartResolver multipartResolver() {
 		return new StandardServletMultipartResolver();
 	}
+
 }

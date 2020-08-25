@@ -57,7 +57,7 @@ public class PerfilController {
 	
 	@Autowired
 	private FileSaver fileSaver;
-
+	
 	private Usuario user = new Usuario();
 	private Configuracoes config = new Configuracoes();
 
@@ -136,7 +136,7 @@ public class PerfilController {
 		// return "perfil";
 	}
 
-	@RequestMapping(value = "/atualizar/perfil-meu-usuario", method = RequestMethod.GET)
+	@RequestMapping(value = "/atualizar/perfil-meu-usuario", method = RequestMethod.POST)
 	@CacheEvict(value = "perfils", allEntries = true)
 	public String updatePerfil(Usuario userUpdate) {
 		user.setEmailContato(userUpdate.getEmailContato());

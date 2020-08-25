@@ -23,8 +23,8 @@
             <section class="user-projetos">
             <div class="cabecalhoProjeto">
            <div class="caixa-informacoes-principais-projeto">
-            <input type="text" class="nomeProjeto" value="${nomeProjeto}" id="nameProjectInfo" readonly>
-            <input type="text" placeholder="Adicionar Descrição" value="${descricaoProjeto}" id="descricaoProjeto" readonly>
+            <input type="text" class="nomeProjeto" value="${nomeProjeto}" id="nameProjectInfo" autocomplete="off" readonly>
+            <input type="text" placeholder="Adicionar Descrição" value="${descricaoProjeto}" id="descricaoProjeto" autocomplete="off" readonly>
            </div>
            
            <div class="caixa-projeto-favorito">
@@ -130,7 +130,7 @@
                         <c:forEach items="${listaTarefas}"	var="tarefas" varStatus="status">
                         <tr class="linha-tarefa-projeto">
                         <td class="projeto-tarefa" id="card-tarefas">
-                        <input type="text" class="projeto-tarefa-text" value="${tarefas.nome}" id="txtTarefa">
+                        <input type="text" class="projeto-tarefa-text" value="${tarefas.nome}" autocomplete="off" id="txtTarefa">
                         </td>
                         
                         <td class="projeto-proprietario">
@@ -365,7 +365,7 @@
                         <c:forEach items="${listDesenvolvimentos}"	var="tarefas" varStatus="status">
                         <tr class="linha-tarefa-projeto">
                         <td class="projeto-tarefa" id="card-desenvolvimentos">
-                        <input type="text" class="projeto-tarefa-text" value="${tarefas.nome}" id="txtTarefa">
+                        <input type="text" class="projeto-tarefa-text" value="${tarefas.nome}" autocomplete="off" id="txtTarefa">
                         </td>
                         
                         <td class="projeto-proprietario">
@@ -599,7 +599,7 @@
                         <c:forEach items="${listConcluidos}" var="tarefas" varStatus="status">
                         <tr class="linha-tarefa-projeto">
                         <td class="projeto-tarefa" id="card-concluidos">
-                        <input type="text" class="projeto-tarefa-text" value="${tarefas.nome}" id="txtTarefa">
+                        <input type="text" class="projeto-tarefa-text" value="${tarefas.nome}" autocomplete="off" id="txtTarefa">
                         </td>
                         
                         <td class="projeto-proprietario">

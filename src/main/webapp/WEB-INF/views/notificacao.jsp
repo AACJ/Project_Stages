@@ -27,8 +27,8 @@
                <h1>Notificações</h1>
                </section>
                <section class="body-notificacao">
+                   
                 <c:forEach items="${listaNotificacoes}"	var="notificacao" varStatus="status">
-                   <form action="/projectstages_mvc/remove/destinatario/notificacao?email=${notificacao.email}" method="post">
                    <div class="pedido-de-amizade">
                    <div class="foto-remetente">
                     <c:if test="${notificacao.foto == null}">
@@ -43,13 +43,13 @@
                     <p>O Usuario ${notificacao.userName} fez um pedido de amizade, aceitar?</p>
 					<p class="msg-confirm" id="msg-confirm">Você e o usuario ${notificacao.userName} agora são amigos.</p>
                     <button type="button" class="btn-aceitar-pedido" id="btn-act-pedido" value="${notificacao.email}">Aceitar</button>
-                    <button type="submit" class="btn-recusar-pedido" id="btn-rem-pedido" value="${notificacao.email}">Recusar</button>
+                    <a href="/projectstages_mvc/remove/destinatario/notificacao?email=${notificacao.email}" class="btn-recusar-pedido" id="btn-rem-pedido" value="${notificacao.email}">Recusar</a>
                     </div>
-                   		<button type="submit" class="btn-fechar-pedido"><img src="img/Tela_Principal/fecha-caixa-projetos-status.png"></button>
+                   		<a href="/projectstages_mvc/remove/destinatario/notificacao?email=${notificacao.email}"  class="btn-fechar-pedido"><img src="img/Tela_Principal/fecha-caixa-projetos-status.png"></a>
                    </div>
-                   <security:csrfInput/>
- 					</form>
+                
                    </c:forEach>
+                                      
                </section>
             </section>
         </main>

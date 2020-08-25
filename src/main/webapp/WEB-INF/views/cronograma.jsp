@@ -56,6 +56,30 @@
                     <div class="setaBaixoCronograma"><img src="img/setaDireitaBlueIcon.png"></div>
                     <span>Semana</span>
                     </label> 
+                    <ul class="tarefas-semana">
+                    <c:forEach items="${listaTarefasSemana}" var="tarefasSemana" varStatus="statusSemana">
+                    
+                    <c:if test="${listaProprietariosSemana[statusSemana.index].userName != null}">
+                        <li class="exibir-tarefas-semana"><p>${listaNomesTarefasSemana[statusSemana.index]} | ${tarefasSemana.nome} - ${listaProprietariosSemana[statusSemana.index].userName} - ${tarefasSemana.statusProjeto} - ${dataSemana[statusSemana.index]}</p></li>        
+                    </c:if>
+                    
+                    <c:if test="${listaProprietariosSemana[statusSemana.index].userName == null}">
+                        <li class="exibir-tarefas-semana"><p>${listaNomesTarefasSemana[statusSemana.index]} | ${tarefasSemana.nome} - Nenhum proprietário - ${tarefasSemana.statusProjeto} - ${dataSemana[statusSemana.index]}</p></li>        
+                    </c:if>
+                    
+                    </c:forEach>
+                    
+                    <c:forEach items="${listaDesenvolvimentosSemana}" var="desenvolvimentosSemana" varStatus="statusDesenSemana">
+                      <c:if test="${listaProprietariosDesenvolvimentosSemana[statusDesenSemana.index].userName != null}">
+                    	<li class="exibir-tarefas-semana"><p>${listaNomeDesenvolvimentosSemana[statusDesenSemana.index]} | ${desenvolvimentosSemana.nome} - ${listaProprietariosDesenvolvimentosSemana[statusDesenSemana.index].userName} - ${desenvolvimentosSemana.statusProjeto} - ${dataDesenvolvimentosSemana[statusDesenSemana.index]}</p></li>   
+                      </c:if>
+                      
+                       <c:if test="${listaProprietariosDesenvolvimentosSemana[statusDesenSemana.index].userName == null}">
+                    	<li class="exibir-tarefas-semana"><p>${listaNomeDesenvolvimentosSemana[statusDesenSemana.index]} | ${desenvolvimentosSemana.nome} - Nenhum proprietário - ${desenvolvimentosSemana.statusProjeto} - ${dataDesenvolvimentosSemana[statusDesenSemana.index]}</p></li>   
+                      </c:if>
+                    </c:forEach>
+                    
+                    </ul>
                     </li>
                         
                     <li class="cronograma-item">
@@ -64,32 +88,89 @@
                     <div class="setaBaixoCronograma"><img src="img/setaDireitaBlueIcon.png"></div>
                     <span>Hoje</span>
                     </label>
+                    <ul class="tarefas-hoje">
+                    <c:forEach items="${listaTarefasHoje}" var="tarefasHoje" varStatus="status">
+                    
+                    	<c:if test="${listaProprietarios[status.index].userName != null}">
+                       
+                        <li class="exibir-tarefas"><p>${listaNomesTarefas[status.index]} | ${tarefasHoje.nome} - ${listaProprietarios[status.index].userName} - ${tarefasHoje.statusProjeto} - ${dataHoje[status.index]}</p></li>        
+                    	
+                    	</c:if>
+                    	
+                    	<c:if test="${listaProprietarios[status.index].userName == null}">
+                    	
+                        <li class="exibir-tarefas"><p>${listaNomesTarefas[status.index]} | ${tarefasHoje.nome} - Nenhum proprietário - ${tarefasHoje.statusProjeto} - ${dataHoje[status.index]}</p></li>        
+                    	
+                    	</c:if>
+                    
+                    </c:forEach>
+                    
+                    <c:forEach items="${listaDesenvolvimentosHoje}" var="desenvolvimentosHoje" varStatus="statusDesenvolvimentos">
+                    
+                    	<c:if test="${listaProprietariosDesenvolvimentos[statusDesenvolvimentos.index].userName != null}">
+                        <li class="exibir-tarefas"><p>${listaNomeDesenvolvimentos[statusDesenvolvimentos.index]} | ${desenvolvimentosHoje.nome} - ${listaProprietariosDesenvolvimentos[statusDesenvolvimentos.index].userName} - ${desenvolvimentosHoje.statusProjeto} - ${dataDesenvolvimentosHoje[statusDesenvolvimentos.index]}</p></li>        
+                    	</c:if>
+                    	
+                    	<c:if test="${listaProprietariosDesenvolvimentos[statusDesenvolvimentos.index].userName == null}">
+                        <li class="exibir-tarefas"><p>${listaNomeDesenvolvimentos[statusDesenvolvimentos.index]} | ${desenvolvimentosHoje.nome} - Nenhum proprietário - ${desenvolvimentosHoje.statusProjeto} - ${dataDesenvolvimentosHoje[statusDesenvolvimentos.index]}</p></li>        
+                    	</c:if>
+                    
+                    </c:forEach>
+                    </ul>
                     </li>
                         
                     <li class="cronograma-item">
                      <input type="checkbox" id="checkCronograma3">
                     <label for="checkCronograma3">
                     <div class="setaBaixoCronograma"><img src="img/setaDireitaBlueIcon.png"></div>
-                    <span>A seguir</span>
+                    <span>Mês</span>
                     </label>
+                  <ul class="tarefas-mes">
+                  <c:forEach items="${listaTarefasMes}" var="tarefasMes" varStatus="statusMes">
+                    
+                    <c:if test="${listaProprietariosMes[statusMes.index].userName != null}">  
+                        <li class="exibir-tarefas-mes"><p>${listaNomesTarefasMes[statusMes.index]} | ${tarefasMes.nome} - ${listaProprietariosMes[statusMes.index].userName} - ${tarefasMes.statusProjeto} - ${dataMes[statusMes.index]}</li>        
+                   </c:if>
+                   
+                    <c:if test="${listaProprietariosMes[statusMes.index].userName == null}">  
+                        <li class="exibir-tarefas-mes"><p>${listaNomesTarefasMes[statusMes.index]} | ${tarefasMes.nome} - Nenhum proprietário - ${tarefasMes.statusProjeto} - ${dataMes[statusMes.index]}</li>        
+                   </c:if>
+                   
+                   </c:forEach>
+                   
+                    <c:forEach items="${listaDesenvolvimentosMes}" var="desenvolvimentosMes" varStatus="statusDesenvolvimentosMes">
+                    
+                    <c:if test="${listaProprietariosDesenvolvimentosMes[statusDesenvolvimentosMes.index].userName != null}">
+                    	<li class="exibir-tarefas-mes"><p>${listaNomeDesenvolvimentosMes[statusDesenvolvimentosMes.index]} | ${desenvolvimentosMes.nome} - ${listaProprietariosDesenvolvimentosMes[statusDesenvolvimentosMes.index].userName} - ${desenvolvimentosMes.statusProjeto} - ${dataDesenvolvimentosMes[statusDesenvolvimentosMes.index]}</li>  
+                    </c:if>
+                    
+                    <c:if test="${listaProprietariosDesenvolvimentosMes[statusDesenvolvimentosMes.index].userName == null}">
+                    	<li class="exibir-tarefas-mes"><p>${listaNomeDesenvolvimentosMes[statusDesenvolvimentosMes.index]} | ${desenvolvimentosMes.nome} - Nenhum proprietário - ${desenvolvimentosMes.statusProjeto} - ${dataDesenvolvimentosMes[statusDesenvolvimentosMes.index]}</li>  
+                    </c:if>
+                    </c:forEach>
+                   
+                    </ul>
                     </li>
-                        
-                    <li class="cronograma-item">
-                    <input type="checkbox" id="checkCronograma4">
-                    <label for="checkCronograma4">
-                    <div class="setaBaixoCronograma"><img src="img/setaDireitaBlueIcon.png"></div>
-                    <span>Sem data</span>
-                    </label>
-                    </li>
-                        
+                                                
                     <li class="cronograma-item">
                      <input type="checkbox" id="checkCronograma5">
                     <label for="checkCronograma5">
                     <div class="setaBaixoCronograma"><img src="img/setaDireitaBlueIcon.png"></div>
                     <span>Concluídos</span>
                     </label>
+                      <ul class="tarefas-concluido">
+                   <c:forEach items="${listaConcluidosMes}" var="concluidosMes" varStatus="statusConcluidos">
+                   	<c:if test="${listaProprietariosConcluidosMes[statusConcluidos.index].userName != null}">
+                        <li class="exibir-tarefas-concluido"><p>${listaNomesConcluidosMes[statusConcluidos.index]} | ${concluidosMes.nome} - ${listaProprietariosConcluidosMes[statusConcluidos.index].userName} - ${concluidosMes.statusProjeto} - ${dataConcluidosMes[statusConcluidos.index]}</p></li>        
+                   </c:if>
+                   
+                   	<c:if test="${listaProprietariosConcluidosMes[statusConcluidos.index].userName == null}">
+                        <li class="exibir-tarefas-concluido"><p>${listaNomesConcluidosMes[statusConcluidos.index]} | ${concluidosMes.nome} - Nenhum proprietário - ${concluidosMes.statusProjeto} - ${dataConcluidosMes[statusConcluidos.index]}</p></li>        
+                   </c:if>
+                   </c:forEach>
+                    </ul>
                     </li>
-                        
+                     
                     </ul>
                 </nav>
             </section>

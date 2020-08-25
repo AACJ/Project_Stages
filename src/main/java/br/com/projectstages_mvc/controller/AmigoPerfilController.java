@@ -200,4 +200,11 @@ public class AmigoPerfilController {
 		return notificacao;
 	}
 
+	@RequestMapping("/retorna/modo-noturno/amigos-perfil")
+	@CacheEvict(value = "amigosPerfils", allEntries = true)
+	@ResponseBody
+	public boolean getModoNotuno() {
+		return config.isModoNoturno();
+	}
+	
 }

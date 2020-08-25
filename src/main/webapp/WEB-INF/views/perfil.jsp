@@ -88,7 +88,7 @@
             </section>
 
             <section class="informacao">
-            <form action="/projectstages_mvc/atualizar/perfil-meu-usuario" method="get">
+            <form action="/projectstages_mvc/atualizar/perfil-meu-usuario" method="post">
                 <table class="informacao-tabela">
                     <tr class="linha-informacao-tabela">
                         <th colspan="2" class="title-informacao-tabela"><span>Informações Pessoais:</span></th>

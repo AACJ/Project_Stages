@@ -22,7 +22,6 @@
                 <section class="chat">
                 <div class="chat-header">
                     <button type="button" id="btnChat01">Bate-papo</button>
-                    <button type="button" id="btnChat02">Novo Bate-papo</button>
                 </div>
                     
                 <div class="chat-body">
@@ -34,7 +33,7 @@
                  <input type="search" placeholder="Procurar uma conversa..." id="pesquisaConversa">
                   
                    <c:forEach items="${listaAmigos}" var="amigo" varStatus="statusAmigos">
-                   	<a href="/projectstages_mvc/bate-papo?idUsuario=${amigo.id}&userName=${amigo.userName}" class="perfil-chat">
+                   	<a href="/projectstages_mvc/bate-papo?idUsuario=${amigo.id}&userName=${amigo.userName}" class="perfil-chat" id="perfil-chat-${amigo.id}">
                     	<div class="foto-perfil-chat">
                     	<c:if test="${amigo.foto == null}">
                        		<img src="img/Tela_Principal/UsercomCirculoIcon.png">

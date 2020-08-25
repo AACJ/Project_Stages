@@ -37,7 +37,7 @@
                            </c:if>
                        </nav>
                </div>
-                <input type="text" name="usuario" placeholder="Usuario" value="${usuarioNameUser}" id="usuario" readonly>
+                <input type="text" name="usuario" placeholder="Usuario" value="${usuarioNameUser}" class="update-name-user" id="usuario" readonly>
                </nav>
                 
             </section>

@@ -1,6 +1,7 @@
 package br.com.projectstages_mvc.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -24,10 +25,13 @@ import br.com.projectstages_mvc.dao.NotificacaoAmizadeDao;
 import br.com.projectstages_mvc.dao.ParticipantesDao;
 import br.com.projectstages_mvc.dao.ProjetoDao;
 import br.com.projectstages_mvc.model.Chat;
+import br.com.projectstages_mvc.model.Concluidos;
 import br.com.projectstages_mvc.model.Configuracoes;
+import br.com.projectstages_mvc.model.Desenvolvimentos;
 import br.com.projectstages_mvc.model.NotificacaoAmizade;
 import br.com.projectstages_mvc.model.Participantes;
 import br.com.projectstages_mvc.model.Projeto;
+import br.com.projectstages_mvc.model.Tarefas;
 import br.com.projectstages_mvc.model.Usuario;
 
 @Controller
@@ -55,6 +59,7 @@ public class NotificacaoController {
 	@Autowired
 	private ParticipantesDao participantesDao;
 	
+	
 	private Usuario user = new Usuario();
 	private Configuracoes config = new Configuracoes();
 	
@@ -72,6 +77,7 @@ public class NotificacaoController {
 		List<Projeto> listaProjetosFavoritos = new ArrayList<Projeto>();
 		user = cadastroDao.findUsuario(usuario.getUsername());
 		projetosParticipantes = participantesDao.listarProjetosParticipantes(usuario.getUsername());
+		
 		//Sistema de visualização
 		msgNotificacoes = notificacaoDao.listarTodasNotificacoesDoDestinatario(usuario.getUsername());
 		for(int i = 0 ; i < msgNotificacoes.size();i++) {
@@ -117,7 +123,7 @@ public class NotificacaoController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/remove/destinatario/notificacao",method = RequestMethod.POST)
+	@RequestMapping("/remove/destinatario/notificacao")
 	@CacheEvict(value="notifis", allEntries=true)
 	public String removeNotificacao(@AuthenticationPrincipal Usuario usuario, @RequestParam String email) {
 		System.out.println(email);
@@ -128,7 +134,7 @@ public class NotificacaoController {
 	}
 	
 	@RequestMapping("/verificacao/notificacao/amigo")
-	@CacheEvict(value = "amigosPerfils", allEntries=true)
+	@CacheEvict(value = "notifis", allEntries=true)
 	@ResponseBody
 	public List<Boolean> verfificacaoAmigo(@AuthenticationPrincipal Usuario usuario) {
 		List<NotificacaoAmizade> msgNotificacoes = new ArrayList<NotificacaoAmizade>();
@@ -139,6 +145,13 @@ public class NotificacaoController {
 		}
 		
 		return amizades;
+	}
+	
+	@RequestMapping("/retorna/modo-noturno/notificacao")
+	@CacheEvict(value = "notifis", allEntries = true)
+	@ResponseBody
+	public boolean getModoNotuno() {
+		return config.isModoNoturno();
 	}
 	
 }

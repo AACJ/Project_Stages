@@ -6,10 +6,12 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projectstages_mvc.dao.AmigosDao;
@@ -44,10 +46,10 @@ public class HomeVazioController {
 
 	@Autowired
 	private ChatDao chatDao;
-	
+
 	@Autowired
 	private AmigosDao amigosDao;
-	
+
 	@Autowired
 	private ParticipantesDao participantesDao;
 
@@ -63,7 +65,7 @@ public class HomeVazioController {
 		List<NotificacaoAmizade> msgNotificacoes = new ArrayList<NotificacaoAmizade>();
 		List<Usuario> listAmigos = new ArrayList<Usuario>();
 		List<String> listEmailsAmigos = new ArrayList<String>();
-		List<Chat> listMensagens = new ArrayList<Chat>(); 
+		List<Chat> listMensagens = new ArrayList<Chat>();
 		List<Integer> listaqtnMensagens = new ArrayList<Integer>();
 		List<Projeto> listaProjetosParticipantes = new ArrayList<Projeto>();
 		List<Participantes> projetosParticipantes = new ArrayList<Participantes>();
@@ -91,7 +93,8 @@ public class HomeVazioController {
 			int qtnVisualizacoes = 0;
 			listMensagens = chatDao.getAllMensagens(usuario.getEmail());
 			for (int j = 0; j < listMensagens.size(); j++) {
-				if(listMensagens.get(j).isVisualizacao() == false && listMensagens.get(j).getEmailRemetente().equals(listAmigos.get(i).getEmail())) {
+				if (listMensagens.get(j).isVisualizacao() == false
+						&& listMensagens.get(j).getEmailRemetente().equals(listAmigos.get(i).getEmail())) {
 					qtnVisualizacoes++;
 					totalMensagens++;
 				}
@@ -102,11 +105,6 @@ public class HomeVazioController {
 		if (totalMensagens > 0) {
 			model.addObject("totalMensagens", totalMensagens);
 		}
-		
-		for (int i = 0; i < projetosParticipantes.size(); i++) {
-			listaProjetosParticipantes
-					.add(projetodao.listarProjetosParticipantePorID(projetosParticipantes.get(i).getIdProjeto()));
-	}
 
 		config = configuracoesDao.configuracoesDoUsuario(usuario.getUsername());
 		model.addObject("listaProjeto", projetodao.listarTodosProjetos(usuario.getUsername()));
@@ -115,5 +113,13 @@ public class HomeVazioController {
 		model.addObject("msgNotViewed", listaqtnMensagens);
 		model.addObject("projetosParticipantes", listaProjetosParticipantes);
 		return model;
+	}
+
+	// Retorna o modo noturno
+	@RequestMapping("/retorna/modo-noturno/home-vazio")
+	@CacheEvict(value = "vazio", allEntries = true)
+	@ResponseBody
+	public boolean getModoNotuno() {
+		return config.isModoNoturno();
 	}
 }

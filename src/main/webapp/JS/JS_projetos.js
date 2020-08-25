@@ -992,9 +992,16 @@ function modoNoturnoAtivadoHome(ativado){
 	   var principal = document.querySelector(".principal").classList.toggle("principalNigth"); 
 	   var opcao = document.querySelector(".opcao").classList.toggle("opcaoNigth");
 	   var statusNigth = document.querySelector(".status").classList.toggle("statusNigth");
+	   var caixaAddProjetoInterno = document.querySelector(".caixa-add-projeto-interno").classList.toggle("caixa-add-projeto-internoNigth");
+	   var fechaCaixaProjeto = document.querySelector(".fecha-caixa-projeto").classList.toggle("fecha-caixa-projetoNigth");
+	   var textCaixaAddProjeto = document.querySelectorAll(".text-caixa-add-projeto");
+	   
+	   for (var i = 0; i < textCaixaAddProjeto.length; i++) {
+		   textCaixaAddProjeto[i].classList.toggle("text-caixa-add-projetoNigth");
+		 }
 	   
 	   //Tabela Projeto
-	   var tabelatarefas = document.querySelector(".tabela-tarefas").classList.toggle("tabela-tarefasNigth");
+	   var tabelatarefas = document.querySelectorAll(".tabela-tarefas");
 	   var projetotarefa = document.querySelectorAll(".projeto-tarefa");
 	   var projetotarefatext = document.querySelectorAll(".projeto-tarefa-text");
 	   var projetoproprietario = document.querySelectorAll(".projeto-proprietario");   
@@ -1002,10 +1009,19 @@ function modoNoturnoAtivadoHome(ativado){
 	   var projetodata = document.querySelectorAll(".projeto-data");
 	   var projetodatatext = document.querySelectorAll(".projeto-data-text");    
 	   var projetodelete = document.querySelectorAll(".projeto-delete");  
-	   var projetoaddtarefa = document.querySelector(".projeto-add-tarefa").classList.toggle("projeto-add-tarefaNigth");
-	   var botaoaddprojeto = document.querySelector(".botao-add-projeto").classList.toggle("botao-add-projetoNigth");
+	   var projetoaddtarefa = document.querySelectorAll(".projeto-add-tarefa");
+	   var botaoaddprojeto = document.querySelectorAll(".botao-add-projeto");
 	   var boxTarefasStatus = document.querySelectorAll(".caixa-opcoes-projeto-status");
-
+	   var caixaopcoesproprietario = document.querySelectorAll(".caixa-opcoes-proprietario");
+	   var indetificadornome = document.querySelectorAll(".indetificador-nome");
+	   var indetificadorid = document.querySelectorAll(".indetificador-id");
+	   
+	   for (var i = 0; i < tabelatarefas.length; i++) {
+		   tabelatarefas[i].classList.toggle("tabela-tarefasNigth");
+		   botaoaddprojeto[i].classList.toggle("botao-add-projetoNigth");
+		   projetoaddtarefa[i].classList.toggle("projeto-add-tarefaNigth"); 
+	   }
+	   
 	   for (var i = 0; i < projetostatus.length; i++) {
 		   projetotarefa[i].classList.toggle("projeto-tarefaNigth");
 		   projetotarefatext[i].classList.toggle("projeto-tarefa-textNigth");
@@ -1015,13 +1031,38 @@ function modoNoturnoAtivadoHome(ativado){
 		   projetodatatext[i].classList.toggle("projeto-data-textNigth");
 		   projetodelete[i].classList.toggle("projeto-deleteNigth");
 		   boxTarefasStatus[i].classList.toggle("caixa-opcoes-projeto-statusNigth");
-		 }
+		   caixaopcoesproprietario[i].classList.toggle("caixa-opcoes-proprietarioNigth");
+	   }
+	   
+	   for (var i = 0; i < indetificadornome.length; i++) {
+		   indetificadornome[i].classList.toggle("indetificador-nomeNigth");
+		   indetificadorid[i].classList.toggle("indetificador-idNigth");
+	   }
 	   
 	   //Caixa Add Tarefa
 	   var caixaaddtarefasinterno = document.querySelector(".caixa-add-tarefas-interno").classList.toggle("caixa-add-tarefas-internoNigth");
 	   var fechacaixatarefas = document.querySelector(".fecha-caixa-tarefas").classList.toggle("fecha-caixa-tarefasNigth");
 	   var botaocaixaaddtarefas = document.querySelector(".botao-caixa-add-tarefas").classList.toggle("botao-caixa-add-tarefasNigth");
 	   var textcaixaaddtarefas = document.querySelector(".text-caixa-add-tarefas").classList.toggle("text-caixa-add-tarefasNigth");
+	   var textcaixaadddataprazo = document.querySelector(".text-caixa-add-data-prazo").classList.toggle("text-caixa-add-data-prazoNigth");
+	   var caixasairprojetointerno = document.querySelector(".caixa-sair-projeto-interno").classList.toggle("caixa-sair-projeto-internoNigth");
+	   var caixaparticipantesinterno = document.querySelectorAll(".caixa-participantes-interno");
+	   var fechacaixaparticipantes = document.querySelectorAll(".fecha-caixa-participantes");
+	   var pesquisaaddparticipantes = document.querySelectorAll(".pesquisa-add-participantes");
+	   var lupaparticipantes = document.querySelectorAll(".lupa-participantes");
+	   var participantesperfil = document.querySelectorAll(".participantes-perfil");
+	   
+	   for (var i = 0; i < caixaparticipantesinterno.length; i++) {
+		   caixaparticipantesinterno[i].classList.toggle("caixa-participantes-internoNigth");
+		   fechacaixaparticipantes[i].classList.toggle("fecha-caixa-participantesNigth");
+		   pesquisaaddparticipantes[i].classList.toggle("pesquisa-add-participantesNigth");
+		   lupaparticipantes[i].classList.toggle("lupa-participantesNigth");
+	   }
+	   
+	   for (var i = 0; i < participantesperfil.length; i++) {
+		   participantesperfil[i].classList.toggle("participantes-perfilNigth");
+	   }
+	   
 	   }else{
 		  
 	   //Remove Geral Padrão
@@ -1031,9 +1072,16 @@ function modoNoturnoAtivadoHome(ativado){
 	   var botao = document.querySelector(".botao").classList.remove("botaoNigth");
 	   var opcao = document.querySelector(".opcao").classList.remove("opcaoNigth");
 	   var statusNigth = document.querySelector(".status").classList.remove("statusNigth");
-	  
+	   var caixaAddProjetoInterno = document.querySelector(".caixa-add-projeto-interno").classList.remove("caixa-add-projeto-internoNigth");
+	   var fechaCaixaProjeto = document.querySelector(".fecha-caixa-projeto").classList.remove("fecha-caixa-projetoNigth");
+	   var textCaixaAddProjeto = document.querySelectorAll(".text-caixa-add-projeto");
+	   
+	   for (var i = 0; i < textCaixaAddProjeto.length; i++) {
+		   textCaixaAddProjeto[i].classList.remove("text-caixa-add-projetoNigth");
+		 }
+	   
 	   //Remove Tabela Projeto
-	   var tabelatarefas = document.querySelector(".tabela-tarefas").classList.remove("tabela-tarefasNigth");
+	   var tabelatarefas = document.querySelectorAll(".tabela-tarefas");
 	   var projetotarefa = document.querySelectorAll(".projeto-tarefa");
 	   var projetotarefatext = document.querySelectorAll(".projeto-tarefa-text");
 	   var projetoproprietario = document.querySelectorAll(".projeto-proprietario");   
@@ -1041,9 +1089,18 @@ function modoNoturnoAtivadoHome(ativado){
 	   var projetodata = document.querySelectorAll(".projeto-data");
 	   var projetodatatext = document.querySelectorAll(".projeto-data-text");    
 	   var projetodelete = document.querySelectorAll(".projeto-delete");  
-	   var projetoaddtarefa = document.querySelector(".projeto-add-tarefa").classList.remove("projeto-add-tarefaNigth");
-	   var botaoaddprojeto = document.querySelector(".botao-add-projeto").classList.remove("botao-add-projetoNigth");
+	   var projetoaddtarefa = document.querySelectorAll(".projeto-add-tarefa");
+	   var botaoaddprojeto = document.querySelectorAll(".botao-add-projeto");
 	   var boxTarefasStatus = document.querySelectorAll(".caixa-opcoes-projeto-status");
+	   var caixaopcoesproprietario = document.querySelectorAll(".caixa-opcoes-proprietario");
+	   var indetificadornome = document.querySelectorAll(".indetificador-nome");
+	   var indetificadorid = document.querySelectorAll(".indetificador-id");
+	   
+	   for (var i = 0; i < tabelatarefas.length; i++) {
+		   tabelatarefas[i].classList.remove("tabela-tarefasNigth");
+		   botaoaddprojeto[i].classList.remove("botao-add-projetoNigth");
+		   projetoaddtarefa[i].classList.remove("projeto-add-tarefaNigth"); 
+	   }
 	   
 	   for (var i = 0; i < projetostatus.length; i++) {
 		   projetotarefa[i].classList.remove("projeto-tarefaNigth");
@@ -1054,13 +1111,38 @@ function modoNoturnoAtivadoHome(ativado){
 		   projetodatatext[i].classList.remove("projeto-data-textNigth");
 		   projetodelete[i].classList.remove("projeto-deleteNigth");
 		   boxTarefasStatus[i].classList.remove("caixa-opcoes-projeto-statusNigth");
-		 }
+		   caixaopcoesproprietario[i].classList.remove("caixa-opcoes-proprietarioNigth");
+	   }
+	   
+	   for (var i = 0; i < indetificadornome.length; i++) {
+		   indetificadornome[i].classList.remove("indetificador-nomeNigth");
+		   indetificadorid[i].classList.remove("indetificador-idNigth");
+	   }
 	   
 	   //Remove Caixa Add Tarefa
 	   var caixaaddtarefasinterno = document.querySelector(".caixa-add-tarefas-interno").classList.remove("caixa-add-tarefas-internoNigth");
 	   var fechacaixatarefas = document.querySelector(".fecha-caixa-tarefas").classList.remove("fecha-caixa-tarefasNigth");
 	   var botaocaixaaddtarefas = document.querySelector(".botao-caixa-add-tarefas").classList.remove("botao-caixa-add-tarefasNigth");
 	   var textcaixaaddtarefas = document.querySelector(".text-caixa-add-tarefas").classList.remove("text-caixa-add-tarefasNigth");
+	   var textcaixaadddataprazo = document.querySelector(".text-caixa-add-data-prazo").classList.remove("text-caixa-add-data-prazoNigth");
+	   var caixasairprojetointerno = document.querySelector(".caixa-sair-projeto-interno").classList.remove("caixa-sair-projeto-internoNigth");
+	   var caixaparticipantesinterno = document.querySelectorAll(".caixa-participantes-interno");
+	   var fechacaixaparticipantes = document.querySelectorAll(".fecha-caixa-participantes");
+	   var pesquisaaddparticipantes = document.querySelectorAll(".pesquisa-add-participantes");
+	   var lupaparticipantes = document.querySelectorAll(".lupa-participantes");
+	   var participantesperfil = document.querySelectorAll(".participantes-perfil");
+	   
+	   for (var i = 0; i < caixaparticipantesinterno.length; i++) {
+		   caixaparticipantesinterno[i].classList.remove("caixa-participantes-internoNigth");
+		   fechacaixaparticipantes[i].classList.remove("fecha-caixa-participantesNigth");
+		   pesquisaaddparticipantes[i].classList.remove("pesquisa-add-participantesNigth");
+		   lupaparticipantes[i].classList.remove("lupa-participantesNigth");
+	   }
+	  
+	   for (var i = 0; i < participantesperfil.length; i++) {
+		   participantesperfil[i].classList.remove("participantes-perfilNigth");
+	   }
+	   
 	   }
 }    
 
