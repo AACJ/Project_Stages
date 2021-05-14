@@ -6,8 +6,8 @@ O Project Stages é uma aplicação Web que auxilia na criação e no gerenciame
 A partir do Project Stages os usuários podem organizar e criar novos projetos, adicionar tarefas e membros a um projeto, além de poderem adicionar amigos 
 e conhecerem novas pessoas através do chat interativo.
 
-Em cada projeto é possível adicionar novas tarefas, onde é possível determinar um status informando a situação daquela determinada tarefa. 
-Também é possível adicionar membros a um projeto, os usuários a partir disso podem dividir as tarefas com cada membro da equipe. 
+Em cada projeto é possível adicionar novas tarefas, onde é possível determinar um status informando a situação daquela determinada tarefa, 
+também é possível adicionar membros a um projeto. Os usuários a partir disso podem dividir as tarefas com cada membro da equipe. 
 Dessa forma tendo um controle e uma organização sobre o desenvolvimento de tal projeto, assim auxiliando no processo de desenvolvimento e na agilização da finalização do projeto.
 
 
