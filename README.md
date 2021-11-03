@@ -64,3 +64,12 @@ Affonso Henrique Ruiz Jurema
 [![Linkedin Badge](https://img.shields.io/badge/-Affonso%20Henrique%20Ruiz%20Jurema-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/affonso-henrique-ruiz-jurema-b8744b210/)](https://www.linkedin.com/in/affonso-henrique-ruiz-jurema-b8744b210/)
 [![Gmail Badge](https://img.shields.io/badge/-affonsohenriqueruiz@gmail.com-d93025?style=flat-square&logo=Gmail&logoColor=white&link=mailto:affonsohenriqueruiz@gmail.com)](mailto:affonsohenriqueruiz@gmail.com)
 
+<img src="https://github.com/CunegundesA/Star_of_Tomorrow/blob/master/assets/WhatsApp%20Image%202021-05-14%20at%206.38.47%20PM.jpeg" width="100" height="100" border-radius="50"/>
+
+Carlos Felipe Souza Carvalho
+
+[![Gmail Badge](https://img.shields.io/badge/-Carlosfelipesouzacarvalho@gmail.com-d93025?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Carlosfelipesouzacarvalho@gmail.com)](mailto:Carlosfelipesouzacarvalho@gmail.com)
+
+Joyce da Silva Brandão
+
+[![Gmail Badge](https://img.shields.io/badge/-joycedasilvabrandao@gmail.com-d93025?style=flat-square&logo=Gmail&logoColor=white&link=mailto:joycedasilvabrandao@gmail.com)](mailto:joycedasilvabrandao@gmail.com)
