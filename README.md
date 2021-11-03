@@ -13,20 +13,20 @@ Dessa forma tendo um controle e uma organização sobre o desenvolvimento de tal
 
 ## :computer: Layout Web
 
-<p float="left">
-<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_index.PNG" width="500" height="350" style="float:left"/> 
+<div float="left">
+<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_index.PNG" width="48%" height="350" style="float:left"/> 
   
-<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_login.PNG" width="500" height="350"/>
+<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_login.PNG" width="48%" height="350"/>
 
-<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_principal.PNG" width="500" height="350" style="float:left"/> 
+<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_principal.PNG" width="48%" height="350" style="float:left"/> 
   
-<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_calendario.PNG" width="500" height="350"/>
+<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_calendario.PNG" width="48%" height="350"/>
 
-<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_amigos.PNG" width="500" height="350" style="float:left"/> 
+<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_amigos.PNG" width="48%" height="350" style="float:left"/> 
   
-<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_chat.PNG" width="500" height="350"/>
+<img src="https://github.com/AACJ/Project_Stages/blob/master/assets/tela_chat.PNG" width="48%" height="350"/>
 
-</p>
+</div>
 
 # 🛠 Tecnologias Utilizadas
 
@@ -50,7 +50,7 @@ Abra a pasta no seu editor e execute em um Servidor Tomcat.
 
 # 👨‍💻 Autores e Desenvolvedores
 
-<img src="https://media-exp1.licdn.com/dms/image/C4D03AQHDufARiPFmWA/profile-displayphoto-shrink_200_200/0/1616451594388?e=1625702400&v=beta&t=nfpi5kwhBI_Ygz9rFwO4_ayDAaTNy55oBNkV1wa19Yw" width="100" height="100"/>
+<img src="https://avatars.githubusercontent.com/u/44075055?v=4" width="100" height="100"/>
 
 Aline Alves Cunegundes
 
@@ -64,3 +64,12 @@ Affonso Henrique Ruiz Jurema
 [![Linkedin Badge](https://img.shields.io/badge/-Affonso%20Henrique%20Ruiz%20Jurema-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/affonso-henrique-ruiz-jurema-b8744b210/)](https://www.linkedin.com/in/affonso-henrique-ruiz-jurema-b8744b210/)
 [![Gmail Badge](https://img.shields.io/badge/-affonsohenriqueruiz@gmail.com-d93025?style=flat-square&logo=Gmail&logoColor=white&link=mailto:affonsohenriqueruiz@gmail.com)](mailto:affonsohenriqueruiz@gmail.com)
 
+<img src="https://github.com/CunegundesA/Star_of_Tomorrow/blob/master/assets/WhatsApp%20Image%202021-05-14%20at%206.38.47%20PM.jpeg" width="100" height="100" border-radius="50"/>
+
+Carlos Felipe Souza Carvalho
+
+[![Gmail Badge](https://img.shields.io/badge/-Carlosfelipesouzacarvalho@gmail.com-d93025?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Carlosfelipesouzacarvalho@gmail.com)](mailto:Carlosfelipesouzacarvalho@gmail.com)
+
+Joyce da Silva Brandão
+
+[![Gmail Badge](https://img.shields.io/badge/-joycedasilvabrandao@gmail.com-d93025?style=flat-square&logo=Gmail&logoColor=white&link=mailto:joycedasilvabrandao@gmail.com)](mailto:joycedasilvabrandao@gmail.com)
